@@ -12,32 +12,45 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item me-3">
-                            <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" aria-current="page" href="{% url 'homepage:home' %}">Home</a>
+                            <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+                                aria-current="page" href="{% url 'homepage:home' %}">Home</a>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link {% if request.resolver_match.url_name == 'restaurant' %}active{% endif %}" href="{% url 'homepage:restaurant' %}">Restaurants</a>
+                            <a class="nav-link {% if request.resolver_match.url_name == 'restaurant' %}active{% endif %}"
+                                href="{% url 'homepage:restaurant' %}">Restaurants</a>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link {% if request.resolver_match.url_name == 'food' %}active{% endif %}" href="{% url 'homepage:food' %}">Foods</a>
+                            <a class="nav-link {% if request.resolver_match.url_name == 'food' %}active{% endif %}"
+                                href="{% url 'homepage:food' %}">Foods</a>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link {% if request.resolver_match.url_name == 'blog' %}active{% endif %}"  href="{% url 'homepage:blog' %}">Blogs</a>
+                            <a class="nav-link {% if request.resolver_match.url_name == 'blog' %}active{% endif %}"
+                                href="{% url 'homepage:blog' %}">Blogs</a>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'homepage:contact' %}">Contact</a>
+                            <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}"
+                                href="{% url 'homepage:contact' %}">Contact</a>
                         </li>
                         <li class="nav-item me-3 registration">
                             <a class="nav-link" href="#">Registration
                                 <ul class="subnav shadow-sm">
-                                    <li><a href="{% url 'accounts:signup' %}"  class="nav-link {% if request.resolver_match.url_name == 'signup' %}active{% endif %} subnav-link">
-                                        Sign Up
-                                    </a></li>
-                                    <li><a href="{% url 'accounts:signin' %}"  class="nav-link {% if request.resolver_match.url_name == 'signin' %}active{% endif %} subnav-link">
-                                        Sign In
-                                    </a></li>
-                                    <li class="mb-3"><a href="#"  class="nav-link subnav-link">
-                                        Vendor Membership
-                                    </a></li>
+                                    <li>
+                                        <a href="#"
+                                            class="nav-link {% if request.resolver_match.url_name == 'signup' %}active{% endif %} subnav-link">
+                                            Sign Up
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'login' %}"
+                                            class="nav-link {% if request.resolver_match.url_name == 'login' %}active{% endif %} subnav-link">
+                                            Sign In
+                                        </a>
+                                    </li>
+                                    <li class="mb-3">
+                                        <a href="#" class="nav-link subnav-link">
+                                            Vendor Membership
+                                        </a>
+                                    </li>
                                 </ul>
                             </a>
                         </li>

@@ -29,6 +29,15 @@
     box-shadow: none;
 }
 
+.form-check-input{
+    border-radius: 0px !important;
+}
+
+.form-check-input:focus, .form-check-input:active:focus, .form-check-input.active:focus{
+    outline: none;
+    box-shadow: none;
+}
+
 .form-control{
     border-radius: 0px;
     border: none;
@@ -73,14 +82,10 @@ ul{
     color: #f34949 !important;
 }
 
-/* input[type='range']{
-    border-radius: 0px !important;
-} */
-
 /* Navbar Section */
 .nav-bg-color{
     background: #2c3e50;
-    border-bottom: 1px dashed #f34949;
+    /* border-bottom: 1px dashed #f34949; */
 }
 
 .nav-link{
@@ -654,6 +659,18 @@ ul{
     height: 30vh;
 }
 
+/* Contact Section */
+.contact-box{
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    border: 1px solid #b5b5b5;
+}
+.contact-img{
+    width: 100%;
+    height: 9vh;
+}
+
 /* Team Section */
 .team-img-section{
     position: relative;
@@ -737,6 +754,30 @@ ul{
 .service-link:hover{
     color: #fa6b05;
 }
+
+/* Copied Section start here */
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+    
+@media (min-width: 768px) {
+    .gradient-form {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* Copied Section end here */
 
 
 
