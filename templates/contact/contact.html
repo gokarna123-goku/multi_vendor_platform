@@ -3,13 +3,11 @@
 {% block title %}Cart{% endblock title %}
 {% block content %}
 <!--  -->
-<div class="container-fluid px-0 mx-0 mt-5 pt-3 food-main">
-    <div class="container-fluid px-0 mx-0 food-section pt-5">
-        <div class="container col-md-11">
-            <h1 class="text text-center title mt-5 pt-5">
-                If you have any query, then type your messages here...
-            </h1>
-        </div>
+<div class="container-fluid px-0 mx-0 mt-5 pt-3 contact-main">
+    <div class="container col-md-11">
+        <h1 class="text text-center title mt-5 pt-5">
+            If you have any query, then type your messages here...
+        </h1>
     </div>
 </div>
 <!--  -->
@@ -18,67 +16,104 @@
 
 <div class="container-fluid px-0 mx-0 py-5 bg-light">
     <div class="container col-md-11">
-        <div class="row bg-white shadow-sm p-2">
-            <div class="col-md-7">
-                <div class="p-2">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="p-2">
-                                <div class="d-flex justify-content-start align-items-center">
-                                    <!-- <div class="contact-box">
-                                        <img src="https://cdn-icons-png.flaticon.com/128/1034/1034182.png" class="contact-img" alt="">
-                                    </div> -->
-                                    <div class="d-flex justify-content-center align-items-center border rounded-circle p-3">
-                                        <i class="fa fa-mobile px-2 py-1"></i>
+        <div class="row">
+            <div class="col-md-12 bg-white shadow-sm p-2">
+                <!-- Company Details (mobile nbr, email, location, fax) Section -->
+                <div class=" container col-md-10">
+                    <div class="row py-4">
+                        <!-- Address Section -->
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-12 mb-4">
+                            <div class="text-center bg-light py-4">
+                                <i class="fa fa-map-marker title mb-3 fs-1"></i>
+                                <h5 class="text title">Our Main Office</h5>
+                                <p class="text text-muted mb-0">
+                                    Karuna road, Tupek, Budhanilkantha 44600
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Contact Section -->
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-12 mb-4">
+                            <div class="text-center bg-light py-4">
+                                <i class="fa fa-phone title mb-3 fs-1"></i>
+                                <h5 class="text title">Phone Number</h5>
+                                <p class="text text-muted mb-0">
+                                    9810989898 (ncl), <br class="d-lg-block d-md-block d-sm-block d-none">
+                                    9798989898 (ntc)
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Fax Section -->
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-12 mb-4">
+                            <div class="text-center bg-light py-4">
+                                <i class="fa fa-fax title mb-3 fs-1"></i>
+                                <h5 class="text title">Our Fax</h5>
+                                <p class="text text-muted mb-0">
+                                    1-123-456-7890, <br class="d-lg-block d-md-block d-sm-block d-none">
+                                    9-087-654-3219
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Email Id Section -->
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-12 mb-4">
+                            <div class="text-center bg-light py-4">
+                                <i class="fa fa-envelope title mb-3 fs-1"></i>
+                                <h5 class="text title">Email ID</h5>
+                                <p class="text text-muted mb-0">
+                                    gwtc@gmail.com, <br class="d-lg-block d-md-block d-sm-block d-none">
+                                    gwtcofficial@gmail.com
+                                </p>
+                            </div>
+                        </div>
+                        <!--  -->
+                    </div>
+                </div>
+                <hr class="review-hr my-2 mx-3">
+                <!-- Map & Input Section -->
+                <div class="row mx-3">
+                    <div class="h6 title bg-light text-center px-4 py-3 text-uppercase font-weight-bold">
+                        Keep in Touch with US
+                    </div>
+                    <hr class="review-hr mt-0 mb-4">
+                    <!-- Map Section -->
+                    <div class="col-md-6 pe-3">
+                        <div class="px-0 py-3">
+                            <div class="gmap_canvas">
+                                <iframe width="100%" height="300" id="gmap_canvas"
+                                    src="https://maps.google.com/maps?q=Q926+CV5,%20Karuna%20road,%20Chunikhel%20Marga,%20Tupek,%20Budhanilkantha%2044600&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Input Section -->
+                    <div class="col-md-6 ps-3">
+                        <div class="px-0 py-3">
+                            <div class="form-section">
+                                <form>
+                                    <!-- Fullname Input Section -->
+                                    <div class="mb-3 title">
+                                        <label for="" class="mb-2">Full Name <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control border"
+                                            placeholder="Enter your full name" required>
                                     </div>
-                                    <div class="d-flex flex-column align-items-center">
-                                        <h4 class="text title">Contact Number</h4>
-                                        <h6 class="text text-muted"><i class="fa fa-phone"></i>+977-9898989898</h6>
+                                    <!-- Email Id Input Section -->
+                                    <div class="mb-3 title">
+                                        <label for="" class="mb-2">Email Address <span
+                                                class="text-danger">*</span></label>
+                                        <input type="email" class="form-control border"
+                                            placeholder="Enter your email address" required>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="p-2">
-                                Hello Suraj Baula
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="p-2">
-                                Hello Suraj Baula
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="p-2">
-                                Hello Suraj Baula
+                                    <!-- Message Input Section -->
+                                    <div class="mb-3 title">
+                                        <label for="" class="mb-2">Messages <span class="text-danger">*</span></label>
+                                        <textarea name="" id="" cols="30" rows="3" class="form-control border"
+                                            placeholder="Type your message..." required></textarea>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-5">
-                <div class="p-2">
-                    <div class="h6 title bg-light px-4 py-3 mb-4 text-uppercase font-weight-bold">
-                        Connect with us
-                    </div>
-                    <div class="form-section">
-                        <form>
-                            <div class="mb-3 title">
-                                <label for="" class="mb-2">Full Name <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control border" placeholder="Enter your full name" required>
-                            </div>
-                            <div class="mb-3 title">
-                                <label for="" class="mb-2">Email Address <span class="text-danger">*</span></label>
-                                <input type="email" class="form-control border" placeholder="Enter your email address" required>
-                            </div>
-                            <div class="mb-3 title">
-                                <label for="" class="mb-2">Messages <span class="text-danger">*</span></label>
-                                <textarea name="" id="" cols="30" rows="3" class="form-control border" placeholder="Type your message..." required></textarea>
-                                <!-- <input type="email" class="form-control border" placeholder="Enter your email address" required> -->
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                <!--  -->
             </div>
         </div>
     </div>
