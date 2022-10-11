@@ -1,0 +1,291 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+{% block title %}Foods{% endblock title %}
+{% block content %}
+<!--  -->
+<div class="container-fluid px-0 mx-0 my-5 pt-3 food-main">
+    <div class="container-fluid px-0 mx-0 food-section pt-5">
+        <div class="container col-lg-11 col-12">
+            <h1 class="text text-center title mt-5 pt-5">
+                All Foods Categories Are Available Here...
+            </h1>
+            <div class="container col-lg-11 col-md-12 col-12 food-info-section pt-3">
+                <!--  -->
+                <div class="food-img-name-section">
+                    <!--  -->
+                    <div class="food-img-box px-3 pt-4 me-4">
+                        <img src="{% static 'images/restaurant-logo.png' %}" class="food-logo-view" alt="">
+                    </div>
+                    <!--  -->
+                    <div class="food-rating-img-location-section mt-3">
+                        <div class="d-flex justify-content-start align-items-center mb-2">
+                            <i class="fa fa-star text-warning me-1"></i>
+                            <i class="fa fa-star text-warning me-1"></i>
+                            <i class="fa fa-star text-warning me-1"></i>
+                            <i class="fa fa-star-half-o text-warning me-1"></i>
+                            <i class="fa fa-star-o text-warning me-1"></i>
+                            <small class="text">(4.5/5)</small>
+                        </div>
+                        <!--  -->
+                        <h4 class="text" style="letter-spacing: 0.7px;">Himalayan Java Coffee</h4>
+                        <!--  -->
+                        <div class="d-flex justify-content-start align-items-center">
+                            <i class="fa fa-map me-2"></i>
+                            <p class="text mb-0">Thulobharyang, Kathmandu</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Working Hours -->
+                <div class="d-lg-block d-none">
+                    Hello Foods
+                </div>
+                <!--  -->
+            </div>
+        </div>
+    </div>
+</div>
+<!--  -->
+
+<!--  -->
+<div class="container-fluid px-0 mx-0 mb-5">
+    <div class="row mx-lg-3 mx-1">
+        <div class="col-md-2 ms-lg-3 ms-0 mb-4">
+            <div class="p-1 border px-2">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="text title">Apply Filters</h5>
+                    <a href="#" class="text-decoration-none text-warning"><i class="fa fa-refresh fs-5"></i></a>
+                </div>
+                <hr class="mt-0 bg-secondary">
+                <!-- Apply Filter By Price Range -->
+                <div class="price-range mb-3">
+                    <h6 class="text title">Price</h6>
+                    <input type="range" class="form-range" min="100" max="900" id="customRange1">
+                </div>
+                <!-- Apply Filter By Food Categories -->
+                <div class="foods mb-3">
+                    <h6 class="text title">Food Categories</h6>
+                    <div class="radios-button-section">
+                        <!-- First Checkbox -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="foodCategories" id="sauces">
+                            <label class="form-check-label" for="sauces">
+                                Sauces
+                            </label>
+                        </div>
+                        <!-- Second Checkbox -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="foodCategories" id="burger">
+                            <label class="form-check-label" for="burger">
+                                Burger
+                            </label>
+                        </div>
+                        <!-- Third Checkbox -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="foodCategories" id="pizza">
+                            <label class="form-check-label" for="pizza">
+                                Pizza
+                            </label>
+                        </div>
+                        <!-- Fourth Checkbox -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="foodCategories" id="sandwiches">
+                            <label class="form-check-label" for="sandwiches">
+                                Sandwiches
+                            </label>
+                        </div>
+                        <!-- Fifth Checkbox -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="foodCategories" id="pasta">
+                            <label class="form-check-label" for="pasta">
+                                Pasta
+                            </label>
+                        </div>
+                        <!--  -->
+                    </div>
+                </div>
+                <!--  -->
+            </div>
+        </div>
+        <!--  -->
+        <div class="col-lg-9 col-12 ms-lg-5 ms-0">
+            <div class="p-1">
+                <div class="row">
+                    <!-- First Dishes Section -->
+                    <div class="col-lg-3 col-12 mb-4">
+                        <div class="px-0 pb-2 bg-white shadow-sm text-center">
+                            <img src="https://cdn.pixabay.com/photo/2020/04/29/03/30/pizza-5107039__340.jpg"
+                                class="dish-img" alt="">
+                            <div class="dish-info-section m-3">
+                                <a href="{% url 'homepage:food-detail' %}" class="text-decoration-none">
+                                    <h4 class="text title mb-2">Chicken Pizza</h4>
+                                </a>
+                                <div class="d-flex justify-content-center align-items-center mb-4">
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star-half-o text-warning me-1"></i>
+                                    <i class="fa fa-star-o text-warning me-1"></i>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h4 class="text title mb-0">Rs.180</h4>
+                                    <button class="btn btn-warning px-3">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Second Dishes Section -->
+                    <div class="col-md-3 mb-4">
+                        <div class="px-0 pb-2 bg-white shadow-sm text-center">
+                            <img src="https://cdn.pixabay.com/photo/2015/07/29/18/29/crayfish-866400__340.jpg"
+                                class="dish-img" alt="">
+                            <div class="dish-info-section m-3">
+                                <h4 class="text title mb-2">Fish Fry</h4>
+                                <div class="d-flex justify-content-center align-items-center mb-4">
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star-half-o text-warning me-1"></i>
+                                    <i class="fa fa-star-o text-warning me-1"></i>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h4 class="text title mb-0">Rs.180</h4>
+                                    <button class="btn btn-warning px-3">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Third Dishes Section -->
+                    <div class="col-md-3 mb-4">
+                        <div class="px-0 pb-2 bg-white shadow-sm text-center">
+                            <img src="https://cdn.pixabay.com/photo/2022/04/26/11/33/dish-7158169__340.jpg"
+                                class="dish-img" alt="">
+                            <div class="dish-info-section m-3">
+                                <h4 class="text title mb-2">Chicken Biryani</h4>
+                                <div class="d-flex justify-content-center align-items-center mb-4">
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star-half-o text-warning me-1"></i>
+                                    <i class="fa fa-star-o text-warning me-1"></i>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h4 class="text title mb-0">Rs.180</h4>
+                                    <button class="btn btn-warning px-3">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fourth Dishes Section -->
+                    <div class="col-md-3 mb-4">
+                        <div class="px-0 pb-2 bg-white shadow-sm text-center">
+                            <img src="https://cdn.pixabay.com/photo/2018/07/18/19/12/pasta-3547078__340.jpg"
+                                class="dish-img" alt="">
+                            <div class="dish-info-section m-3">
+                                <h4 class="text title mb-2">Noodle Fry</h4>
+                                <div class="d-flex justify-content-center align-items-center mb-4">
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star-half-o text-warning me-1"></i>
+                                    <i class="fa fa-star-o text-warning me-1"></i>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h4 class="text title mb-0">Rs.180</h4>
+                                    <button class="btn btn-warning px-3">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fifth Dishes Section -->
+                    <div class="col-md-3 mb-4">
+                        <div class="px-0 pb-2 bg-white shadow-sm text-center">
+                            <img src="https://cdn.pixabay.com/photo/2020/04/07/22/08/indian-food-5015066__340.jpg"
+                                class="dish-img" alt="">
+                            <div class="dish-info-section m-3">
+                                <h4 class="text title mb-2">Paratha</h4>
+                                <div class="d-flex justify-content-center align-items-center mb-4">
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star-half-o text-warning me-1"></i>
+                                    <i class="fa fa-star-o text-warning me-1"></i>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h4 class="text title mb-0">Rs.180</h4>
+                                    <button class="btn btn-warning px-3">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sixth Dishes Section -->
+                    <div class="col-md-3 mb-4">
+                        <div class="px-0 pb-2 bg-white shadow-sm text-center">
+                            <img src="https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045__340.jpg"
+                                class="dish-img" alt="">
+                            <div class="dish-info-section m-3">
+                                <h4 class="text title mb-2">Chicken Tikka</h4>
+                                <div class="d-flex justify-content-center align-items-center mb-4">
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star-half-o text-warning me-1"></i>
+                                    <i class="fa fa-star-o text-warning me-1"></i>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h4 class="text title mb-0">Rs.180</h4>
+                                    <button class="btn btn-warning px-3">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Seventh Dishes Section -->
+                    <div class="col-md-3 mb-4">
+                        <div class="px-0 pb-2 bg-white shadow-sm text-center">
+                            <img src="https://cdn.pixabay.com/photo/2015/10/01/14/26/fried-rice-967081__340.jpg"
+                                class="dish-img" alt="">
+                            <div class="dish-info-section m-3">
+                                <h4 class="text title mb-2">Chicken Fried Rice</h4>
+                                <div class="d-flex justify-content-center align-items-center mb-4">
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star-half-o text-warning me-1"></i>
+                                    <i class="fa fa-star-o text-warning me-1"></i>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h4 class="text title mb-0">Rs.180</h4>
+                                    <button class="btn btn-warning px-3">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Eighth Dishes Section -->
+                    <div class="col-md-3 mb-4">
+                        <div class="px-0 pb-2 bg-white shadow-sm text-center">
+                            <img src="https://cdn.pixabay.com/photo/2016/06/16/18/13/salad-1461911__340.jpg"
+                                class="dish-img" alt="">
+                            <div class="dish-info-section m-3">
+                                <h4 class="text title mb-2">Salad</h4>
+                                <div class="d-flex justify-content-center align-items-center mb-4">
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star-half-o text-warning me-1"></i>
+                                    <i class="fa fa-star-o text-warning me-1"></i>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h4 class="text title mb-0">Rs.180</h4>
+                                    <button class="btn btn-warning px-3">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+                </div>
+            </div>
+        </div>
+        <!--  -->
+    </div>
+</div>
+<!--  -->
+{% endblock content %}

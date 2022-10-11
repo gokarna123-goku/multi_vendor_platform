@@ -1,0 +1,772 @@
+/*  */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+
+.btn{
+    border-radius: 0px;
+}
+
+
+.btn:focus, .btn:active:focus, .btn.active:focus{
+    outline:none;
+    box-shadow:none;
+}
+
+.form-control:focus, .form-control:active:focus, .form-control.active:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.form-select:focus, .form-select:active:focus, .form-select.active:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.form-control{
+    border-radius: 0px;
+    border: none;
+}
+
+.form-select{
+    border-radius: 0px;
+}
+
+.img-thumbnail{
+    padding: 0.5px;
+    border-radius: 0px;
+    background-color: #707070;
+}
+
+hr{
+    opacity: 1;
+}
+ul{
+    list-style: none;
+}
+
+.title{
+    color: #5c5b5b;
+}
+
+.modal-content{
+    border-radius: 0px;
+}
+
+.pagination>li:first-child>a, .pagination>li:first-child>span,
+.pagination>li:last-child>a, .pagination>li:last-child>span {
+    border-radius: 0px !important;
+}
+
+.form-check-input:checked {
+    background-color: #f34949;
+    border-color: #f34949;
+}
+
+.form-check-input:checked ~ label {
+    color: #f34949 !important;
+}
+
+/* input[type='range']{
+    border-radius: 0px !important;
+} */
+
+/* Navbar Section */
+.nav-bg-color{
+    background: #2c3e50;
+    border-bottom: 1px dashed #f34949;
+}
+
+.nav-link{
+    font-size: 1.175rem;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.70px;
+    transition: .3s ease-in;
+}
+
+.nav-item .active{
+    color: #f34949;
+    border-bottom: 3px solid #f34949;
+    /* width: 75%; */
+}
+
+.nav-item:hover .nav-link{
+    color: #f34949;
+    /* border-bottom: 3px solid #f34949;
+    width: 75%; */
+}
+
+.subnav-link{
+    color: #fff !important;
+    transition: .3s ease-in !important;
+}
+
+.subnav-link:hover{
+    color: #f34949 !important;
+}
+
+.cart-tag i{
+    font-size: 1.175rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.badge-bg{
+    background: #f34949;
+}
+
+.registration{
+    position: relative;
+}
+
+.registration .subnav{
+    display: none;
+    border-top: 2px solid #f34949;
+    position: absolute;
+    width: 240px;
+    background: #2c3e50;
+    left: 0;
+}
+
+.registration:hover .subnav{
+    display: block;
+    animation: slideup .5s ease;
+}
+
+/* Animation on sub-navbar items */
+@keyframes slideup{
+	0%{
+		opacity: 0;
+		transform: translateY(25px);
+	}
+	100%{
+		opacity: 1;
+		transform: none;
+	}
+}
+
+/* Hero Section */
+.hero-section{
+    background-image: url('/static/images/homepagebg.png');
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 94vh;
+}
+
+.info{
+    color: #fa6b05;
+    /* color: #cccaca; */
+    /* color: #8c8d8f; */
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+}
+
+.main-title{
+    font-size: 3.488rem;
+    font-weight: 8100;
+    letter-spacing: 1.7px;
+}
+
+.res-info{
+    color: #b5b5b5;
+    font-size: 1.375rem;
+    letter-spacing: 1px;
+}
+
+.resto-img-sec{
+    width: 100px;
+    height: 70px;
+    object-position: center;
+    object-fit: cover;
+}
+
+.mini-title{
+    font-size: 1.333rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.big-title{
+    font-size: 2.133rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.category-box{
+    box-shadow: 0px 0px 5px #b5b5b5;
+    transition: 0.78s ease;
+    cursor: pointer;
+}
+
+.category-box:hover{
+    box-shadow: 1px 1px 15px #b5b5b5;
+    /* box-shadow: 2px 2px 15px #b5b5b5; */
+}
+
+.category-img{
+    width: 100%;
+    height: 32vh;
+}
+
+/*  */
+.feature-bgimg{
+    background-image: url('/static/images/feature.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 50vh;
+    position: relative;
+}
+
+.restaurant-title{
+    font-size: 2.833rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.collection-box{
+    position: absolute;
+    box-shadow: 1px 1px 5px #b5b5b5;
+    bottom: -16%;
+}
+
+.feature-box{
+    border-right: 2px solid #b5b5b5;
+}
+
+.feature-img{
+    width: 80px;
+    height: 90px;
+}
+
+/* Restrarant Section */
+.img-box{
+    position: relative;
+}
+
+.img-box .resto-img{
+    width: 100%;
+    height: 35vh;
+}
+
+.img-box .restaurant-type{
+    position: absolute;
+    top: 0px;
+    left: 15px;
+    /* border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px; */
+}
+
+.img-box .order-box{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    right: 15px;
+    border-radius: 50%;
+    border: 2px solid #b5b5b5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-box .order-box i{
+    font-size: 1.30rem;
+    transform: rotateY(180deg);
+}
+
+.rest-logo{
+    width: 60px;
+    height: 60px;
+    padding: 3px;
+    border: 1px solid #b5b5b5;
+}
+
+.restaurant-box{
+    box-shadow: 0px 0px 3px #b5b5b5;
+    transition: 0.5s ease-in;
+}
+
+.restaurant-box:hover{
+    box-shadow: 2px 2px 10px #b5b5b5;
+}
+
+.divider{
+    background-color: #b5b5b5;
+}
+
+.fa-comment{
+    transform: rotateY(180deg);
+}
+
+.dish-img{
+    width: 100%;
+    height: 28vh;
+}
+
+/* .fixed-bg{
+    background-image: url('/static/images/coffee.gif');
+    background-position: center center;
+    background-attachment: fixed;
+} */
+
+/* .video{
+    width: 100%;
+    object-fit: cover;
+    height: 85vh;
+} */
+
+/* .video::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 100%);
+    z-index: 2;
+} */
+
+/* .video::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.75);
+} */
+
+
+
+/* Restaurant Section */
+.resto-main{
+    position: relative;
+}
+
+.restaurant-section{
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65) 80%, rgba(0, 0, 0, 0.65) 75% ), url('/static/images/rest-bg.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 55vh;
+}
+
+.resto-info-section{
+    position: absolute;
+    bottom: 1.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: #f8f9fa;
+    border-radius: 2px;
+    backdrop-filter: blur(5px);
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-right: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.resto-info-section .resto-img-name-section{
+    display: flex;
+    justify-self: start;
+    align-items: center;
+}
+
+.resto-img-box{
+    background: #ebeaea;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 70px;
+}
+
+.resto-img-box .resto-logo-view{
+    width: 90px;
+    height: 110px;
+    /* border-top-left-radius: 50px;
+    border-top-right-radius: 50px; */
+}
+
+/* Restaurant Details */
+.tab-hr{
+    background: #ebeaea;
+}
+.resto-image{
+    width: 60px;
+    height: 60px;
+}
+
+.resto-table-box{
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65) 80%, rgba(0, 0, 0, 0.65) 75% ), url('/static/images/table-icon.png');
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-content: flex-end;
+}
+
+.resto-table-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+/* Food Section */
+.food-main{
+    position: relative;
+}
+
+.food-section{
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65) 80%, rgba(0, 0, 0, 0.65) 75% ), url('/static/images/pizza-blog4.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 55vh;
+}
+
+.food-info-section{
+    position: absolute;
+    bottom: 1.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: #f8f9fa;
+    border-radius: 2px;
+    backdrop-filter: blur(5px);
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-right: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.food-info-section .food-img-name-section{
+    display: flex;
+    justify-self: start;
+    align-items: center;
+}
+
+.food-img-box{
+    background: #ebeaea;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 70px;
+}
+
+.food-img-box .food-logo-view{
+    width: 90px;
+    height: 110px;
+    /* border-top-left-radius: 50px;
+    border-top-right-radius: 50px; */
+}
+
+.food-detail-title{
+    font-size: 2.283rem;
+}
+
+/* Food Detail Section */
+.food-detail-bg{
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65) 80%, rgba(0, 0, 0, 0.65) 75% ), url('/static/images/pizza-blog4.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 25vh;
+}
+
+.dprice{
+    font-size: 1.111rem;
+    font-weight: 300;
+    color: #f34949;
+}
+
+.price{
+    font-size: 1.281rem;
+    font-weight: 500;
+}
+
+.ingredient-list{
+    list-style: disc;
+    padding-left: 1rem;
+    font-size: 0.988rem;
+}
+
+.add-to-cart-section{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.input-section{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.input-section .add-to-cart{
+    width: 55px;
+    height: 33px;
+    border-radius: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fa6b05;
+}
+
+.input-section .food-qty-input{
+    width: 65px;
+    height: 33px;
+    border-radius: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #b5b5b5;
+}
+
+.add-to-cart-button{
+    height: 33px;
+    border-radius: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fa6b05;
+}
+
+.tag{
+    text-decoration: none;
+    background: #ebeaea;
+    color: #5c5b5b;
+    transition: 0.30s ease-in;
+}
+
+.tag:hover{
+    background: #f34949;
+    color: #fff;
+}
+
+.nav-pills .nav-link{
+    border-radius: 0px;
+    color: #5c5b5b;
+    background: transparent;
+}
+
+.nav-pills .nav-link:hover{
+    color: #fa6b05;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #f8f9fa;
+    background: #fa6b05;
+    border-bottom: none;
+}
+
+.review-hr{
+    background: #b5b5b5;
+}
+
+.review-box{
+    box-shadow: 1px 1px 4px #b5b5b5;
+}
+
+.review-box span{
+    border-radius: 0px; 
+    border: none;
+}
+
+.review-box span i{
+    color: #fa6b05;
+}
+
+.add-review-button{
+    background: #fa6b05;
+    color: #fff;
+}
+
+.review-section{
+    max-height: 28vh;
+    /* background: rebeccapurple; */
+    overflow-y: scroll;
+}
+
+/* width */
+.review-section::-webkit-scrollbar{
+    display: block;
+    width: 5px;
+}
+
+/* Track */
+.review-section::-webkit-scrollbar-track {
+    background: #b5b5b5;
+    border-radius: 10px;
+}
+
+/* Handle */
+.review-section::-webkit-scrollbar-thumb {
+    background: #fa6b05;
+    border-radius: 10px;
+}
+  
+/* Handle on hover */
+.review-section::-webkit-scrollbar-thumb:hover {
+    background: #f34949;
+    border-radius: 10px;
+}
+
+.user-img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-position: center center;
+    object-fit: cover;
+}
+
+.review-fullname{
+    font-size: 0.899rem;
+    font-weight: 600;
+    letter-spacing: 0.55px;
+}
+
+.review-username{
+    font-size: 0.788rem;
+}
+
+.review{
+    font-size: 0.882rem;
+}
+
+/* Blog Section */
+.blog-section{
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65) 80%, rgba(0, 0, 0, 0.65) 75% ), url('/static/images/food-blog1.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 30vh;
+}
+
+/* Team Section */
+.team-img-section{
+    position: relative;
+    cursor: pointer;
+    transition: 0.5s ease-in;
+}
+
+.team-img-section .team-img{
+    width: 100%;
+    height: 40vh;
+}
+
+.team-social-media{
+    position: absolute;
+    bottom: 10px;
+    display: none;
+    color: #f8f9fa;
+    border-radius: 0px;
+    backdrop-filter: blur(5px);
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-right: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.team-img-section:hover .social-box .team-social-media{
+    display: block;
+}
+
+/* Cart Section */
+.cart-section{
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65) 80%, rgba(0, 0, 0, 0.65) 75% ), url('/static/images/food-blog.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 30vh;
+}
+
+.cart-img{
+    width: 120px;
+    height: 140px;
+}
+
+/* Payment Section */
+
+/* .payment-section{
+    width: 100%;
+} */
+
+.payment-tab-box{
+    width: 100% !important;
+}
+
+.info-data p{
+    font-size: 0.822rem;
+}
+
+.pay{
+    font-size: 1.233rem;
+    font-weight: 600;
+}
+
+.payment-icon{
+    width: 100px;
+    height: 25px;
+}
+
+/* Footer Section */
+.services-list{
+    list-style: none;
+    padding-left: 0rem;
+    font-size: 1.00rem;
+}
+
+.service-link{
+    color: #ebeaea;
+    transition: 0.3s ease-in;
+}
+
+.service-link:hover{
+    color: #fa6b05;
+}
+
+
+
+/* Media Query Section */
+@media screen and (max-width:476px) {
+    .main-title {
+        font-size: 2.488rem;
+        font-weight: 8100;
+        letter-spacing: 1.7px;
+    }
+    .feature-bgimg {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65) 80%, rgba(0, 0, 0, 0.65) 75% ), url('/static/images/feature.png');
+        background-position: top left;
+        background-repeat: no-repeat;
+        height: 35vh;
+        position: relative;
+    }
+    .feature-bgimg .text-secondary {
+        color: #b5b5b5 !important;
+    }
+    .restaurant-title {
+        font-size: 2.033rem;
+        color: #f8f9fa;
+    }
+    .big-title {
+        font-size: 1.833rem;
+    }
+    .table-img-icon{
+        width: 100%;
+        height: auto;
+    }
+}
+/*  */

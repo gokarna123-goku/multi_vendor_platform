@@ -1,0 +1,430 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+{% block title %}Food Detail{% endblock title %}
+{% block content %}
+<!--  -->
+<div class="container-fluid px-0 mx-0 mt-5 pt-5 food-detail-bg">
+    <div class="container col-md-11">
+        Hello Food Section
+    </div>
+</div>
+<!--  -->
+<div class="container-fluid bg-light px-0 mx-0 py-5">
+    <div class="container col-md-11">
+        <div class="row mb-5">
+            <!--  -->
+            <div class="col-md-6">
+                <div class="p-1">
+                    <img src="https://cdn.pixabay.com/photo/2020/04/29/03/30/pizza-5107039__340.jpg" class="w-100"
+                        alt="">
+                </div>
+            </div>
+            <!--  -->
+            <div class="col-md-6">
+                <div class="p-1 mx-3 my-4">
+                    <h4 class="text title food-detail-title">Chicken Pizza</h4>
+                    <div class="price mb-3">
+                        <span class="me-2 dprice"><s>Rs. 300.00</s></span>
+                        <span class="price title">Rs. 600.00</span>
+                    </div>
+                    <!--  -->
+                    <div class="ingredient-section mb-4">
+                        <h4 class="text title mb-3">Ingredients</h4>
+                        <ul class="ingredient-list">
+                            <li>1 Small onion, diced</li>
+                            <li>500g good-quality beef mince</li>
+                            <li>little of chilly</li>
+                            <li>some piece of chicken</li>
+                            <li>salad and many more</li>
+                        </ul>
+                    </div>
+                    <!--  -->
+                    <div class="add-to-cart-section mb-4">
+                        <div class="input-section me-4">
+                            <button class="btn add-to-cart me-2"><i class="fa fa-minus"></i></button>
+                            <input type="number" class="form-control me-2 food-qty-input" value="1">
+                            <button class="btn add-to-cart"><i class="fa fa-plus"></i></button>
+                        </div>
+                        <!--  -->
+                        <button class="btn add-to-cart-button">Add To Cart</button>
+                    </div>
+                    <!--  -->
+                    <div class="tag-section">
+                        <a href="#" class="tag px-2 py-1 me-2">Chicken</a>
+                        <a href="#" class="tag px-2 py-1 me-2">Pizza</a>
+                        <a href="#" class="tag px-2 py-1 me-2">Burger</a>
+                        <a href="#" class="tag px-2 py-1 me-2">Salad</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div class="mb-5 bg-white mx-1">
+            <ul class="nav nav-pills mb-0 mx-3" id="pills-tab" role="tablist">
+                <li class="nav-item food-nav-item me-3" role="presentation">
+                    <button class="nav-link food-nav active" id="pills-home-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                        aria-selected="true">Description</button>
+                </li>
+                <!--  -->
+                <li class="nav-item food-nav-item" role="presentation">
+                    <button class="nav-link food-nav" id="pills-profile-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                        aria-selected="false">Review[0]</button>
+                </li>
+                <!--  -->
+            </ul>
+            <hr class="mt-0 mx-3 review-hr">
+            <div class="tab-content pb-3" id="pills-tabContent">
+                <!-- Food Description Section -->
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <div class="p-3">
+                        <!-- Description -->
+                        <h4 class="text title mb-3">Description</h4>
+                        <p class="text text-secondary mb-5">
+                            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece
+                            of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,
+                            a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure
+                            Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the
+                            word in classical literature, discovered the undoubtable source.
+                        </p>
+                        <!-- Map Section -->
+                        <h4 class="text title mb-3">Current Location</h4>
+                        <div class="gmap_canvas">
+                            <iframe width="100%" height="400" id="gmap_canvas"
+                                src="https://maps.google.com/maps?q=Thulobharyang&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                        </div>
+                        <!--  -->
+                    </div>
+                </div>
+                <!-- Write a Review Section -->
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div class="p-3">
+                        <div class="row">
+                            <div class="col-lg-6 col-12 mb-4">
+                                <div
+                                    class="container col-md-12 border border-3 shadow-sm py-lg-5 py-md-4 py-4 px-lg-5 px-md-3 px-sm-2 px-2">
+                                    <h4 class="text title mb-0">
+                                        Write a Review
+                                    </h4>
+                                    <hr class="review-hr mb-4">
+                                    <div class="input-group flex-nowrap mb-4 review-box py-1">
+                                        <span class="input-group-text bg-white py-2 me-1" id="addon-wrapping">
+                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="text" class="form-control py-2" placeholder="Type your reviews..."
+                                            aria-label="Username" aria-describedby="addon-wrapping">
+                                    </div>
+                                    <button class="btn add-review-button px-4 py-2">
+                                        Add Your Review
+                                    </button>
+                                </div>
+                            </div>
+                            <!--  -->
+                            <div class="col-lg-6 col-12 mb-4">
+                                <div class="reviews mx-2">
+                                    <h4 class="text title mb-0"> All Reviews </h4>
+                                    <hr class="review-hr mb-4">
+                                    <!-- All Reviews Here -->
+                                    <div class="review-section">
+                                        <div class="all-reviews-section bg-light px-3 py-2 mb-3">
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png"
+                                                        class="user-img me-2 img-thumbnail" alt="">
+                                                    <div class="flex-start">
+                                                        <h6 class="text title mb-0 pb-0 review-fullname">Gokarna
+                                                            Adhikari
+                                                        </h6>
+                                                        <small
+                                                            class="text text-secondary mt-0 review-username">@goku153</small>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justidy-content-start align-items-center">
+                                                    <i class="fa fa-clock-o me-2 title"></i>
+                                                    <p class="text mb-0 title">10th Oct, 2022</p>
+                                                </div>
+                                            </div>
+                                            <div class="ms-5">
+                                                <p class="text mb-0 title review">The Food Fresh and Delicious! Loved
+                                                    it.</p>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="all-reviews-section bg-light px-3 py-2 mb-3">
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png"
+                                                        class="user-img me-2 img-thumbnail" alt="">
+                                                    <div class="flex-start">
+                                                        <h6 class="text title mb-0 pb-0 review-fullname">Gokarna
+                                                            Adhikari
+                                                        </h6>
+                                                        <small
+                                                            class="text text-secondary mt-0 review-username">@goku153</small>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justidy-content-start align-items-center">
+                                                    <i class="fa fa-clock-o me-2 title"></i>
+                                                    <p class="text mb-0 title">10th Oct, 2022</p>
+                                                </div>
+                                            </div>
+                                            <div class="ms-5">
+                                                <p class="text mb-0 title review">The Food Fresh and Delicious! Loved
+                                                    it.</p>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="all-reviews-section bg-light px-3 py-2 mb-3">
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png"
+                                                        class="user-img me-2 img-thumbnail" alt="">
+                                                    <div class="flex-start">
+                                                        <h6 class="text title mb-0 pb-0 review-fullname">Gokarna
+                                                            Adhikari
+                                                        </h6>
+                                                        <small
+                                                            class="text text-secondary mt-0 review-username">@goku153</small>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justidy-content-start align-items-center">
+                                                    <i class="fa fa-clock-o me-2 title"></i>
+                                                    <p class="text mb-0 title">10th Oct, 2022</p>
+                                                </div>
+                                            </div>
+                                            <div class="ms-5">
+                                                <p class="text mb-0 title review">The Food Fresh and Delicious! Loved
+                                                    it.</p>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="all-reviews-section bg-light px-3 py-2 mb-3">
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png"
+                                                        class="user-img me-2 img-thumbnail" alt="">
+                                                    <div class="flex-start">
+                                                        <h6 class="text title mb-0 pb-0 review-fullname">Gokarna
+                                                            Adhikari
+                                                        </h6>
+                                                        <small
+                                                            class="text text-secondary mt-0 review-username">@goku153</small>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justidy-content-start align-items-center">
+                                                    <i class="fa fa-clock-o me-2 title"></i>
+                                                    <p class="text mb-0 title">10th Oct, 2022</p>
+                                                </div>
+                                            </div>
+                                            <div class="ms-5">
+                                                <p class="text mb-0 title review">The Food Fresh and Delicious! Loved
+                                                    it.</p>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="all-reviews-section bg-light px-3 py-2 mb-3">
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png"
+                                                        class="user-img me-2 img-thumbnail" alt="">
+                                                    <div class="flex-start">
+                                                        <h6 class="text title mb-0 pb-0 review-fullname">Gokarna
+                                                            Adhikari
+                                                        </h6>
+                                                        <small
+                                                            class="text text-secondary mt-0 review-username">@goku153</small>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justidy-content-start align-items-center">
+                                                    <i class="fa fa-clock-o me-2 title"></i>
+                                                    <p class="text mb-0 title">10th Oct, 2022</p>
+                                                </div>
+                                            </div>
+                                            <div class="ms-5">
+                                                <p class="text mb-0 title review">The Food Fresh and Delicious! Loved
+                                                    it.</p>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="all-reviews-section bg-light px-3 py-2 mb-3">
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png"
+                                                        class="user-img me-2 img-thumbnail" alt="">
+                                                    <div class="flex-start">
+                                                        <h6 class="text title mb-0 pb-0 review-fullname">Gokarna
+                                                            Adhikari
+                                                        </h6>
+                                                        <small
+                                                            class="text text-secondary mt-0 review-username">@goku153</small>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justidy-content-start align-items-center">
+                                                    <i class="fa fa-clock-o me-2 title"></i>
+                                                    <p class="text mb-0 title">10th Oct, 2022</p>
+                                                </div>
+                                            </div>
+                                            <div class="ms-5">
+                                                <p class="text mb-0 title review">The Food Fresh and Delicious! Loved
+                                                    it.</p>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="all-reviews-section bg-light px-3 py-2 mb-3">
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png"
+                                                        class="user-img me-2 img-thumbnail" alt="">
+                                                    <div class="flex-start">
+                                                        <h6 class="text title mb-0 pb-0 review-fullname">Gokarna
+                                                            Adhikari
+                                                        </h6>
+                                                        <small
+                                                            class="text text-secondary mt-0 review-username">@goku153</small>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justidy-content-start align-items-center">
+                                                    <i class="fa fa-clock-o me-2 title"></i>
+                                                    <p class="text mb-0 title">10th Oct, 2022</p>
+                                                </div>
+                                            </div>
+                                            <div class="ms-5">
+                                                <p class="text mb-0 title review">The Food Fresh and Delicious! Loved
+                                                    it.</p>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="all-reviews-section bg-light px-3 py-2 mb-3">
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png"
+                                                        class="user-img me-2 img-thumbnail" alt="">
+                                                    <div class="flex-start">
+                                                        <h6 class="text title mb-0 pb-0 review-fullname">Gokarna
+                                                            Adhikari
+                                                        </h6>
+                                                        <small
+                                                            class="text text-secondary mt-0 review-username">@goku153</small>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justidy-content-start align-items-center">
+                                                    <i class="fa fa-clock-o me-2 title"></i>
+                                                    <p class="text mb-0 title">10th Oct, 2022</p>
+                                                </div>
+                                            </div>
+                                            <div class="ms-5">
+                                                <p class="text mb-0 title review">The Food Fresh and Delicious! Loved
+                                                    it.</p>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                    </div>
+                                    <!--  -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Related Products -->
+        <div class="row bg-white py-3 mx-1">
+            <p class="text text-center text-warning mini-title mb-2">Top Popular Dishes</p>
+            <h4 class="text text-center title big-title">Related Popular Dishes</h4>
+            <div class="hr-section my-0">
+                <hr class="container col-md-1 py-1 bg-warning mt-1 mb-5 rounded-pill">
+            </div>
+            <!-- First Dishes Section -->
+            <div class="col-md-3 mb-4">
+                <div class="px-0 pb-2 bg-white shadow-sm text-center">
+                    <img src="https://cdn.pixabay.com/photo/2020/04/29/03/30/pizza-5107039__340.jpg" class="dish-img"
+                        alt="">
+                    <div class="dish-info-section m-3">
+                        <a href="{% url 'homepage:food-detail' %}" class="text-decoration-none">
+                            <h4 class="text title mb-2">Chicken Pizza</h4>
+                        </a>
+                        <div class="d-flex justify-content-center align-items-center mb-4">
+                            <i class="fa fa-star text-warning me-1"></i>
+                            <i class="fa fa-star text-warning me-1"></i>
+                            <i class="fa fa-star text-warning me-1"></i>
+                            <i class="fa fa-star-half-o text-warning me-1"></i>
+                            <i class="fa fa-star-o text-warning me-1"></i>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="text title mb-0">Rs.180</h4>
+                            <button class="btn btn-warning px-3">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Second Dishes Section -->
+            <div class="col-md-3 mb-4">
+                <div class="px-0 pb-2 bg-white shadow-sm text-center">
+                    <img src="https://cdn.pixabay.com/photo/2015/07/29/18/29/crayfish-866400__340.jpg" class="dish-img"
+                        alt="">
+                    <div class="dish-info-section m-3">
+                        <h4 class="text title mb-2">Fish Fry</h4>
+                        <div class="d-flex justify-content-center align-items-center mb-4">
+                            <i class="fa fa-star text-warning me-1"></i>
+                            <i class="fa fa-star text-warning me-1"></i>
+                            <i class="fa fa-star text-warning me-1"></i>
+                            <i class="fa fa-star-half-o text-warning me-1"></i>
+                            <i class="fa fa-star-o text-warning me-1"></i>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="text title mb-0">Rs.180</h4>
+                            <button class="btn btn-warning px-3">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Third Dishes Section -->
+            <div class="col-md-3 mb-4">
+                <div class="px-0 pb-2 bg-white shadow-sm text-center">
+                    <img src="https://cdn.pixabay.com/photo/2022/04/26/11/33/dish-7158169__340.jpg" class="dish-img"
+                        alt="">
+                    <div class="dish-info-section m-3">
+                        <h4 class="text title mb-2">Chicken Biryani</h4>
+                        <div class="d-flex justify-content-center align-items-center mb-4">
+                            <i class="fa fa-star text-warning me-1"></i>
+                            <i class="fa fa-star text-warning me-1"></i>
+                            <i class="fa fa-star text-warning me-1"></i>
+                            <i class="fa fa-star-half-o text-warning me-1"></i>
+                            <i class="fa fa-star-o text-warning me-1"></i>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="text title mb-0">Rs.180</h4>
+                            <button class="btn btn-warning px-3">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fourth Dishes Section -->
+            <div class="col-md-3 mb-4">
+                <div class="px-0 pb-2 bg-white shadow-sm text-center">
+                    <img src="https://cdn.pixabay.com/photo/2018/07/18/19/12/pasta-3547078__340.jpg" class="dish-img"
+                        alt="">
+                    <div class="dish-info-section m-3">
+                        <h4 class="text title mb-2">Noodle Fry</h4>
+                        <div class="d-flex justify-content-center align-items-center mb-4">
+                            <i class="fa fa-star text-warning me-1"></i>
+                            <i class="fa fa-star text-warning me-1"></i>
+                            <i class="fa fa-star text-warning me-1"></i>
+                            <i class="fa fa-star-half-o text-warning me-1"></i>
+                            <i class="fa fa-star-o text-warning me-1"></i>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="text title mb-0">Rs.180</h4>
+                            <button class="btn btn-warning px-3">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+    </div>
+</div>
+<!--  -->
+{% endblock content %}

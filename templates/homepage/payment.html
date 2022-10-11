@@ -1,0 +1,211 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+{% block title %}Payment{% endblock title %}
+{% block content %}
+<!--  -->
+<div class="container-fluid px-0 mx-0 mt-5 pt-5 cart-section">
+    <div class="container col-md-11">
+
+    </div>
+</div>
+<!--  -->
+
+
+<!-- Next Section -->
+<div class="container-fluid px-0 mx-0 py-5 bg-light">
+    <div class="container col-md-11">
+        <div class="row">
+            <div class="col-lg-8 col-12 mb-4">
+                <div class="p-4 shadow-sm bg-white">
+                    <!-- Tabs Section -->
+                    <div class="row">
+                        <!--  -->
+                        <div class="col-lg-4 col-12 mb-4">
+                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                                aria-orientation="vertical">
+                                <!--  -->
+                                <div class="title bg-light text-lg-start text-center px-4 py-2 mb-4 font-weight-bold">
+                                    Choose Payment Method
+                                </div>
+                                <!--  -->
+                                <button class="nav-link text-lg-start text-center active" id="v-pills-card-payment-tab"
+                                    data-bs-toggle="pill" data-bs-target="#v-pills-card-payment" type="button" role="tab"
+                                    aria-controls="v-pills-card-payment" aria-selected="true">Card Payment</button>
+                                <button class="nav-link text-lg-start text-center" id="v-pills-e-sewa-payment-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-e-sewa-payment" type="button" role="tab"
+                                    aria-controls="v-pills-e-sewa-payment" aria-selected="false">E-Sewa Payment</button>
+                                <button class="nav-link text-lg-start text-center" id="v-pills-khalti-payment-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-khalti-payment" type="button" role="tab"
+                                    aria-controls="v-pills-khalti-payment" aria-selected="false">Khalti Payment</button>
+                                <button class="nav-link text-lg-start text-center" id="v-pills-cash-on-delivery-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-cash-on-delivery" type="button" role="tab"
+                                    aria-controls="v-pills-cash-on-delivery" aria-selected="false">Cash on Delivery</button>
+                            </div>
+                        </div>
+                        <!--  -->
+                        <hr class="d-lg-none d-sm-block d-block review-hr">
+                        <!--  -->
+                        <div class="col-lg-8 col-12 mb-4">
+                            <div class="tab-content w-100" id="v-pills-tabContent">
+                                <!-- Card Payment Section -->
+                                <div class="tab-pane fade show active w-100" id="v-pills-card-payment" role="tabpanel"
+                                    aria-labelledby="v-pills-card-payment-tab">
+                                    <!--  -->
+                                    <div class="title bg-light px-4 py-2 mb-4 font-weight-bold">
+                                        You are paying view Card Payment Method
+                                    </div>
+                                    <!--  -->
+                                    <form>
+                                        <!--  -->
+                                        <div class="mb-3">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="p-1">
+                                                        <label for="firstname" class="title mb-2">First Name
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <input type="text" id="firstname"
+                                                            class="form-control border py-2 title" required
+                                                            placeholder="Enter your firstname">
+                                                    </div>
+                                                </div>
+                                                <!--  -->
+                                                <div class="col-md-6">
+                                                    <div class="p-1">
+                                                        <label for="lastname" class="title mb-2">Last Name
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <input type="text" id="lastname"
+                                                            class="form-control border py-2 title" required
+                                                            placeholder="Enter your lastname">
+                                                    </div>
+                                                </div>
+                                                <!--  -->
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="mb-3">
+                                            <label for="card-number" class="title mb-2">Card Number
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <input type="text" id="card-number" class="form-control border py-2 title"
+                                                required placeholder="1111 - 2222 - 3333 - 4444">
+                                        </div>
+                                        <!--  -->
+                                        <div class="mb-3">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="p-1">
+                                                        <label for="cvv" class="title mb-2">CVV
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <input type="text" id="cvv" class="form-control border py-2 title"
+                                                            required placeholder="***">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="p-1">
+                                                        <label for="expiration-date" class="title mb-2">Expiration Date
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <input type="date" id="expiration-date"
+                                                            class="form-control border py-2 title" required placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                    </form>
+                                    <!--  -->
+                                </div>
+                                <!-- E-Sewa Payment Section -->
+                                <div class="tab-pane fade" id="v-pills-e-sewa-payment" role="tabpanel"
+                                    aria-labelledby="v-pills-e-sewa-payment-tab">
+                                    <!--  -->
+                                    <div class="title bg-light px-4 py-2 mb-5 font-weight-bold">
+                                        You are paying view E-Sewa payment method
+                                    </div>
+                                    <!--  -->
+                                    <button class="btn btn-warning pay w-100">
+                                        Pay with <img src="{% static 'images/e-sewa-logo.png' %}" class="payment-icon"
+                                            alt="">
+                                    </button>
+                                </div>
+                                <!-- Khalti Payment Section -->
+                                <div class="tab-pane fade" id="v-pills-khalti-payment" role="tabpanel"
+                                    aria-labelledby="v-pills-khalti-payment-tab">
+                                    <!--  -->
+                                    <div class="title bg-light px-4 py-2 mb-5 font-weight-bold">
+                                        You are paying view Khalti payment method
+                                    </div>
+                                    <!--  -->
+                                    <button class="btn btn-warning pay w-100">
+                                        Pay with <img src="{% static 'images/khalti-logo.png' %}" class="payment-icon"
+                                            alt="">
+                                    </button>
+                                </div>
+                                <!-- Cash on Delivery Section -->
+                                <div class="tab-pane fade" id="v-pills-cash-on-delivery" role="tabpanel"
+                                    aria-labelledby="v-pills-cash-on-delivery-tab">
+                                    <!--  -->
+                                    <div class="title bg-light px-4 py-2 mb-4 font-weight-bold">
+                                        You choose Cash on Delivery payment Method
+                                    </div>
+                                    <!--  -->
+                                    <img src="{% static 'images/cod.png' %}" class="cod-img d-block w-100" alt="">
+                                    <!--  -->
+                                </div>
+                                <!--  -->
+                            </div>
+                        </div>
+                        <!--  -->
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col-lg-4 col-12">
+                <div class="p-4 shadow-sm bg-white">
+                    <div class="title bg-light px-4 py-2 mb-3 text-uppercase font-weight-bold">
+                        Your Order Lists
+                    </div>
+                    <!--  -->
+                    <ul class="list-unstyled mb-3">
+                        <li class="d-flex justify-content-between px-3 py-2 border">
+                            <strong class="title">Food Item </strong> <strong>Price</strong>
+                        </li>
+                        <li class="d-flex justify-content-between px-3 py-2 border">
+                            <span class="title">Chicken Pizza &#215; <strong> 2 </strong></span> <span>Rs. 250</span>
+                        </li>
+                        <li class="d-flex justify-content-between px-3 py-2 border">
+                            <span class="title">Chicken Burger &times; <strong> 3 </strong></span> <span>Rs. 250</span>
+                        </li>
+                        <li class="d-flex justify-content-between px-3 py-2 border">
+                            <span class="title">Tax (10%) </span><span>Rs. 100.00</span>
+                        </li>
+                        <li class="d-flex justify-content-between px-3 py-2 border">
+                            <strong class="title">Total Price</strong>
+                            <span class="font-weight-bold">Rs. 1100.00</span>
+                        </li>
+                    </ul>
+                    <!--  -->
+                    <div class="info-data">
+                        <p class="text title mb-3">
+                            Your personal data will be used to process your order, support your experience throughout
+                            this website, and for other purposes described in our privacy policy.
+                        </p>
+                    </div>
+                    <a href="#" class="btn btn-warning py-2 w-100 mb-0">
+                        Purchase
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+    </div>
+</div>
+<!--  -->
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,796 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+{% block title %}Restaurant Details{% endblock title %}
+{% block content %}
+<!--  -->
+<div class="container-fluid px-0 mx-0 mt-5 pt-5 cart-section">
+    <div class="container col-md-11">
+
+    </div>
+</div>
+<!--  -->
+
+
+<!-- Next Section -->
+<div class="container-fluid px-0 mx-0 py-5 bg-light">
+    <div class="container col-md-11">
+        <div class="row">
+            <!--  -->
+            <div class="col-lg-3 col-12">
+                <div class="p-4 shadow-sm bg-white">
+                    <div class="title bg-light px-4 py-2 mb-3 text-uppercase font-weight-bold">
+                        All Details
+                    </div>
+                    <!--  -->
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <!--  -->
+                        <button class="nav-link text-lg-start text-center active" id="v-pills-menu-tab"
+                            data-bs-toggle="pill" data-bs-target="#v-pills-menu" type="button" role="tab"
+                            aria-controls="v-pills-menu" aria-selected="true">Menu</button>
+                        <button class="nav-link text-lg-start text-center" id="v-pills-table-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-table" type="button" role="tab" aria-controls="v-pills-table"
+                            aria-selected="false">Table</button>
+                        <button class="nav-link text-lg-start text-center" id="v-pills-review-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-review" type="button" role="tab" aria-controls="v-pills-review"
+                            aria-selected="false">Reviews</button>
+                        <button class="nav-link text-lg-start text-center" id="v-pills-resto-info-tab"
+                            data-bs-toggle="pill" data-bs-target="#v-pills-resto-info" type="button" role="tab"
+                            aria-controls="v-pills-resto-info" aria-selected="false">Restaurant Info</button>
+                    </div>
+                    <!--  -->
+                </div>
+            </div>
+            <!--  -->
+            <div class="col-lg-9 col-12 mb-4">
+                <div class="p-4 shadow-sm bg-white">
+                    <!-- Tabs Section -->
+                    <div class="tab-content w-100" id="v-pills-tabContent">
+                        <!-- Menu Categories Section -->
+                        <div class="tab-pane fade show active w-100" id="v-pills-menu" role="tabpanel"
+                            aria-labelledby="v-pills-menu-tab">
+                            <!--  -->
+                            <h4 class="text text-start title mini-title">All Categories</h4>
+                            <div class="hr-section my-0">
+                                <hr class="col-md-1 pt-1 bg-warning mt-1 mb-4 rounded-pill">
+                            </div>
+                            <!-- All Categories Tab Section start -->
+                            <ul class="nav nav-pills mb-0" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link px-5 active" id="pills-shakes-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-shakes" type="button" role="tab"
+                                        aria-controls="pills-shakes" aria-selected="true">Shakes</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link px-5" id="pills-chicken-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-chicken" type="button" role="tab"
+                                        aria-controls="pills-chicken" aria-selected="false">Chicken</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link px-5" id="pills-sea-food-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-sea-food" type="button" role="tab"
+                                        aria-controls="pills-sea-food" aria-selected="false">Sea Food</button>
+                                </li>
+                            </ul>
+                            <hr class="mt-0 tab-hr mb-4">
+                            <div class="tab-content mb-4" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-shakes" role="tabpanel"
+                                    aria-labelledby="pills-shakes-tab">
+                                    <div class="row mb-3">
+                                        <!--  -->
+                                        <div class="col-lg-6 mb-4">
+                                            <div class="p-2 border">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex justify-content-start align-items-center">
+                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
+                                                            alt="" class="resto-image me-3">
+                                                        <div class="resto-info">
+                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
+                                                            <div class="price mb-0">
+                                                                <span class="h6 text-danger me-2"><s>Rs.
+                                                                        300.00</s></span>
+                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
+                                                                    600.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--  -->
+                                                    <div class="buttons d-flex flex-column">
+                                                        <button class="btn btn-warning btn-sm mb-2">Add to Cart</button>
+                                                        <a href="#"
+                                                            class="btn btn-primary btn-sm text-decoration-none">View</a>
+                                                    </div>
+                                                    <!--  -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="col-lg-6 mb-4">
+                                            <div class="p-2 border">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex justify-content-start align-items-center">
+                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
+                                                            alt="" class="resto-image me-3">
+                                                        <div class="resto-info">
+                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
+                                                            <div class="price mb-0">
+                                                                <span class="h6 text-danger me-2"><s>Rs.
+                                                                        300.00</s></span>
+                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
+                                                                    600.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--  -->
+                                                    <a href="#" class="btn btn-warning btn-sm text-decoration-none">
+                                                        <i class="fa fa-eye me-2"></i> View Detail
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="col-lg-6 mb-4">
+                                            <div class="p-2 border">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex justify-content-start align-items-center">
+                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
+                                                            alt="" class="resto-image me-3">
+                                                        <div class="resto-info">
+                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
+                                                            <div class="price mb-0">
+                                                                <span class="h6 text-danger me-2"><s>Rs.
+                                                                        300.00</s></span>
+                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
+                                                                    600.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--  -->
+                                                    <a href="#" class="btn btn-warning btn-sm text-decoration-none">
+                                                        <i class="fa fa-eye me-2"></i> View Detail
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="col-lg-6 mb-4">
+                                            <div class="p-2 border">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex justify-content-start align-items-center">
+                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
+                                                            alt="" class="resto-image me-3">
+                                                        <div class="resto-info">
+                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
+                                                            <div class="price mb-0">
+                                                                <span class="h6 text-danger me-2"><s>Rs.
+                                                                        300.00</s></span>
+                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
+                                                                    600.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--  -->
+                                                    <a href="#" class="btn btn-warning btn-sm text-decoration-none">
+                                                        <i class="fa fa-eye me-2"></i> View Detail
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                    </div>
+                                    <!--  -->
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-info px-4">Load more
+                                            <i class="fa fa-refresh ms-1"></i>
+                                        </button>
+                                    </div>
+                                    <!-- <hr class="tab-hr"> -->
+                                </div>
+                                <!--  -->
+                                <div class="tab-pane fade" id="pills-chicken" role="tabpanel"
+                                    aria-labelledby="pills-chicken-tab">
+                                    <div class="row mb-3">
+                                        <!--  -->
+                                        <div class="col-lg-6 mb-4">
+                                            <div class="p-2 border">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex justify-content-start align-items-center">
+                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
+                                                            alt="" class="resto-image me-3">
+                                                        <div class="resto-info">
+                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
+                                                            <div class="price mb-0">
+                                                                <span class="h6 text-danger me-2"><s>Rs.
+                                                                        300.00</s></span>
+                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
+                                                                    600.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--  -->
+                                                    <div class="buttons d-flex flex-column">
+                                                        <button class="btn btn-warning btn-sm mb-2">Add to Cart</button>
+                                                        <a href="#"
+                                                            class="btn btn-primary btn-sm text-decoration-none">View</a>
+                                                    </div>
+                                                    <!--  -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="col-lg-6 mb-4">
+                                            <div class="p-2 border">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex justify-content-start align-items-center">
+                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
+                                                            alt="" class="resto-image me-3">
+                                                        <div class="resto-info">
+                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
+                                                            <div class="price mb-0">
+                                                                <span class="h6 text-danger me-2"><s>Rs.
+                                                                        300.00</s></span>
+                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
+                                                                    600.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--  -->
+                                                    <div class="buttons d-flex flex-column">
+                                                        <button class="btn btn-warning btn-sm mb-2">Add to Cart</button>
+                                                        <a href="#"
+                                                            class="btn btn-primary btn-sm text-decoration-none">View</a>
+                                                    </div>
+                                                    <!--  -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="col-lg-6 mb-4">
+                                            <div class="p-2 border">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex justify-content-start align-items-center">
+                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
+                                                            alt="" class="resto-image me-3">
+                                                        <div class="resto-info">
+                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
+                                                            <div class="price mb-0">
+                                                                <span class="h6 text-danger me-2"><s>Rs.
+                                                                        300.00</s></span>
+                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
+                                                                    600.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--  -->
+                                                    <div class="buttons d-flex flex-column">
+                                                        <button class="btn btn-warning btn-sm mb-2">Add to Cart</button>
+                                                        <a href="#"
+                                                            class="btn btn-primary btn-sm text-decoration-none">View</a>
+                                                    </div>
+                                                    <!--  -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="col-lg-6 mb-4">
+                                            <div class="p-2 border">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex justify-content-start align-items-center">
+                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
+                                                            alt="" class="resto-image me-3">
+                                                        <div class="resto-info">
+                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
+                                                            <div class="price mb-0">
+                                                                <span class="h6 text-danger me-2"><s>Rs.
+                                                                        300.00</s></span>
+                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
+                                                                    600.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--  -->
+                                                    <div class="buttons d-flex flex-column">
+                                                        <button class="btn btn-warning btn-sm mb-2">Add to Cart</button>
+                                                        <a href="#"
+                                                            class="btn btn-primary btn-sm text-decoration-none">View</a>
+                                                    </div>
+                                                    <!--  -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                    </div>
+                                    <!--  -->
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-info px-4">Load more
+                                            <i class="fa fa-refresh ms-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!--  -->
+                                <div class="tab-pane fade" id="pills-sea-food" role="tabpanel"
+                                    aria-labelledby="pills-sea-food-tab">
+                                    <div class="row mb-3">
+                                        <!--  -->
+                                        <div class="col-lg-6 mb-4">
+                                            <div class="p-2 border">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex justify-content-start align-items-center">
+                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
+                                                            alt="" class="resto-image me-3">
+                                                        <div class="resto-info">
+                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
+                                                            <div class="price mb-0">
+                                                                <span class="h6 text-danger me-2"><s>Rs.
+                                                                        300.00</s></span>
+                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
+                                                                    600.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--  -->
+                                                    <a href="#" class="btn btn-warning btn-sm text-decoration-none">
+                                                        <i class="fa fa-eye me-2"></i> View Detail
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="col-lg-6 mb-4">
+                                            <div class="p-2 border">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex justify-content-start align-items-center">
+                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
+                                                            alt="" class="resto-image me-3">
+                                                        <div class="resto-info">
+                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
+                                                            <div class="price mb-0">
+                                                                <span class="h6 text-danger me-2"><s>Rs.
+                                                                        300.00</s></span>
+                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
+                                                                    600.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--  -->
+                                                    <a href="#" class="btn btn-warning btn-sm text-decoration-none">
+                                                        <i class="fa fa-eye me-2"></i> View Detail
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="col-lg-6 mb-4">
+                                            <div class="p-2 border">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex justify-content-start align-items-center">
+                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
+                                                            alt="" class="resto-image me-3">
+                                                        <div class="resto-info">
+                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
+                                                            <div class="price mb-0">
+                                                                <span class="h6 text-danger me-2"><s>Rs.
+                                                                        300.00</s></span>
+                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
+                                                                    600.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--  -->
+                                                    <a href="#" class="btn btn-warning btn-sm text-decoration-none">
+                                                        <i class="fa fa-eye me-2"></i> View Detail
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="col-lg-6 mb-4">
+                                            <div class="p-2 border">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex justify-content-start align-items-center">
+                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
+                                                            alt="" class="resto-image me-3">
+                                                        <div class="resto-info">
+                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
+                                                            <div class="price mb-0">
+                                                                <span class="h6 text-danger me-2"><s>Rs.
+                                                                        300.00</s></span>
+                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
+                                                                    600.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--  -->
+                                                    <a href="#" class="btn btn-warning btn-sm text-decoration-none">
+                                                        <i class="fa fa-eye me-2"></i> View Detail
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                    </div>
+                                    <!--  -->
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-info px-4">Load more
+                                            <i class="fa fa-refresh ms-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!--  -->
+                            </div>
+                            <!-- All Categories Tab Section End -->
+                        </div>
+                        <!-- Tables Section -->
+                        <div class="tab-pane fade" id="v-pills-table" role="tabpanel"
+                            aria-labelledby="v-pills-table-tab">
+                            <!--  -->
+                            <h4 class="text text-start title mini-title">Our Tables Count</h4>
+                            <div class="hr-section my-0">
+                                <hr class="col-md-1 pt-1 bg-warning mt-1 mb-4 rounded-pill">
+                            </div>
+                            <!-- All Categories Tab Section start -->
+                            <ul class="nav nav-pills mb-0" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link px-5 active" id="pills-booked-table-tab"
+                                        data-bs-toggle="pill" data-bs-target="#pills-booked-table" type="button"
+                                        role="tab" aria-controls="pills-booked-table" aria-selected="true">Booked
+                                        Tables</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link px-5" id="pills-available-tables-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-available-tables" type="button" role="tab"
+                                        aria-controls="pills-available-tables" aria-selected="false">Available
+                                        Tables</button>
+                                </li>
+                            </ul>
+                            <hr class="mt-0 tab-hr mb-4">
+                            <div class="tab-content mb-4" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-booked-table" role="tabpanel"
+                                    aria-labelledby="pills-booked-table-tab">
+                                    <div class="row mb-3">
+                                        <!--  -->
+                                        <div class="col-lg-2 mb-4">
+                                            <div class="p-2 border resto-table-box">
+                                                <div class="resto-table-data text-center">
+                                                    <h5 class="text text-light mb-2">Table No. 5</h5>
+                                                    <button class="btn btn-warning btn-sm px-3 disabled">Booked</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="col-lg-2 mb-4">
+                                            <div class="p-2 border resto-table-box">
+                                                <div class="resto-table-data text-center">
+                                                    <h5 class="text text-light mb-2">Table No. 5</h5>
+                                                    <button class="btn btn-warning btn-sm px-3 disabled">Booked</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                    </div>
+                                    <!--  -->
+                                    <!-- <div class="d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-info px-4">Load more</button>
+                                    </div> -->
+                                </div>
+                                <!--  -->
+                                <div class="tab-pane fade" id="pills-available-tables" role="tabpanel"
+                                    aria-labelledby="pills-available-tables-tab">
+                                    <div class="row mb-3">
+                                        <!--  -->
+                                        <div class="col-lg-2 mb-4">
+                                            <div class="p-2 border resto-table-box">
+                                                <div class="resto-table-data text-center">
+                                                    <h5 class="text text-light mb-2">Table No. 5</h5>
+                                                    <button class="btn btn-warning btn-sm px-3">Book a Table</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <div class="col-lg-2 mb-4">
+                                            <div class="p-2 border resto-table-box">
+                                                <div class="resto-table-data text-center">
+                                                    <h5 class="text text-light mb-2">Table No. 5</h5>
+                                                    <button class="btn btn-warning btn-sm px-3">Book a Table</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                    </div>
+                                    <!--  -->
+                                    <!-- <div class="d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-info px-4">Load more</button>
+                                    </div> -->
+                                </div>
+                                <!--  -->
+                            </div>
+                            <!-- All Categories Tab Section End -->
+                        </div>
+                        <!-- Reviews Section -->
+                        <div class="tab-pane fade" id="v-pills-review" role="tabpanel"
+                            aria-labelledby="v-pills-review-tab">
+                            <!--  -->
+                            <div class="p-3">
+                                <div class="row">
+                                    <div
+                                        class="col-lg-12 mb-5 border border-3 shadow-sm py-lg-5 py-md-4 py-4 px-lg-5 px-md-3 px-sm-2 px-2">
+                                        <h5 class="text title mb-0">
+                                            Write a Review
+                                        </h5>
+                                        <hr class="review-hr mb-4">
+                                        <div class="input-group flex-nowrap mb-4 review-box py-1">
+                                            <span class="input-group-text bg-white py-2 me-1" id="addon-wrapping">
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control py-2"
+                                                placeholder="Type your reviews..." aria-label="Username"
+                                                aria-describedby="addon-wrapping">
+                                        </div>
+                                        <button class="btn add-review-button px-4 py-2">
+                                            Add Your Review
+                                        </button>
+                                        <!-- <div
+                                            class="container col-md-12 border border-3 shadow-sm py-lg-5 py-md-4 py-4 px-lg-5 px-md-3 px-sm-2 px-2">
+                                        </div> -->
+                                    </div>
+                                    <!--  -->
+                                    <div class="col-lg-12">
+                                        <div class="reviews">
+                                            <h5 class="text title mb-0"> All Reviews </h5>
+                                            <hr class="review-hr mb-4">
+                                            <!-- All Reviews Here -->
+                                            <div class="review-section">
+                                                <!--  -->
+                                                <div class="all-reviews-section bg-light px-3 py-2 mb-3">
+                                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                                        <div class="d-flex justify-content-start align-items-center">
+                                                            <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png"
+                                                                class="user-img me-2 img-thumbnail" alt="">
+                                                            <div class="flex-start">
+                                                                <h6 class="text title mb-0 pb-0 review-fullname">Gokarna
+                                                                    Adhikari
+                                                                </h6>
+                                                                <small
+                                                                    class="text text-secondary mt-0 review-username">@goku153</small>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justidy-content-start align-items-center">
+                                                            <i class="fa fa-clock-o me-2 title"></i>
+                                                            <p class="text mb-0 title">10th Oct, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ms-5">
+                                                        <p class="text mb-0 title review">The Food Fresh and Delicious!
+                                                            Loved
+                                                            it.</p>
+                                                    </div>
+                                                </div>
+                                                <!--  -->
+                                                <div class="all-reviews-section bg-light px-3 py-2 mb-3">
+                                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                                        <div class="d-flex justify-content-start align-items-center">
+                                                            <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png"
+                                                                class="user-img me-2 img-thumbnail" alt="">
+                                                            <div class="flex-start">
+                                                                <h6 class="text title mb-0 pb-0 review-fullname">Gokarna
+                                                                    Adhikari
+                                                                </h6>
+                                                                <small
+                                                                    class="text text-secondary mt-0 review-username">@goku153</small>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justidy-content-start align-items-center">
+                                                            <i class="fa fa-clock-o me-2 title"></i>
+                                                            <p class="text mb-0 title">10th Oct, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ms-5">
+                                                        <p class="text mb-0 title review">The Food Fresh and Delicious!
+                                                            Loved
+                                                            it.</p>
+                                                    </div>
+                                                </div>
+                                                <!--  -->
+                                                <div class="all-reviews-section bg-light px-3 py-2 mb-3">
+                                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                                        <div class="d-flex justify-content-start align-items-center">
+                                                            <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png"
+                                                                class="user-img me-2 img-thumbnail" alt="">
+                                                            <div class="flex-start">
+                                                                <h6 class="text title mb-0 pb-0 review-fullname">Gokarna
+                                                                    Adhikari
+                                                                </h6>
+                                                                <small
+                                                                    class="text text-secondary mt-0 review-username">@goku153</small>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justidy-content-start align-items-center">
+                                                            <i class="fa fa-clock-o me-2 title"></i>
+                                                            <p class="text mb-0 title">10th Oct, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ms-5">
+                                                        <p class="text mb-0 title review">The Food Fresh and Delicious!
+                                                            Loved
+                                                            it.</p>
+                                                    </div>
+                                                </div>
+                                                <!--  -->
+                                                <div class="all-reviews-section bg-light px-3 py-2 mb-3">
+                                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                                        <div class="d-flex justify-content-start align-items-center">
+                                                            <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png"
+                                                                class="user-img me-2 img-thumbnail" alt="">
+                                                            <div class="flex-start">
+                                                                <h6 class="text title mb-0 pb-0 review-fullname">Gokarna
+                                                                    Adhikari
+                                                                </h6>
+                                                                <small
+                                                                    class="text text-secondary mt-0 review-username">@goku153</small>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justidy-content-start align-items-center">
+                                                            <i class="fa fa-clock-o me-2 title"></i>
+                                                            <p class="text mb-0 title">10th Oct, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ms-5">
+                                                        <p class="text mb-0 title review">The Food Fresh and Delicious!
+                                                            Loved
+                                                            it.</p>
+                                                    </div>
+                                                </div>
+                                                <!--  -->
+                                                <div class="all-reviews-section bg-light px-3 py-2 mb-3">
+                                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                                        <div class="d-flex justify-content-start align-items-center">
+                                                            <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png"
+                                                                class="user-img me-2 img-thumbnail" alt="">
+                                                            <div class="flex-start">
+                                                                <h6 class="text title mb-0 pb-0 review-fullname">Gokarna
+                                                                    Adhikari
+                                                                </h6>
+                                                                <small
+                                                                    class="text text-secondary mt-0 review-username">@goku153</small>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justidy-content-start align-items-center">
+                                                            <i class="fa fa-clock-o me-2 title"></i>
+                                                            <p class="text mb-0 title">10th Oct, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ms-5">
+                                                        <p class="text mb-0 title review">The Food Fresh and Delicious!
+                                                            Loved
+                                                            it.</p>
+                                                    </div>
+                                                </div>
+                                                <!--  -->
+                                                <div class="all-reviews-section bg-light px-3 py-2 mb-3">
+                                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                                        <div class="d-flex justify-content-start align-items-center">
+                                                            <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png"
+                                                                class="user-img me-2 img-thumbnail" alt="">
+                                                            <div class="flex-start">
+                                                                <h6 class="text title mb-0 pb-0 review-fullname">Gokarna
+                                                                    Adhikari
+                                                                </h6>
+                                                                <small
+                                                                    class="text text-secondary mt-0 review-username">@goku153</small>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justidy-content-start align-items-center">
+                                                            <i class="fa fa-clock-o me-2 title"></i>
+                                                            <p class="text mb-0 title">10th Oct, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ms-5">
+                                                        <p class="text mb-0 title review">The Food Fresh and Delicious!
+                                                            Loved
+                                                            it.</p>
+                                                    </div>
+                                                </div>
+                                                <!--  -->
+                                                <div class="all-reviews-section bg-light px-3 py-2 mb-3">
+                                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                                        <div class="d-flex justify-content-start align-items-center">
+                                                            <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png"
+                                                                class="user-img me-2 img-thumbnail" alt="">
+                                                            <div class="flex-start">
+                                                                <h6 class="text title mb-0 pb-0 review-fullname">Gokarna
+                                                                    Adhikari
+                                                                </h6>
+                                                                <small
+                                                                    class="text text-secondary mt-0 review-username">@goku153</small>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justidy-content-start align-items-center">
+                                                            <i class="fa fa-clock-o me-2 title"></i>
+                                                            <p class="text mb-0 title">10th Oct, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ms-5">
+                                                        <p class="text mb-0 title review">The Food Fresh and Delicious!
+                                                            Loved
+                                                            it.</p>
+                                                    </div>
+                                                </div>
+                                                <!--  -->
+                                                <div class="all-reviews-section bg-light px-3 py-2 mb-3">
+                                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                                        <div class="d-flex justify-content-start align-items-center">
+                                                            <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png"
+                                                                class="user-img me-2 img-thumbnail" alt="">
+                                                            <div class="flex-start">
+                                                                <h6 class="text title mb-0 pb-0 review-fullname">Gokarna
+                                                                    Adhikari
+                                                                </h6>
+                                                                <small
+                                                                    class="text text-secondary mt-0 review-username">@goku153</small>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justidy-content-start align-items-center">
+                                                            <i class="fa fa-clock-o me-2 title"></i>
+                                                            <p class="text mb-0 title">10th Oct, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ms-5">
+                                                        <p class="text mb-0 title review">The Food Fresh and Delicious!
+                                                            Loved
+                                                            it.</p>
+                                                    </div>
+                                                </div>
+                                                <!--  -->
+                                            </div>
+                                            <!--  -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  -->
+                        </div>
+                        <!-- Restaurant Information Section -->
+                        <div class="tab-pane fade" id="v-pills-resto-info" role="tabpanel"
+                            aria-labelledby="v-pills-resto-info-tab">
+                            <!--  -->
+                            <h4 class="text text-start title mini-title">Restaurant Information</h4>
+                            <div class="hr-section my-0">
+                                <hr class="col-md-1 pt-1 bg-warning mt-1 mb-4 rounded-pill">
+                            </div>
+                            <!--  -->
+                            <div class="">
+                                <!-- Description -->
+                                <h5 class="text title mb-3">Description</h5>
+                                <p class="text text-secondary mb-5">
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+                                    piece of classical Latin literature from 45 BC, making it over 2000 years old.
+                                    Richard
+                                    McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one
+                                    of the more
+                                    obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the
+                                    cites of
+                                    the word in classical literature, discovered the undoubtable source.
+                                </p>
+                                <!-- Map Section -->
+                                <h5 class="text title mb-3">Current Location</h5>
+                                <div class="gmap_canvas">
+                                    <iframe width="100%" height="350" id="gmap_canvas"
+                                        src="https://maps.google.com/maps?q=Thulobharyang&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                </div>
+                                <!--  -->
+                            </div>
+                            <!--  -->
+                        </div>
+                        <!--  -->
+                    </div>
+                    <!--  -->
+                </div>
+            </div>
+        </div>
+        <!--  -->
+    </div>
+</div>
+<!--  -->
+
+
+{% endblock content %}

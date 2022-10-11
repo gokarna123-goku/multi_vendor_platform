@@ -1,0 +1,186 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+{% block title %}Cart{% endblock title %}
+{% block content %}
+<!--  -->
+<div class="container-fluid px-0 mx-0 mt-5 pt-5 cart-section">
+    <div class="container col-md-11">
+
+    </div>
+</div>
+<!--  -->
+
+
+<div class="container-fluid px-0 mx-0 py-5 bg-light">
+    <div class="container col-md-11">
+        <div class="row mb-5">
+            <div class="col-lg-12">
+                <div class="p-4 shadow-sm bg-white mx-1">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="border-0 bg-light">
+                                        <div class="p-2 px-3 text-uppercase">Food</div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light text-center">
+                                        <div class="py-2 text-uppercase">Price</div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light text-center">
+                                        <div class="py-2 text-uppercase">Quantity</div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light text-center">
+                                        <div class="py-2 text-uppercase">Action</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <!--  -->
+                            <tbody>
+                                <!--  -->
+                                <tr>
+                                    <td scope="row">
+                                        <div class="p-2">
+                                            <img src="{% static 'images/pizza-blog5.jpg' %}" alt="" width="70"
+                                                class="img-fluid rounded shadow-sm me-2">
+                                            <div class="ml-3 d-inline-block align-middle">
+                                                <h5 class="mb-0 d-lg-block d-none">
+                                                    <a href="#" class="text-decoration-none title d-inline-block">
+                                                        Chicken Pizza
+                                                    </a>
+                                                </h5>
+                                                <h6 class="mb-0 d-lg-none d-block">
+                                                    <a href="#" class="text-decoration-none title d-inline-block">
+                                                        Chicken Pizza
+                                                    </a>
+                                                </h6>
+                                                <span class="text-muted font-weight-normal font-italic">
+                                                    Category: Chicken, Pizza
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center"><strong>$79.00</strong></td>
+                                    <td class="align-middle text-center"><strong>3</strong></td>
+                                    <td class="align-middle text-center">
+                                        <a href="#" class="text-dark">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <!--  -->
+                                <tr>
+                                    <td scope="row">
+                                        <div class="p-2">
+                                            <img src="{% static 'images/pizza-blog5.jpg' %}" alt="" width="70"
+                                                class="img-fluid rounded shadow-sm me-2">
+                                            <div class="ml-3 d-inline-block align-middle">
+                                                <h5 class="mb-0 d-lg-block d-none">
+                                                    <a href="#" class="text-decoration-none title d-inline-block">
+                                                        Chicken Burger
+                                                    </a>
+                                                </h5>
+                                                <h6 class="mb-0 d-lg-none d-block">
+                                                    <a href="#" class="text-decoration-none title d-inline-block">
+                                                        Chicken Burger
+                                                    </a>
+                                                </h6>
+                                                <span class="text-muted font-weight-normal font-italic">
+                                                    Category: Burger, Chicken
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center"><strong>$79.00</strong></td>
+                                    <td class="align-middle text-center"><strong>3</strong></td>
+                                    <td class="align-middle text-center">
+                                        <a href="#" class="text-dark">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <!--  -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+        </div>
+        <!--  -->
+        <div class="row">
+            <div class="col-lg-7 col-12 mb-4">
+                <div class="p-4 shadow-sm bg-white mx-1">
+                    <div class="title bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
+                    <div class="p-4">
+                        <p class="font-italic mb-4">If you have a coupon code, please enter it in the box below</p>
+                        <div class="input-group mb-4 border p-2">
+                            <input type="text" placeholder="Apply coupon" aria-describedby="button-addon3"
+                                class="form-control">
+                            <div class="input-group-append border-0">
+                                <button id="button-addon3" type="button" class="btn btn-dark px-4">
+                                    <i class="fa fa-gift mr-2"></i>
+                                    Apply coupon
+                                </button>
+                            </div>
+                        </div>
+                        <!-- <div class="input-group mb-4 border rounded-pill p-2">
+                            <input type="text" placeholder="Apply coupon" aria-describedby="button-addon3"
+                                class="form-control">
+                            <div class="input-group-append border-0">
+                                <button id="button-addon3" type="button" class="btn btn-dark px-4 rounded-pill">
+                                    <i class="fa fa-gift mr-2"></i>
+                                    Apply coupon
+                                </button>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="title bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">
+                        Instructions for seller
+                    </div>
+                    <div class="p-4">
+                        <p class="font-italic mb-4">
+                            If you have some information for the seller you can leave them in the box below
+                        </p>
+                        <textarea name="" cols="30" rows="2" class="form-control border"
+                            placeholder="Type your message..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col-lg-5 col-12 mb-4">
+                <div class="px-4 pt-4 pb-2 shadow-sm bg-white mx-1">
+                    <div class="title bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary
+                    </div>
+                    <div class="p-4">
+                        <p class="font-italic mb-1">
+                            Shipping and additional costs are calculated based on values you have entered.
+                        </p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="d-flex justify-content-between py-3 border-bottom">
+                                <strong class="text-muted">Order Subtotal </strong> <strong>$390.00</strong>
+                            </li>
+                            <li class="d-flex justify-content-between py-3 border-bottom">
+                                <strong class="text-muted">Shipping and handling</strong><strong>$10.00</strong>
+                            </li>
+                            <li class="d-flex justify-content-between py-3 border-bottom">
+                                <strong class="text-muted">Tax</strong><strong>$0.00</strong>
+                            </li>
+                            <li class="d-flex justify-content-between py-3 border-bottom">
+                                <strong class="text-muted">Total</strong>
+                                <h5 class="font-weight-bold">$400.00</h5>
+                            </li>
+                        </ul>
+                        <a href="{% url 'homepage:checkout' %}" class="btn btn-warning py-2 w-100 mb-0">
+                            Procceed to checkout
+                        </a>
+                        <!-- <a href="#" class="btn btn-dark rounded-pill py-2 w-100 mb-0">Procceed to checkout</a> -->
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
