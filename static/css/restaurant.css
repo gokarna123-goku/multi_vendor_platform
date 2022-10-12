@@ -411,6 +411,7 @@ ul{
 .tab-hr{
     background: #ebeaea;
 }
+
 .resto-image{
     width: 60px;
     height: 60px;
@@ -716,6 +717,12 @@ ul{
 
 .blog-category-hr{
     background: #ebeaea;
+}
+
+/* Blog Detail Section */
+.blog-img{
+    width: 100%;
+    height: 52vh;
 }
 
 

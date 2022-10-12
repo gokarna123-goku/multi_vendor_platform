@@ -20,6 +20,9 @@ def foodDetail(request):
 def blog(request):
     return render(request, 'blogs/blog.html')
 
+def blogDetail(request):
+    return render(request, 'blogs/blog_detail.html')
+
 def contact(request):
     return render(request, 'contact/contact.html')
 
