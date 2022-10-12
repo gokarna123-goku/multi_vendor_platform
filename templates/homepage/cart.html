@@ -18,16 +18,17 @@
                 <div class="p-4 shadow-sm bg-white mx-1">
                     <div class="table-responsive">
                         <table class="table">
+                            <!--  -->
                             <thead>
                                 <tr>
                                     <th scope="col" class="border-0 bg-light">
                                         <div class="p-2 px-3 text-uppercase">Food</div>
                                     </th>
                                     <th scope="col" class="border-0 bg-light text-center">
-                                        <div class="py-2 text-uppercase">Price</div>
+                                        <div class="py-2 text-uppercase">Quantity</div>
                                     </th>
                                     <th scope="col" class="border-0 bg-light text-center">
-                                        <div class="py-2 text-uppercase">Quantity</div>
+                                        <div class="py-2 text-uppercase">Price</div>
                                     </th>
                                     <th scope="col" class="border-0 bg-light text-center">
                                         <div class="py-2 text-uppercase">Action</div>
@@ -59,8 +60,8 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="align-middle text-center"><strong>$79.00</strong></td>
                                     <td class="align-middle text-center"><strong>3</strong></td>
+                                    <td class="align-middle text-center"><strong>Rs. 79.00</strong></td>
                                     <td class="align-middle text-center">
                                         <a href="#" class="text-dark">
                                             <i class="fa fa-trash"></i>
@@ -90,8 +91,8 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="align-middle text-center"><strong>$79.00</strong></td>
                                     <td class="align-middle text-center"><strong>3</strong></td>
+                                    <td class="align-middle text-center"><strong>Rs. 79.00</strong></td>
                                     <td class="align-middle text-center">
                                         <a href="#" class="text-dark">
                                             <i class="fa fa-trash"></i>
@@ -99,7 +100,75 @@
                                     </td>
                                 </tr>
                                 <!--  -->
+                                <tr>
+                                    <td scope="row">
+                                        <div class="p-2">
+                                            <img src="{% static 'images/pizza-blog5.jpg' %}" alt="" width="70"
+                                                class="img-fluid rounded shadow-sm me-2">
+                                            <div class="ml-3 d-inline-block align-middle">
+                                                <h5 class="mb-0 d-lg-block d-none">
+                                                    <a href="#" class="text-decoration-none title d-inline-block">
+                                                        Chicken Burger
+                                                    </a>
+                                                </h5>
+                                                <h6 class="mb-0 d-lg-none d-block">
+                                                    <a href="#" class="text-decoration-none title d-inline-block">
+                                                        Chicken Burger
+                                                    </a>
+                                                </h6>
+                                                <span class="text-muted font-weight-normal font-italic">
+                                                    Category: Burger, Chicken
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center"><strong>3</strong></td>
+                                    <td class="align-middle text-center"><strong>Rs. 79.00</strong></td>
+                                    <td class="align-middle text-center">
+                                        <a href="#" class="text-dark">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <!--  -->
+                                <tr>
+                                    <td scope="row">
+                                        <div class="p-2">
+                                            <img src="{% static 'images/pizza-blog5.jpg' %}" alt="" width="70"
+                                                class="img-fluid rounded shadow-sm me-2">
+                                            <div class="ml-3 d-inline-block align-middle">
+                                                <h5 class="mb-0 d-lg-block d-none">
+                                                    <a href="#" class="text-decoration-none title d-inline-block">
+                                                        Chicken Burger
+                                                    </a>
+                                                </h5>
+                                                <h6 class="mb-0 d-lg-none d-block">
+                                                    <a href="#" class="text-decoration-none title d-inline-block">
+                                                        Chicken Burger
+                                                    </a>
+                                                </h6>
+                                                <span class="text-muted font-weight-normal font-italic">
+                                                    Category: Burger, Chicken
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center"><strong>3</strong></td>
+                                    <td class="align-middle text-center"><strong>Rs. 79.00</strong></td>
+                                    <td class="align-middle text-center">
+                                        <a href="#" class="text-dark">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <!--  -->
+                                <tr>
+                                    <td colspan="2" class="h5 text-end pe-3"><strong>Grand Total</strong></td>
+                                    <td class="text-center">Rs. 1200</td>
+                                </tr>
+                                <!--  -->
                             </tbody>
+                            <!--  -->
                         </table>
                     </div>
                 </div>
@@ -147,17 +216,17 @@
                         </p>
                         <ul class="list-unstyled mb-4">
                             <li class="d-flex justify-content-between py-3 border-bottom">
-                                <strong class="text-muted">Order Subtotal </strong> <strong>$390.00</strong>
+                                <strong class="text-muted">Order Subtotal </strong> <strong>Rs. 390.00</strong>
                             </li>
                             <li class="d-flex justify-content-between py-3 border-bottom">
-                                <strong class="text-muted">Shipping and handling</strong><strong>$10.00</strong>
+                                <strong class="text-muted">Shipping and handling</strong><strong>Rs. 10.00</strong>
                             </li>
                             <li class="d-flex justify-content-between py-3 border-bottom">
-                                <strong class="text-muted">Tax</strong><strong>$0.00</strong>
+                                <strong class="text-muted">Tax</strong><strong>Rs. 0.00</strong>
                             </li>
                             <li class="d-flex justify-content-between py-3 border-bottom">
                                 <strong class="text-muted">Total</strong>
-                                <h5 class="font-weight-bold">$400.00</h5>
+                                <h5 class="font-weight-bold">Rs. 400.00</h5>
                             </li>
                         </ul>
                         <a href="{% url 'homepage:checkout' %}" class="btn btn-warning py-2 w-100 mb-0">
