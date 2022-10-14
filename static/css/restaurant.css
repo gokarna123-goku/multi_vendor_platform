@@ -360,16 +360,16 @@ ul{
 
 
 /* Restaurant Section */
-.resto-main{
+/* .resto-main{
     position: relative;
-}
+} */
 
 .restaurant-section{
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65) 80%, rgba(0, 0, 0, 0.65) 75% ), url('/static/images/rest-bg.jpg');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 55vh;
+    height: 40vh;
 }
 
 .resto-info-section{
@@ -408,6 +408,18 @@ ul{
 }
 
 /* Restaurant Details */
+.resto-detail-main{
+    position: relative;
+}
+
+.restaurant-detail-section{
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65) 80%, rgba(0, 0, 0, 0.65) 75% ), url('/static/images/rest-bg.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 60vh;
+}
+
 .tab-hr{
     background: #ebeaea;
 }
@@ -518,6 +530,7 @@ ul{
     display: flex;
     justify-content: start;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .input-section{
@@ -725,6 +738,14 @@ ul{
     height: 52vh;
 }
 
+/* Vendor Section */
+.vendor-section{
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.80) 85%, rgba(0, 0, 0, 0.80) 80% ), url('/static/images/joinus.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 30vh;
+}
 
 /* Contact Section */
 .contact-main{
@@ -779,12 +800,21 @@ ul{
     height: 140px;
 }
 
+/* Price Plan Section */
+.plan-btn{
+    color: #fff;
+    background: linear-gradient(to left, #343a40 50%, #231900 50%) right;
+    background-size: 200%;
+    font-size: 1.103rem;
+    transition: .5s ease-out;
+}
+
+.plan-btn:hover{
+    color: #fff;
+    background-position: left;
+}
+
 /* Payment Section */
-
-/* .payment-section{
-    width: 100%;
-} */
-
 .payment-tab-box{
     width: 100% !important;
 }
@@ -847,16 +877,21 @@ ul{
 
 /* Media Query Section */
 @media screen and (max-width:476px) {
+    .hero-section {
+        background-image: url('/static/images/homepagebg.png');
+        background-position: center center;
+        height: 96vh !important;
+    }
     .main-title {
-        font-size: 2.488rem;
-        font-weight: 8100;
-        letter-spacing: 1.7px;
+        font-size: 2.288rem !important;
+        font-weight: 6500;
+        letter-spacing: 1.3px;
     }
     .feature-bgimg {
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65) 80%, rgba(0, 0, 0, 0.65) 75% ), url('/static/images/feature.png');
         background-position: top left;
         background-repeat: no-repeat;
-        height: 35vh;
+        height: 35vh !important;
         position: relative;
     }
     .feature-bgimg .text-secondary {
@@ -867,11 +902,84 @@ ul{
         color: #f8f9fa;
     }
     .big-title {
-        font-size: 1.833rem;
+        font-size: 1.833rem !important;
+    }
+    .team-img-section .team-img {
+        width: 100%;
+        height: 38vh !important;
+    }
+    .restaurant-section {
+        height: 25vh !important;
     }
     .table-img-icon{
         width: 100%;
         height: auto;
+    }
+}
+
+/* For 768px devices (Ipad Section) */
+@media screen and (max-width:768px) {
+    /* Landing page */
+    .hero-section {
+        background-image: url('/static/images/homepagebg.png');
+        background-position: center center;
+        height: 66vh;
+    }
+    .main-title {
+        font-size: 2.888rem;
+        font-weight: 8100;
+        letter-spacing: 1.7px;
+    }
+    .big-title {
+        font-size: 2.000rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+    .feature-bgimg {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65) 80%, rgba(0, 0, 0, 0.65) 75% ), url('/static/images/feature.png');
+        background-position: top left;
+        background-repeat: no-repeat;
+        height: 30vh;
+        position: relative;
+    }
+    .feature-bgimg .text-secondary {
+        color: #b5b5b5 !important;
+    }
+    .restaurant-title {
+        font-size: 2.033rem;
+        color: #f8f9fa;
+    }
+    .team-img-section .team-img {
+        width: 100%;
+        height: 32vh;
+    }
+    .img-box .resto-img {
+        width: 100%;
+        height: 28vh;
+    }
+    .restaurant-section {
+        height: 30vh;
+    }
+    .restaurant-detail-section {
+        height: 30vh;
+    }
+    .food-section {
+        height: 30vh;
+    }
+    .food-detail-title {
+        font-size: 1.888rem;
+    }
+    /* Blog Section */
+    .blog-section {
+        height: 20vh;
+    }
+    .blog-img {
+        width: 100%;
+        height: 38vh;
+    }
+    .contact-main {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.85) 85%, rgba(0, 0, 0, 0.85) 80% ), url('/static/images/contact-bg.jpg');
+        height: 24vh;
     }
 }
 /*  */

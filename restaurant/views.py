@@ -26,6 +26,9 @@ def blogDetail(request):
 def contact(request):
     return render(request, 'contact/contact.html')
 
+def vendorMembership(request):
+    return render(request, 'vendor/vendor.html')
+
 def cart(request):
     return render(request, 'homepage/cart.html')
 

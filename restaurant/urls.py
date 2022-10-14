@@ -15,6 +15,7 @@ urlpatterns = [
     path('blog/', views.blog, name='blog'),
     path('blog-detail/', views.blogDetail, name='blog-detail'),
     path('contact/', views.contact, name='contact'),
+    path('vendor/', views.vendorMembership, name='vendor'),
     path('cart/', views.cart, name='cart'),
     path('checkout/', views.checkout, name='checkout'),
     path('payment/options/', views.payment, name='payment'),
