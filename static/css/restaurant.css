@@ -29,7 +29,7 @@
     box-shadow: none;
 }
 
-.form-check-input{
+.form-check-input[type=checkbox]{
     border-radius: 0px !important;
 }
 
