@@ -501,12 +501,19 @@ ul{
 }
 
 /* Food Detail Section */
+.food-detail-section{
+    position: relative;
+}
 .food-detail-bg{
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65) 80%, rgba(0, 0, 0, 0.65) 75% ), url('/static/images/pizza-blog4.jpg');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 25vh;
+    height: 30vh;
+}
+.food-detail-bg .resto-icon{
+    width: 100px;
+    height: 110px;
 }
 
 .dprice{
@@ -745,6 +752,39 @@ ul{
     background-size: cover;
     background-repeat: no-repeat;
     height: 30vh;
+}
+
+.price-plan-box{
+    box-shadow: 0px 0px 5px #b5b5b5;
+    transition: 0.3s ease-in;
+}
+
+.price-plan-box:hover{
+    box-shadow: 1px 1px 15px #b5b5b5;
+}
+
+.text-standard{
+    color: #4153FA;
+}
+
+.standard-price-section{
+    background: #4153FA;
+}
+
+.standard-btn{
+    background: #4153FA;
+}
+
+.text-premium{
+    color: #E5AC16;
+}
+
+.premium-price-section{
+    background: #E5AC16;
+}
+
+.premium-btn{
+    background: #E5AC16;
 }
 
 /* Contact Section */
