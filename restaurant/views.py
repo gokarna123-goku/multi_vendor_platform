@@ -28,16 +28,13 @@ class RestaurantDetailView(generic.DetailView):
 
     def get(self, request, *args, **kwargs):
         template_name = "restaurant/resto_detail.html"
-        # print(self.kwargs.get(id='restaurant_id'))
-        # restaurant_details = Restaurant.objects.get(restaurant_id=self.kwargs.get('restaurant_id'))
         restaurant_detail_list = Restaurant.objects.get(restaurant_id=self.kwargs.get('restaurant_id'))
         context = {
             'restaurant_detail_list': restaurant_detail_list,
         }
         return render(request, template_name, context)
 
-# def restoDetail(request):
-#     return render(request, 'restaurant/resto_detail.html')
+
 
 def food(request):
     return render(request, 'foods/food.html')

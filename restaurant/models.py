@@ -37,44 +37,76 @@ class Customer(models.Model):
         return self.fullname
 
 
+def get_file_path_for_food(request, filename):
+    original_filename = filename
+    nowTime = datetime.datetime.now().strftime('%Y%m%d%H:%M:%S')
+    filename = "%s%s" % (nowTime, original_filename)
+    return os.path.join('foods/', filename)
+
+class FoodCategory(models.Model):
+    food_category_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    food_category_title = models.CharField(max_length=150)
+
+    def __str__(self):
+        return self.food_category_title
+
+
+class Food(models.Model):
+    food_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    food_name = models.CharField(max_length=80)
+    food_description = models.TextField()
+    food_quantity = models.IntegerField()
+    food_selling_price = models.DecimalField(max_digits=15,decimal_places=2)
+    food_discound_price = models.DecimalField(max_digits=15,decimal_places=2)
+    food_image = models.ImageField(upload_to=get_file_path_for_food)
+    status= models.CharField(max_length=25, choices=OrderStatus)
+    is_featured = models.BooleanField(default=False)
+    food_category = models.ForeignKey(FoodCategory, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.food_name
+
 # From the official models.py
 class RestaurantCategory(models.Model):
     restaurant_category_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     restaurant_category_name = models.CharField(max_length=150)
+
     def __str__(self):
         return self.restaurant_category_name
 
 
-def get_file_path(request, filename):
+def get_file_path_for_restaurant(request, filename):
     original_filename = filename
     nowTime = datetime.datetime.now().strftime('%Y%m%d%H:%M:%S')
     filename = "%s%s" % (nowTime, original_filename)
     return os.path.join('restaurants/', filename)
 
-class RestaurantImages(models.Model):
-    Restaurant_image_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    image = models.ImageField(upload_to=get_file_path)
 
-    # def __str__(self):
-    #     return self.Restaurant_image_id
+class RestaurantImages(models.Model):
+    restaurant_image_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    restaurant_category_image = models.ImageField(upload_to=get_file_path_for_restaurant)
+
+    def __str__(self):
+        return 'Restaurant Image: ' + str(self.id)
 
 
 class Restaurant(models.Model):
     restaurant_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=150, null=True, blank=True)
-    address = models.CharField(max_length=255, null=True, blank=True)
-    city = models.CharField(max_length=255, null=True, blank=True)
-    state = models.CharField(max_length=255, null=True, blank=True)
-    Restaurant_type = models.ForeignKey(RestaurantCategory, on_delete=models.CASCADE)
-    latitude = models.DecimalField(max_digits=15,decimal_places=2)
-    longitude = models.DecimalField(max_digits=15,decimal_places=2)
-    is_open = models.BooleanField(default=False)
-    hours_of_operation = models.TextField()
+    restaurant_name = models.CharField(max_length=150, null=True, blank=True)
+    restaurant_address = models.CharField(max_length=255, null=True, blank=True)
+    restaurant_city = models.CharField(max_length=255, null=True, blank=True)
+    restaurant_state = models.CharField(max_length=255, null=True, blank=True)
+    restaurant_type = models.ForeignKey(RestaurantCategory, on_delete=models.CASCADE)
+    restaurant_location_latitude = models.DecimalField(max_digits=15,decimal_places=2)
+    restaurant_location_longitude = models.DecimalField(max_digits=15,decimal_places=2)
+    restaurant_is_open = models.BooleanField(default=False)
+    restaurant_hours_of_operation = models.TextField()
+    restaurant_opening_time = models.TimeField()
+    restaurant_closing_time = models.TimeField()
     restaurant_image = models.ForeignKey(RestaurantImages,on_delete=models.CASCADE)
-    # images = models.ImageField(null=False, blank=False)
+    restaurant_description = models.TextField()
 
     def __str__(self):
-
         return self.name
 
 
@@ -97,62 +129,54 @@ class Menu(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
 
 
+# class Cart(models.Model):
+#     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
+#     total = models.PositiveIntegerField(default=0)
+#     created_at = models.DateTimeField(auto_now_add=True)
 
-class FoodCategory(models.Model):
-    title = models.CharField(max_length=200)
-    slug = models.SlugField(unique=True)
-
-    def __str__(self):
-        return self.title
-
-
-class Food(models.Model):
-    food_name = models.CharField(max_length=200)
-    slug = models.SlugField(unique=True)
-    category = models.ForeignKey(FoodCategory, on_delete=models.CASCADE)
-    food_image = models.ImageField(upload_to="foods")
-    food_price = models.PositiveIntegerField()
-    discount_price = models.PositiveIntegerField()
-    description = models.TextField()
-
-    def __str__(self):
-        return self.food_name
-
-
-class Cart(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
-    total = models.PositiveIntegerField(default=0)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return 'Cart: ' + str(self.id)
+#     def __str__(self):
+#         return 'Cart: ' + str(self.id)
 
 
 
-ORDER_STATUS = (
-    ("Order Received", "Order Received"),
-    ("Order Processing", "Order Processing"),
-    ("On the Way", "On the Way"),
-    ("Order Completed", "Order Completed"),
-    ("Order Cancelled", "Order Cancelled"),
-    ("Order Delivered", "Order Delivered"),
-)
+# ORDER_STATUS = (
+#     ("Order Received", "Order Received"),
+#     ("Order Processing", "Order Processing"),
+#     ("On the Way", "On the Way"),
+#     ("Order Completed", "Order Completed"),
+#     ("Order Cancelled", "Order Cancelled"),
+#     ("Order Delivered", "Order Delivered"),
+# )
 
-class Order(models.Model):
-    cart = models.OneToOneField(Cart, on_delete=models.CASCADE)
-    order_by = models.CharField(max_length=200)
-    shipping_address = models.CharField(max_length=200)
-    mobile = models.CharField(max_length=10)
-    email = models.EmailField(null=True, blank=True)
-    subtotal = models.PositiveIntegerField()
-    discount = models.PositiveIntegerField()
-    total = models.PositiveIntegerField()
-    order_status = models.CharField(max_length=50, choices=ORDER_STATUS)
-    created_at = models.DateTimeField(auto_now_add=True)
+# class Order(models.Model):
+#     cart = models.OneToOneField(Cart, on_delete=models.CASCADE)
+#     order_by = models.CharField(max_length=200)
+#     shipping_address = models.CharField(max_length=200)
+#     mobile = models.CharField(max_length=10)
+#     email = models.EmailField(null=True, blank=True)
+#     subtotal = models.PositiveIntegerField()
+#     discount = models.PositiveIntegerField()
+#     total = models.PositiveIntegerField()
+#     order_status = models.CharField(max_length=50, choices=ORDER_STATUS)
+#     created_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return 'Order: ' + str(self.id) 
+#     def __str__(self):
+#         return 'Order: ' + str(self.id) 
 
+
+def get_file_path_for_blog(request, filename):
+    original_filename = filename
+    nowTime = datetime.datetime.now().strftime('%Y%m%d%H:%M:%S')
+    filename = "%s%s" % (nowTime, original_filename)
+    return os.path.join('blogs/', filename)
+
+class Blog(models.Model):
+    blog_id = models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
+    blog_category_name = models.ForeignKey(FoodCategory, on_delete=models.CASCADE)
+    blog_title = models.CharField(max_length=150, null=False, blank=False)
+    blog_description = models.TextField()
+    blog_publish_date = models.DateTimeField(auto_now_add=True)
+    blog_image = models.ImageField(upload_to=get_file_path_for_blog)
 
 
 

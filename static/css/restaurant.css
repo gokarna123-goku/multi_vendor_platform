@@ -194,11 +194,20 @@ ul{
     letter-spacing: 1px;
 }
 
-.resto-img-sec{
+.img-category-home-section{
+    overflow: hidden;
+}
+
+.img-category-home-section .resto-img-sec{
     width: 100px;
     height: 70px;
     object-position: center;
     object-fit: cover;
+    transition: 1s ease-out;
+}
+
+.img-category-home-section:hover .resto-img-sec{
+    transform: scale(1.5);
 }
 
 .mini-title{
@@ -455,11 +464,11 @@ ul{
 }
 
 .food-section{
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65) 80%, rgba(0, 0, 0, 0.65) 75% ), url('/static/images/pizza-blog4.jpg');
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65) 80%, rgba(0, 0, 0, 0.65) 75% ), url('/static/images/foods-section-bg.jpg');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 55vh;
+    height: 35vh;
 }
 
 .food-info-section{

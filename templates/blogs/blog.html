@@ -147,7 +147,7 @@
                 <div class="p-3 shadow-sm bg-white">
                     <!-- Search Section -->
                     <div class="input-group mb-4 border p-2">
-                        <input type="text" placeholder="Search food Categories..." aria-describedby="button-addon3"
+                        <input type="text" id="myInput" placeholder="Search food Categories..." aria-describedby="button-addon3"
                             class="form-control">
                         <div class="input-group-append border-0">
                             <button id="button-addon3" type="button" class="btn btn-dark px-2">
@@ -162,32 +162,32 @@
                         <div class="hr-section my-0">
                             <hr class="col-md-2 pt-1 bg-warning mt-1 mb-4 rounded-pill">
                         </div>
-                        <ul class="blog-category-list">
-                            <li class="mb-1">
+                        <ul class="blog-category-list" id="myDIV">
+                            <li class="mb-2 bg-light py-1">
                                 <a href="#" class="text-decoration-none blog-category-link">
                                     <i class="fa fa-long-arrow-right fs-6"></i> Appetizers
                                 </a>
                             </li>
-                            <hr class="my-2 blog-category-hr">
-                            <li class="mb-1">
+                            <!-- <hr class="my-2 blog-category-hr"> -->
+                            <li class="mb-2 bg-light py-1">
                                 <a href="#" class="text-decoration-none blog-category-link">
                                     <i class="fa fa-long-arrow-right fs-6"></i> Grilled Chicken
                                 </a>
                             </li>
-                            <hr class="my-2 blog-category-hr">
-                            <li class="mb-1">
+                            <!-- <hr class="my-2 blog-category-hr"> -->
+                            <li class="mb-2 bg-light py-1">
                                 <a href="#" class="text-decoration-none blog-category-link">
                                     <i class="fa fa-long-arrow-right fs-6"></i> Shakes
                                 </a>
                             </li>
-                            <hr class="my-2 blog-category-hr">
-                            <li class="mb-1">
+                            <!-- <hr class="my-2 blog-category-hr"> -->
+                            <li class="mb-2 bg-light py-1">
                                 <a href="#" class="text-decoration-none blog-category-link">
                                     <i class="fa fa-long-arrow-right fs-6"></i> Sea Food
                                 </a>
                             </li>
-                            <hr class="my-2 blog-category-hr">
-                            <li class="mb-1">
+                            <!-- <hr class="my-2 blog-category-hr"> -->
+                            <li class="mb-2 bg-light py-1">
                                 <a href="#" class="text-decoration-none blog-category-link">
                                     <i class="fa fa-long-arrow-right fs-6"></i> Italian
                                 </a>
@@ -203,4 +203,18 @@
 </div>
 <!--  -->
 
+
 {% endblock content %}
+
+{% block scripts %}
+    <script>
+        $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myDIV li ").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        });
+    </script>
+{% endblock scripts %}
