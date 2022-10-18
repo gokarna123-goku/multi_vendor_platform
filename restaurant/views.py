@@ -1,15 +1,43 @@
 from django.shortcuts import render
+from django.views import generic
+from .models import *
+
 
 # Create your views here.
 
 def home(request):
     return render(request, 'homepage/index.html')
 
-def restaurant(request):
-    return render(request, 'restaurant/restaurant.html')
+class RestaurantView(generic.ListView):
+    # model = Restaurant
+    # context_object_name = 'restaurants_list'
 
-def restoDetail(request):
-    return render(request, 'restaurant/resto_detail.html')
+    def get(self, request, *args, **kwargs):
+        template_name = "restaurant/restaurant.html"
+        restaurants_list = Restaurant.objects.all()
+        print(restaurants_list)
+        context = {
+            'restaurants_list': restaurants_list
+        }
+        return render(request, template_name, context)
+
+# def restaurant(request):
+#     return render(request, 'restaurant/restaurant.html')
+
+class RestaurantDetailView(generic.DetailView):
+
+    def get(self, request, *args, **kwargs):
+        template_name = "restaurant/resto_detail.html"
+        # print(self.kwargs.get(id='restaurant_id'))
+        # restaurant_details = Restaurant.objects.get(restaurant_id=self.kwargs.get('restaurant_id'))
+        restaurant_detail_list = Restaurant.objects.get(restaurant_id=self.kwargs.get('restaurant_id'))
+        context = {
+            'restaurant_detail_list': restaurant_detail_list,
+        }
+        return render(request, template_name, context)
+
+# def restoDetail(request):
+#     return render(request, 'restaurant/resto_detail.html')
 
 def food(request):
     return render(request, 'foods/food.html')

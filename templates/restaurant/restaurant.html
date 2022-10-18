@@ -32,15 +32,16 @@
         </div>
         <hr class="bg-secondary">
         <div class="row mb-3">
+            {% for restaurant in restaurants_list %}
             <!-- First Restaurant Box -->
             <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
                 <div class="bg-light restaurant-box pt-0 pb-2">
                     <!-- Resto Image Section -->
                     <div class="img-box">
-                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
+                        <img src="{{restaurant.restaurant_image.image.url}}"
                             class="resto-img" alt="">
                         <div class="restaurant-type bg-warning">
-                            <p class="mb-0 px-2 py-3">Coffee</p>
+                            <p class="mb-0 px-2 py-3">{{restaurant.Restaurant_type}}</p>
                         </div>
                         <div class="order-box">
                             <i class="fa fa-truck text-warning"></i>
@@ -64,8 +65,8 @@
                             <!--  -->
                         </div>
                         <!-- Resto name -->
-                        <a href="{% url 'homepage:restaurant-detail' %}" class="text-decoration-none">
-                            <h4 class="text title">Himalayan Java Coffee</h4>
+                        <a href="{% url 'homepage:restaurant-detail-data' restaurant.restaurant_id %}" class="text-decoration-none">
+                            <h4 class="text title">{{restaurant.name}}</h4>
                         </a>
                         <!-- Resto Tag will be here -->
                         <p class="text text-warning">
@@ -82,264 +83,12 @@
                             <div class="text-count text-start">
                                 <div class="d-flex justify-content-start align-items-center mb-1">
                                     <i class="fa fa-clock-o me-2"></i>
-                                    <p class="text mb-0">10:00 AM - 05:30 PM</p>
+                                    <p class="text mb-0">{{restaurant.hours_of_operation}}</p>
                                 </div>
                                 <!--  -->
                                 <div class="d-flex justify-content-start align-items-center">
                                     <i class="fa fa-map me-2"></i>
-                                    <p class="text mb-0">Thulobharyang, Kathmandu</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
-                </div>
-            </div>
-            <!-- Second Restaurant Box -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
-                <div class="bg-light restaurant-box pt-0 pb-2">
-                    <!-- Resto Image Section -->
-                    <div class="img-box">
-                        <img src="https://cdn.pixabay.com/photo/2016/10/04/05/21/bar-1713610__340.jpg" class="resto-img"
-                            alt="">
-                        <div class="restaurant-type bg-warning">
-                            <p class="mb-0 px-2 py-3">Drink</p>
-                        </div>
-                        <div class="order-box">
-                            <i class="fa fa-truck text-warning"></i>
-                        </div>
-                    </div>
-                    <!-- Resto Details Section -->
-                    <div class="resto-detail-box mx-3 mt-2">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <!-- Rating Section -->
-                            <div class="d-flex justify-content-start align-items-center">
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star-half-o text-warning me-1"></i>
-                                <i class="fa fa-star-o text-warning me-1"></i>
-                            </div>
-                            <!-- Reviews Section -->
-                            <a href="#" class="text-decoration-none">
-                                <p class="text mb-0">12 Reviews</p>
-                            </a>
-                            <!--  -->
-                        </div>
-                        <!-- Resto name -->
-                        <a href="#" class="text-decoration-none">
-                            <h4 class="text title">Himalayan Drink Shop</h4>
-                        </a>
-                        <!-- Resto Tag will be here -->
-                        <p class="text text-warning">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, facilis autem quam
-                            voluptate .....
-                        </p>
-                    </div>
-                    <!--  -->
-                    <hr class="divider mb-1">
-                    <!-- Resto Location, Categories, & working hours Section -->
-                    <div class="p-2">
-                        <div class="d-flex justify-content-start align-items-center">
-                            <img src="{% static 'images/coffee-shop.png' %}" class="rest-logo me-4" alt="">
-                            <div class="text-count text-start">
-                                <div class="d-flex justify-content-start align-items-center mb-1">
-                                    <i class="fa fa-clock-o me-2"></i>
-                                    <p class="text mb-0">10:00 AM - 05:30 PM</p>
-                                </div>
-                                <!--  -->
-                                <div class="d-flex justify-content-start align-items-center">
-                                    <i class="fa fa-map me-2"></i>
-                                    <p class="text mb-0">Putalisadak, Kathmandu</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
-                </div>
-            </div>
-            <!-- Third Restaurant Box -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
-                <div class="bg-light restaurant-box pt-0 pb-2">
-                    <!-- Resto Image Section -->
-                    <div class="img-box">
-                        <img src="https://cdn.pixabay.com/photo/2020/01/14/18/38/wedding-4765920__340.jpg"
-                            class="resto-img" alt="">
-                        <div class="restaurant-type bg-warning">
-                            <p class="mb-0 px-2 py-3">Family</p>
-                        </div>
-                        <div class="order-box">
-                            <i class="fa fa-truck text-warning"></i>
-                        </div>
-                    </div>
-                    <!-- Resto Details Section -->
-                    <div class="resto-detail-box mx-3 mt-2">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <!-- Rating Section -->
-                            <div class="d-flex justify-content-start align-items-center">
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star-half-o text-warning me-1"></i>
-                                <i class="fa fa-star-o text-warning me-1"></i>
-                            </div>
-                            <!-- Reviews Section -->
-                            <a href="#" class="text-decoration-none">
-                                <p class="text mb-0">12 Reviews</p>
-                            </a>
-                            <!--  -->
-                        </div>
-                        <!-- Resto name -->
-                        <a href="#" class="text-decoration-none">
-                            <h4 class="text title">Himalayan Family Restaurant</h4>
-                        </a>
-                        <!-- Resto Tag will be here -->
-                        <p class="text text-warning">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, facilis autem quam
-                            voluptate .....
-                        </p>
-                    </div>
-                    <!--  -->
-                    <hr class="divider mb-1">
-                    <!-- Resto Location, Categories, & working hours Section -->
-                    <div class="p-2">
-                        <div class="d-flex justify-content-start align-items-center">
-                            <img src="{% static 'images/coffee-shop.png' %}" class="rest-logo me-4" alt="">
-                            <div class="text-count text-start">
-                                <div class="d-flex justify-content-start align-items-center mb-1">
-                                    <i class="fa fa-clock-o me-2"></i>
-                                    <p class="text mb-0">10:00 AM - 05:30 PM</p>
-                                </div>
-                                <!--  -->
-                                <div class="d-flex justify-content-start align-items-center">
-                                    <i class="fa fa-map me-2"></i>
-                                    <p class="text mb-0">Durbar Marg, Kathmandu</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
-                </div>
-            </div>
-            <!-- Fourth Restaurant Box -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
-                <div class="bg-light restaurant-box pt-0 pb-2">
-                    <!-- Resto Image Section -->
-                    <div class="img-box">
-                        <img src="https://cdn.pixabay.com/photo/2020/01/14/18/41/wedding-4765945__340.jpg"
-                            class="resto-img" alt="">
-                        <div class="restaurant-type bg-warning">
-                            <p class="mb-0 px-2 py-3">Events</p>
-                        </div>
-                        <div class="order-box">
-                            <i class="fa fa-truck text-warning"></i>
-                        </div>
-                    </div>
-                    <!-- Resto Details Section -->
-                    <div class="resto-detail-box mx-3 mt-2">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <!-- Rating Section -->
-                            <div class="d-flex justify-content-start align-items-center">
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star-half-o text-warning me-1"></i>
-                                <i class="fa fa-star-o text-warning me-1"></i>
-                            </div>
-                            <!-- Reviews Section -->
-                            <a href="#" class="text-decoration-none">
-                                <p class="text mb-0">12 Reviews</p>
-                            </a>
-                            <!--  -->
-                        </div>
-                        <!-- Resto name -->
-                        <a href="#" class="text-decoration-none">
-                            <h4 class="text title">Himalayan Events Restaurant</h4>
-                        </a>
-                        <!-- Resto Tag will be here -->
-                        <p class="text text-warning">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, facilis autem quam
-                            voluptate .....
-                        </p>
-                    </div>
-                    <!--  -->
-                    <hr class="divider mb-1">
-                    <!-- Resto Location, Categories, & working hours Section -->
-                    <div class="p-2">
-                        <div class="d-flex justify-content-start align-items-center">
-                            <img src="{% static 'images/coffee-shop.png' %}" class="rest-logo me-4" alt="">
-                            <div class="text-count text-start">
-                                <div class="d-flex justify-content-start align-items-center mb-1">
-                                    <i class="fa fa-clock-o me-2"></i>
-                                    <p class="text mb-0">10:00 AM - 05:30 PM</p>
-                                </div>
-                                <!--  -->
-                                <div class="d-flex justify-content-start align-items-center">
-                                    <i class="fa fa-map me-2"></i>
-                                    <p class="text mb-0">Thamel, Kathmandu</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
-                </div>
-            </div>
-            <!-- Fourth Restaurant Box -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
-                <div class="bg-light restaurant-box pt-0 pb-2">
-                    <!-- Resto Image Section -->
-                    <div class="img-box">
-                        <img src="https://cdn.pixabay.com/photo/2014/07/09/12/17/live-concert-388160__340.jpg"
-                            class="resto-img" alt="">
-                        <div class="restaurant-type bg-warning">
-                            <p class="mb-0 px-2 py-3">Bar</p>
-                        </div>
-                        <div class="order-box">
-                            <i class="fa fa-truck text-warning"></i>
-                        </div>
-                    </div>
-                    <!-- Resto Details Section -->
-                    <div class="resto-detail-box mx-3 mt-2">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <!-- Rating Section -->
-                            <div class="d-flex justify-content-start align-items-center">
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star-half-o text-warning me-1"></i>
-                                <i class="fa fa-star-o text-warning me-1"></i>
-                            </div>
-                            <!-- Reviews Section -->
-                            <a href="#" class="text-decoration-none">
-                                <p class="text mb-0">12 Reviews</p>
-                            </a>
-                            <!--  -->
-                        </div>
-                        <!-- Resto name -->
-                        <a href="#" class="text-decoration-none">
-                            <h4 class="text title">Himalayan Dance Bar & Restaurant</h4>
-                        </a>
-                        <!-- Resto Tag will be here -->
-                        <p class="text text-warning">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, facilis autem quam
-                            voluptate .....
-                        </p>
-                    </div>
-                    <!--  -->
-                    <hr class="divider mb-1">
-                    <!-- Resto Location, Categories, & working hours Section -->
-                    <div class="p-2">
-                        <div class="d-flex justify-content-start align-items-center">
-                            <img src="{% static 'images/coffee-shop.png' %}" class="rest-logo me-4" alt="">
-                            <div class="text-count text-start">
-                                <div class="d-flex justify-content-start align-items-center mb-1">
-                                    <i class="fa fa-clock-o me-2"></i>
-                                    <p class="text mb-0">10:00 AM - 05:30 PM</p>
-                                </div>
-                                <!--  -->
-                                <div class="d-flex justify-content-start align-items-center">
-                                    <i class="fa fa-map me-2"></i>
-                                    <p class="text mb-0">Thamel, Kathmandu</p>
+                                    <p class="text mb-0">{{restaurant.address}} {{restaurant.city}}</p>
                                 </div>
                             </div>
                         </div>
@@ -348,6 +97,7 @@
                 </div>
             </div>
             <!--  -->
+            {% endfor %}
         </div>
         <!-- Pagination Section -->
         <nav aria-label="Page navigation example mt-3">

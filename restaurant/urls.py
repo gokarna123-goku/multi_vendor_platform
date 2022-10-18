@@ -8,8 +8,8 @@ app_name = 'homepage'
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('restaurant/', views.restaurant, name='restaurant'),
-    path('restaurant-detail/', views.restoDetail, name='restaurant-detail'),
+    path('restaurant/', views.RestaurantView.as_view(), name='restaurant'),
+    path('restaurant-detail/<str:restaurant_id>/', views.RestaurantDetailView.as_view(), name='restaurant-detail-data'),
     path('food/', views.food, name='food'),
     path('food-detail/', views.foodDetail, name='food-detail'),
     path('blog/', views.blog, name='blog'),
