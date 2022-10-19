@@ -138,7 +138,6 @@ class Menu(models.Model):
 #         return 'Cart: ' + str(self.id)
 
 
-
 # ORDER_STATUS = (
 #     ("Order Received", "Order Received"),
 #     ("Order Processing", "Order Processing"),
@@ -172,13 +171,12 @@ def get_file_path_for_blog(request, filename):
 
 class Blog(models.Model):
     blog_id = models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
+    blog_slug = models.SlugField(unique=True)
     blog_category_name = models.ForeignKey(FoodCategory, on_delete=models.CASCADE)
     blog_title = models.CharField(max_length=150, null=False, blank=False)
     blog_description = models.TextField()
-    blog_publish_date = models.DateTimeField(auto_now_add=True)
+    blog_publish_date = models.DateField(auto_now_add=True)
     blog_image = models.ImageField(upload_to=get_file_path_for_blog)
-
-
 
 
 # Ended

@@ -42,8 +42,15 @@ def food(request):
 def foodDetail(request):
     return render(request, 'foods/detail.html')
 
-def blog(request):
-    return render(request, 'blogs/blog.html')
+class BlogView(generic.ListView):
+    def get(self, request, *args, **kwargs):
+        template_name = 'blogs/blog.html'
+        blogs_list = Blog.objects.all()
+        context = {
+            'blogs_list' : blogs_list,
+        }
+        return render(request, template_name, context)
+
 
 def blogDetail(request):
     return render(request, 'blogs/blog_detail.html')

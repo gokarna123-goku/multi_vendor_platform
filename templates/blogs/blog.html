@@ -1,6 +1,6 @@
 {% extends 'homepage/base.html' %}
 {% load static %}
-{% block title %}Cart{% endblock title %}
+{% block title %}Blogs{% endblock title %}
 {% block content %}
 <!--  -->
 <div class="container-fluid px-0 mx-0 mt-5 pt-3 blog-main">
@@ -22,123 +22,36 @@
             <div class="col-lg-8 col-md-12 col-sm-12 col-12">
                 <div class="p-0">
                     <div class="row" data-masonry='{"percentPosition": true }'>
-                        <!--  -->
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
-                            <div class="p-3 shadow-sm bg-white">
-                                <div class="blog-img-box mb-3">
-                                    <img src="https://cdn.pixabay.com/photo/2016/03/05/20/02/sandwich-1238615__340.jpg"
-                                        class="blog-img" alt="">
-                                    <div class="blog-category bg-warning">
-                                        <p class="mb-0 px-2 py-1">Appetizers</p>
+                        {% for blog in blogs_list %}
+                            <!--  -->
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
+                                <div class="p-3 shadow-sm bg-white">
+                                    <div class="blog-img-box mb-3">
+                                        <img src="{{blog.blog_image.url}}"
+                                            class="blog-img" alt="">
+                                        <div class="blog-category bg-warning">
+                                            <p class="mb-0 px-2 py-1">{{blog.blog_category_name}}</p>
+                                        </div>
+                                        <div class="blog-publish-date bg-success">
+                                            <p class="mb-0 px-2 py-1">
+                                                <i class="fa fa-clock-o me-2"></i> {{blog.blog_publish_date}}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="blog-publish-date bg-success">
-                                        <p class="mb-0 px-2 py-1">
-                                            <i class="fa fa-clock-o me-2"></i> 11th Oct, 2022
+                                    <div class="blog-info-box">
+                                        <a href="{% url 'homepage:blog-detail' %}" class="text-decoration-none">
+                                            <h4 class="text title mb-4">
+                                                {{blog.blog_title}}
+                                            </h4>
+                                        </a>
+                                        <p class="text blog-desc text-muted">
+                                            {{blog.blog_description}}
                                         </p>
                                     </div>
                                 </div>
-                                <div class="blog-info-box">
-                                    <a href="{% url 'homepage:blog-detail' %}" class="text-decoration-none">
-                                        <h4 class="text title mb-4">
-                                            Best Ever Healthy Breakfast Everyday
-                                        </h4>
-                                    </a>
-                                    <p class="text blog-desc text-muted">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, voluptatem
-                                        tempore cum aliquam a nulla impedit magni sequi. Accusantium ut facilis
-                                        obcaecati! Sunt non nemo voluptatum exercitationem that's it for today...
-                                    </p>
-                                </div>
                             </div>
-                        </div>
-                        <!--  -->
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
-                            <div class="p-3 shadow-sm bg-white">
-                                <div class="blog-img-box mb-3">
-                                    <img src="https://cdn.pixabay.com/photo/2019/04/07/17/22/chicken-4110212__340.jpg"
-                                        class="blog-img" alt="">
-                                    <div class="blog-category bg-warning">
-                                        <p class="mb-0 px-2 py-1">Appetizers</p>
-                                    </div>
-                                    <div class="blog-publish-date bg-success">
-                                        <p class="mb-0 px-2 py-1">
-                                            <i class="fa fa-clock-o me-2"></i> 11th Oct, 2022
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="blog-info-box">
-                                    <a href="#" class="text-decoration-none">
-                                        <h4 class="text title mb-4">
-                                            Grilled Chicken & Kabab With Tomato Sauce
-                                        </h4>
-                                    </a>
-                                    <p class="text blog-desc text-muted">
-                                        If you have been to any Asianrestaurant or any Indian's home you have probably
-                                        tried some version of this dish. You will surely enjoy this meal. Topped with an
-                                        asian slaw and…
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!--  -->
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
-                            <div class="p-3 shadow-sm bg-white">
-                                <div class="blog-img-box mb-3">
-                                    <img src="https://cdn.pixabay.com/photo/2019/04/07/17/22/chicken-4110212__340.jpg"
-                                        class="blog-img" alt="">
-                                    <div class="blog-category bg-warning">
-                                        <p class="mb-0 px-2 py-1">Appetizers</p>
-                                    </div>
-                                    <div class="blog-publish-date bg-success">
-                                        <p class="mb-0 px-2 py-1">
-                                            <i class="fa fa-clock-o me-2"></i> 11th Oct, 2022
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="blog-info-box">
-                                    <a href="#" class="text-decoration-none">
-                                        <h4 class="text title mb-4">
-                                            Grilled Chicken & Kabab With Tomato Sauce
-                                        </h4>
-                                    </a>
-                                    <p class="text blog-desc text-muted">
-                                        If you have been to any Asianrestaurant or any Indian's home you have probably
-                                        tried some version of this dish. You will surely enjoy this meal. Topped with an
-                                        asian slaw and…
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!--  -->
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
-                            <div class="p-3 shadow-sm bg-white">
-                                <div class="blog-img-box mb-3">
-                                    <img src="https://cdn.pixabay.com/photo/2016/03/05/20/02/sandwich-1238615__340.jpg"
-                                        class="blog-img" alt="">
-                                    <div class="blog-category bg-warning">
-                                        <p class="mb-0 px-2 py-1">Appetizers</p>
-                                    </div>
-                                    <div class="blog-publish-date bg-success">
-                                        <p class="mb-0 px-2 py-1">
-                                            <i class="fa fa-clock-o me-2"></i> 11th Oct, 2022
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="blog-info-box">
-                                    <a href="#" class="text-decoration-none">
-                                        <h4 class="text title mb-4">
-                                            Best Ever Healthy Breakfast Everyday
-                                        </h4>
-                                    </a>
-                                    <p class="text blog-desc text-muted">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, voluptatem
-                                        tempore cum aliquam a nulla impedit magni sequi. Accusantium ut facilis
-                                        obcaecati! Sunt non nemo voluptatum exercitationem that's it for today...
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!--  -->
+                            <!--  -->
+                        {% endfor %}
                     </div>
                 </div>
             </div>
