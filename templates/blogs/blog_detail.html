@@ -1,6 +1,6 @@
 {% extends 'homepage/base.html' %}
 {% load static %}
-{% block title %}Blog Detail{% endblock title %}
+{% block title %}{{blog_detail_list.blog_title}}{% endblock title %}
 {% block content %}
 <!--  -->
 <div class="container-fluid px-0 mx-0 mt-5 pt-3 blog-main">
@@ -19,11 +19,11 @@
             <div class="col-lg-8 col-md-12 col-sm-12 col-12 mb-4">
                 <div class="py-3 px-4 shadow-sm bg-white">
                     <div class="d-flex justify-content-between align-items-center">
-                        <a href="#" class="btn btn-warning btn-sm px-3 mb-3">Appetizers</a>
+                        <a href="#" class="btn btn-warning btn-sm px-3 mb-3">{{blog_detail_list.blog_category_name}}</a>
                         <div class="d-flex justify-content-start align-items-center">
                             <div class="d-flex justify-content-start align-items-center me-4">
                                 <i class="fa fa-calendar-o me-2 text-success"></i>
-                                <p class="text text-muted mb-0">12th Oct, 2022</p>
+                                <p class="text text-muted mb-0">{{blog_detail_list.blog_publish_date}}</p>
                             </div>
                             <a href="#" class="text-decoration-none">
                                 <div class="d-flex justify-content-start align-items-center text-warning">
@@ -35,52 +35,14 @@
                     </div>
                     <hr class="tab-hr my-0">
                     <h2 class="text title text-center my-4">
-                        Best Ever Healthy Breakfast Everyday
+                        {{blog_detail_list.blog_title}}
                     </h2>
-                    <img src="https://cdn.pixabay.com/photo/2016/08/23/08/53/tacos-1613795__340.jpg" alt=""
+                    <img src="{{blog_detail_list.blog_image.url}}" alt=""
                         class="blog-img mb-4">
                     <!-- Blog Description Section -->
                     <div class="description mb-5">
                         <p class="text text-muted">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis distinctio veniam harum
-                            ea
-                            ab! Pariatur harum excepturi consectetur commodi aperiam maxime explicabo eligendi nostrum
-                            nam,
-                            nulla quam atque deleniti cumque architecto corrupti placeat provident. Quisquam nisi itaque
-                            nemo molestiae, in suscipit tempore maiores, maxime alias consequuntur sapiente quae ex,
-                            blanditiis ipsum? Consequatur maxime officiis quidem. Natus veritatis aliquid fugiat quis
-                            totam
-                            quaerat dignissimos consectetur doloremque officia magni quo quod atque vel asperiores,
-                            distinctio deleniti officiis voluptate. Et perspiciatis, sint accusantium delectus molestias
-                            ut
-                            nulla, temporibus facere eveniet nisi exercitationem repellendus, a ipsum asperiores facilis
-                            eaque neque itaque molestiae laborum incidunt! <br> <br>
-                            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-                            velit,
-                            sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                            voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-                            laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit
-                            qui
-                            in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum
-                            fugiat
-                            quo voluptas nulla pariatur?
-                        </p>
-                        <!--  -->
-                        <p class="text text-success">
-                            <i class="fa fa-quote-left me-1 text-secondary"></i>
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo.
-                            <i class="fa fa-quote-right ms-1 text-secondary"></i>
-                        </p>
-                        <p class="text text-secondary">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora magnam quod consequuntur
-                            dolore? Quod ea repellendus veritatis autem natus dicta doloribus rem nihil corrupti quae
-                            eligendi vitae provident voluptate nesciunt dolorum error, labore possimus nulla? Aliquid
-                            ex,
-                            saepe ab necessitatibus ipsa impedit quisquam omnis rem placeat mollitia. Blanditiis,
-                            doloribus
-                            cum?
+                            {{blog_detail_list.blog_description}}
                         </p>
                     </div>
                     <!-- Comment Section -->
@@ -346,7 +308,7 @@
                 <div class="p-3 shadow-sm bg-white">
                     <!-- Search Section -->
                     <div class="input-group mb-4 border p-2">
-                        <input type="text" placeholder="Search food Categories..." aria-describedby="button-addon3"
+                        <input type="text" id="myInput" placeholder="Search food Categories..." aria-describedby="button-addon3"
                             class="form-control">
                         <div class="input-group-append border-0">
                             <button id="button-addon3" type="button" class="btn btn-dark px-2">
@@ -361,36 +323,47 @@
                         <div class="hr-section my-0">
                             <hr class="col-md-2 pt-1 bg-warning mt-1 mb-4 rounded-pill">
                         </div>
-                        <ul class="blog-category-list">
-                            <li class="mb-1">
+                        <ul class="blog-category-list" id="myDIV">
+                            <!-- <li class="mb-1">
                                 <a href="#" class="text-decoration-none blog-category-link">
                                     <i class="fa fa-long-arrow-right fs-6"></i> Appetizers
                                 </a>
-                            </li>
-                            <hr class="my-2 blog-category-hr">
-                            <li class="mb-1">
+                            </li> -->
+                            <!-- <hr class="my-2 blog-category-hr"> -->
+                            <li class="mb-3 border-bottom border-2">
                                 <a href="#" class="text-decoration-none blog-category-link">
-                                    <i class="fa fa-long-arrow-right fs-6"></i> Grilled Chicken
+                                    <div class="d-flex justofy-content-start align-items-center">
+                                        <img src="https://cdn.pixabay.com/photo/2020/06/30/15/03/table-5356682__340.jpg" class="recent-post-img me-2" alt="">
+                                        <div class="section">
+                                            <h5 class="text blog-category-link title recent-post-title mb-0">Best Ever Healthy Breakfast Everyday</h5>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="text text-secondary mb-0">Oct. 19, 2022</p>
+                                                <p class="text text-secondary mb-0">Chicken</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </a>
                             </li>
-                            <hr class="my-2 blog-category-hr">
-                            <li class="mb-1">
+                            <li class="mb-3 border-bottom border-2">
                                 <a href="#" class="text-decoration-none blog-category-link">
-                                    <i class="fa fa-long-arrow-right fs-6"></i> Shakes
+                                    <div class="d-flex justofy-content-start align-items-center">
+                                        <img src="https://cdn.pixabay.com/photo/2015/11/26/22/28/woman-1064664__340.jpg" class="recent-post-img me-2" alt="">
+                                        <div class="section">
+                                            <h5 class="text blog-category-link title recent-post-title fw-bold mb-0">Best Ever Healthy Breakfast Everyday</h5>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="text text-secondary mb-0">Oct. 19, 2022</p>
+                                                <p class="text text-secondary mb-0">Snacks</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </a>
                             </li>
-                            <hr class="my-2 blog-category-hr">
-                            <li class="mb-1">
-                                <a href="#" class="text-decoration-none blog-category-link">
-                                    <i class="fa fa-long-arrow-right fs-6"></i> Sea Food
-                                </a>
-                            </li>
-                            <hr class="my-2 blog-category-hr">
+                            <!-- <hr class="my-2 blog-category-hr">
                             <li class="mb-1">
                                 <a href="#" class="text-decoration-none blog-category-link">
                                     <i class="fa fa-long-arrow-right fs-6"></i> Italian
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                     <!--  -->
@@ -403,3 +376,16 @@
 <!--  -->
 
 {% endblock content %}
+
+{% block scripts %}
+    <script>
+        $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myDIV li ").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        });
+    </script>
+{% endblock scripts %}

@@ -39,7 +39,7 @@
                                         </div>
                                     </div>
                                     <div class="blog-info-box">
-                                        <a href="{% url 'homepage:blog-detail' %}" class="text-decoration-none">
+                                        <a href="{% url 'homepage:blog-detail-data' blog.blog_id blog.blog_slug %}" class="text-decoration-none">
                                             <h4 class="text title mb-4">
                                                 {{blog.blog_title}}
                                             </h4>

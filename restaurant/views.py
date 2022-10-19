@@ -35,7 +35,6 @@ class RestaurantDetailView(generic.DetailView):
         return render(request, template_name, context)
 
 
-
 def food(request):
     return render(request, 'foods/food.html')
 
@@ -52,8 +51,17 @@ class BlogView(generic.ListView):
         return render(request, template_name, context)
 
 
-def blogDetail(request):
-    return render(request, 'blogs/blog_detail.html')
+class BlogDetailView(generic.ListView):
+    def get(self, request, *args, **kwargs):
+        template_name = 'blogs/blog_detail.html'
+        blog_detail_list = Blog.objects.get(blog_id=self.kwargs.get('blog_id'), blog_slug=self.kwargs.get('blog_slug'))
+        context = {
+            'blog_detail_list' : blog_detail_list,
+        }
+        return render(request, template_name, context)
+
+# def blogDetail(request):
+#     return render(request, 'blogs/blog_detail.html')
 
 def contact(request):
     return render(request, 'contact/contact.html')

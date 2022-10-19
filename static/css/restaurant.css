@@ -755,6 +755,14 @@ ul{
     height: 52vh;
 }
 
+.recent-post-img{
+    width: 90px;
+    height: 70px;
+}
+.recent-post-title{
+    font-size: 1.222rem;
+}
+
 /* Vendor Section */
 .vendor-section{
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.80) 85%, rgba(0, 0, 0, 0.80) 80% ), url('/static/images/joinus.jpg');

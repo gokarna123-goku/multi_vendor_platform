@@ -1,7 +1,7 @@
 import datetime
 import os
 from django.db import models
-from django.contrib.auth.models import User
+from accounts.models import User
 import uuid
 from django.conf import settings
 
@@ -28,7 +28,7 @@ OrderStatus = (
 # Create your models here.
 
 class Customer(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     fullname = models.CharField(max_length=200)
     address = models.CharField(max_length=200, null=True, blank=True)
     joined_on = models.DateTimeField(auto_now_add=True)
@@ -82,12 +82,12 @@ def get_file_path_for_restaurant(request, filename):
     return os.path.join('restaurants/', filename)
 
 
-class RestaurantImages(models.Model):
-    restaurant_image_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    restaurant_category_image = models.ImageField(upload_to=get_file_path_for_restaurant)
+# class RestaurantImages(models.Model):
+#     restaurant_image_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+#     restaurant_category_image = models.ImageField(upload_to=get_file_path_for_restaurant)
 
-    def __str__(self):
-        return 'Restaurant Image: ' + str(self.id)
+#     def __str__(self):
+#         return 'Restaurant Image: ' + str(self.id)
 
 
 class Restaurant(models.Model):
@@ -103,11 +103,11 @@ class Restaurant(models.Model):
     restaurant_hours_of_operation = models.TextField()
     restaurant_opening_time = models.TimeField()
     restaurant_closing_time = models.TimeField()
-    restaurant_image = models.ForeignKey(RestaurantImages,on_delete=models.CASCADE)
+    restaurant_image = models.ImageField(upload_to=get_file_path_for_restaurant)
     restaurant_description = models.TextField()
 
     def __str__(self):
-        return self.name
+        return self.restaurant_name
 
 
 class RestaurantAttribute(models.Model):
@@ -119,7 +119,6 @@ class RestaurantAttribute(models.Model):
     dog_allowed = models.BooleanField(default=False)
     price_range = models.CharField(max_length=25, choices=PRICE_RANGE)
     valet = models.BooleanField(default=False)
-
 
 
 class Menu(models.Model):
@@ -136,7 +135,6 @@ class Menu(models.Model):
 
 #     def __str__(self):
 #         return 'Cart: ' + str(self.id)
-
 
 # ORDER_STATUS = (
 #     ("Order Received", "Order Received"),
@@ -162,7 +160,6 @@ class Menu(models.Model):
 #     def __str__(self):
 #         return 'Order: ' + str(self.id) 
 
-
 def get_file_path_for_blog(request, filename):
     original_filename = filename
     nowTime = datetime.datetime.now().strftime('%Y%m%d%H:%M:%S')
@@ -177,6 +174,9 @@ class Blog(models.Model):
     blog_description = models.TextField()
     blog_publish_date = models.DateField(auto_now_add=True)
     blog_image = models.ImageField(upload_to=get_file_path_for_blog)
+
+    def __str__(self):
+        return self.blog_title
 
 
 # Ended
