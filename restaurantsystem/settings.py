@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles', 
     'restaurant.apps.RestaurantConfig',
-    'accounts.apps.AccountsConfig'
+    'accounts.apps.AccountsConfig',
+    'crispy_forms',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -90,7 +92,7 @@ EMAIL_HOST_PASSWORD = "wiruawfskdcqhqkb"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite33',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

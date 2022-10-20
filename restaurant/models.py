@@ -1,9 +1,9 @@
 import datetime
 import os
 from django.db import models
-from accounts.models import User
 import uuid
 from django.conf import settings
+from accounts.models import User
 
 PRICE_RANGE = (
         ('Low Price','Low Price'),
@@ -27,14 +27,14 @@ OrderStatus = (
 
 # Create your models here.
 
-class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    fullname = models.CharField(max_length=200)
-    address = models.CharField(max_length=200, null=True, blank=True)
-    joined_on = models.DateTimeField(auto_now_add=True)
+# class Customer(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     fullname = models.CharField(max_length=200)
+#     address = models.CharField(max_length=200, null=True, blank=True)
+#     joined_on = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.fullname
+#     def __str__(self):
+#         return self.fullname
 
 
 def get_file_path_for_food(request, filename):

@@ -3,10 +3,10 @@ from django.urls import path
 from accounts import views
 
 
-# app_name = 'accounts'
+app_name = 'accounts'
 
 
-# urlpatterns = [
-#     path('siginup/', views.signup, name='signup'),
-#     path('siginin/', views.signin, name='signin'),
-# ]
+urlpatterns = [
+    path('siginup/', views.RegisterView.as_view(), name='signup'),
+    # path('siginin/', views.signin, name='signin'),
+]

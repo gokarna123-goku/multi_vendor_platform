@@ -38,7 +38,7 @@
                             <a class="nav-link" href="#">Registration
                                 <ul class="subnav shadow-sm">
                                     <li>
-                                        <a href="#"
+                                        <a href="{% url 'accounts:signup' %}"
                                             class="nav-link {% if request.resolver_match.url_name == 'signup' %}active{% endif %} subnav-link">
                                             Sign Up
                                         </a>
