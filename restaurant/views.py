@@ -5,8 +5,20 @@ from .models import *
 
 # Create your views here.
 
-def home(request):
-    return render(request, 'homepage/index.html')
+class IndexView(generic.ListView):
+    template_name = 'homepage/index.html'
+    def get(self, request, *args, **kwargs):
+        food_category_id = self.kwargs.get('food_category_id')
+        food_category_list = FoodCategory.objects.all().order_by('-food_category_id')[:4]
+        restaurant_id = self.kwargs.get('restaurant_id')
+        restaurant_list = Restaurant.objects.all().order_by('-restaurant_id')[:4]
+        food_id = self.kwargs.get('food_id')
+        foods_list = Food.objects.all().order_by('-food_id')[:4]
+        context = {
+            'food_category_list' : food_category_list,
+            'restaurant_list' : restaurant_list,
+        }
+        return render(request, self.template_name, context)
 
 class RestaurantView(generic.ListView):
     # model = Restaurant

@@ -7,7 +7,7 @@ app_name = 'homepage'
 
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.IndexView.as_view(), name='home'),
     path('restaurant/', views.RestaurantView.as_view(), name='restaurant'),
     path('restaurant-detail/<str:restaurant_id>/', views.RestaurantDetailView.as_view(), name='restaurant-detail-data'),
     path('food/', views.food, name='food'),
