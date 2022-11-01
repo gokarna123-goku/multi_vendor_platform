@@ -1,5 +1,6 @@
 {% extends 'homepage/base.html' %}
 {% load static %}
+{% load myfilter %}
 {% block title %}{{restaurant_detail_list.restaurant_name}}{% endblock title %}
 {% block content %}
 <!--  -->
@@ -217,27 +218,21 @@
                             </div>
                             <!-- All Categories Tab Section start -->
                             <ul class="nav nav-pills mb-0" id="pills-tab" role="tablist">
+                                {% for i in categories %}
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link px-5 active" id="pills-shakes-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-shakes" type="button" role="tab"
-                                        aria-controls="pills-shakes" aria-selected="true">Shakes</button>
+                                    <button class="nav-link px-5" id="pills-{{i.food_category_id}}-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-{{i.food_category_id}}" type="button" role="tab"
+                                        aria-controls="pills-{{i.food_category_id}}" aria-selected="true">{{i.food_category_title}}</button>
                                 </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link px-5" id="pills-chicken-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-chicken" type="button" role="tab"
-                                        aria-controls="pills-chicken" aria-selected="false">Chicken</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link px-5" id="pills-sea-food-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-sea-food" type="button" role="tab"
-                                        aria-controls="pills-sea-food" aria-selected="false">Sea Food</button>
-                                </li>
+                                {% endfor %}
                             </ul>
                             <hr class="mt-0 tab-hr mb-4">
                             <div class="tab-content mb-4" id="pills-tabContent">
-                                <div class="tab-pane fade show active" id="pills-shakes" role="tabpanel"
-                                    aria-labelledby="pills-shakes-tab">
+                                {% for i in categories %}
+                                <div class="tab-pane fade show" id="pills-{{i.food_category_id}}" role="tabpanel"
+                                    aria-labelledby="pills-{{i.food_category_id}}-tab">
                                     <div class="row mb-3">
+                                        {% for j in restaurant_detail_list|foodfilter:i %}
                                         <!--  -->
                                         <div class="col-lg-6 mb-4">
                                             <div class="p-2 border">
@@ -246,7 +241,7 @@
                                                         <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
                                                             alt="" class="resto-image me-3">
                                                         <div class="resto-info">
-                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
+                                                            <h5 class="text title mb-1">{{j.food_name}}</h5>
                                                             <div class="price mb-0">
                                                                 <span class="h6 text-danger me-2"><s>Rs.
                                                                         300.00</s></span>
@@ -266,78 +261,7 @@
                                             </div>
                                         </div>
                                         <!--  -->
-                                        <div class="col-lg-6 mb-4">
-                                            <div class="p-2 border">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex justify-content-start align-items-center">
-                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
-                                                            alt="" class="resto-image me-3">
-                                                        <div class="resto-info">
-                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
-                                                            <div class="price mb-0">
-                                                                <span class="h6 text-danger me-2"><s>Rs.
-                                                                        300.00</s></span>
-                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
-                                                                    600.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--  -->
-                                                    <a href="#" class="btn btn-warning btn-sm text-decoration-none">
-                                                        <i class="fa fa-eye me-2"></i> View Detail
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--  -->
-                                        <div class="col-lg-6 mb-4">
-                                            <div class="p-2 border">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex justify-content-start align-items-center">
-                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
-                                                            alt="" class="resto-image me-3">
-                                                        <div class="resto-info">
-                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
-                                                            <div class="price mb-0">
-                                                                <span class="h6 text-danger me-2"><s>Rs.
-                                                                        300.00</s></span>
-                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
-                                                                    600.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--  -->
-                                                    <a href="#" class="btn btn-warning btn-sm text-decoration-none">
-                                                        <i class="fa fa-eye me-2"></i> View Detail
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--  -->
-                                        <div class="col-lg-6 mb-4">
-                                            <div class="p-2 border">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex justify-content-start align-items-center">
-                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
-                                                            alt="" class="resto-image me-3">
-                                                        <div class="resto-info">
-                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
-                                                            <div class="price mb-0">
-                                                                <span class="h6 text-danger me-2"><s>Rs.
-                                                                        300.00</s></span>
-                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
-                                                                    600.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--  -->
-                                                    <a href="#" class="btn btn-warning btn-sm text-decoration-none">
-                                                        <i class="fa fa-eye me-2"></i> View Detail
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--  -->
+                                        {% endfor %}
                                     </div>
                                     <!--  -->
                                     <div class="d-flex justify-content-center align-items-center">
@@ -347,236 +271,7 @@
                                     </div>
                                     <!-- <hr class="tab-hr"> -->
                                 </div>
-                                <!--  -->
-                                <div class="tab-pane fade" id="pills-chicken" role="tabpanel"
-                                    aria-labelledby="pills-chicken-tab">
-                                    <div class="row mb-3">
-                                        <!--  -->
-                                        <div class="col-lg-6 mb-4">
-                                            <div class="p-2 border">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex justify-content-start align-items-center">
-                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
-                                                            alt="" class="resto-image me-3">
-                                                        <div class="resto-info">
-                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
-                                                            <div class="price mb-0">
-                                                                <span class="h6 text-danger me-2"><s>Rs.
-                                                                        300.00</s></span>
-                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
-                                                                    600.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--  -->
-                                                    <div class="buttons d-flex flex-column">
-                                                        <button class="btn btn-warning btn-sm mb-2">Add to Cart</button>
-                                                        <a href="#"
-                                                            class="btn btn-primary btn-sm text-decoration-none">View</a>
-                                                    </div>
-                                                    <!--  -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--  -->
-                                        <div class="col-lg-6 mb-4">
-                                            <div class="p-2 border">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex justify-content-start align-items-center">
-                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
-                                                            alt="" class="resto-image me-3">
-                                                        <div class="resto-info">
-                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
-                                                            <div class="price mb-0">
-                                                                <span class="h6 text-danger me-2"><s>Rs.
-                                                                        300.00</s></span>
-                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
-                                                                    600.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--  -->
-                                                    <div class="buttons d-flex flex-column">
-                                                        <button class="btn btn-warning btn-sm mb-2">Add to Cart</button>
-                                                        <a href="#"
-                                                            class="btn btn-primary btn-sm text-decoration-none">View</a>
-                                                    </div>
-                                                    <!--  -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--  -->
-                                        <div class="col-lg-6 mb-4">
-                                            <div class="p-2 border">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex justify-content-start align-items-center">
-                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
-                                                            alt="" class="resto-image me-3">
-                                                        <div class="resto-info">
-                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
-                                                            <div class="price mb-0">
-                                                                <span class="h6 text-danger me-2"><s>Rs.
-                                                                        300.00</s></span>
-                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
-                                                                    600.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--  -->
-                                                    <div class="buttons d-flex flex-column">
-                                                        <button class="btn btn-warning btn-sm mb-2">Add to Cart</button>
-                                                        <a href="#"
-                                                            class="btn btn-primary btn-sm text-decoration-none">View</a>
-                                                    </div>
-                                                    <!--  -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--  -->
-                                        <div class="col-lg-6 mb-4">
-                                            <div class="p-2 border">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex justify-content-start align-items-center">
-                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
-                                                            alt="" class="resto-image me-3">
-                                                        <div class="resto-info">
-                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
-                                                            <div class="price mb-0">
-                                                                <span class="h6 text-danger me-2"><s>Rs.
-                                                                        300.00</s></span>
-                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
-                                                                    600.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--  -->
-                                                    <div class="buttons d-flex flex-column">
-                                                        <button class="btn btn-warning btn-sm mb-2">Add to Cart</button>
-                                                        <a href="#"
-                                                            class="btn btn-primary btn-sm text-decoration-none">View</a>
-                                                    </div>
-                                                    <!--  -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--  -->
-                                    </div>
-                                    <!--  -->
-                                    <div class="d-flex justify-content-center align-items-center">
-                                        <button class="btn btn-info px-4">Load more
-                                            <i class="fa fa-refresh ms-1"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <!--  -->
-                                <div class="tab-pane fade" id="pills-sea-food" role="tabpanel"
-                                    aria-labelledby="pills-sea-food-tab">
-                                    <div class="row mb-3">
-                                        <!--  -->
-                                        <div class="col-lg-6 mb-4">
-                                            <div class="p-2 border">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex justify-content-start align-items-center">
-                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
-                                                            alt="" class="resto-image me-3">
-                                                        <div class="resto-info">
-                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
-                                                            <div class="price mb-0">
-                                                                <span class="h6 text-danger me-2"><s>Rs.
-                                                                        300.00</s></span>
-                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
-                                                                    600.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--  -->
-                                                    <a href="#" class="btn btn-warning btn-sm text-decoration-none">
-                                                        <i class="fa fa-eye me-2"></i> View Detail
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--  -->
-                                        <div class="col-lg-6 mb-4">
-                                            <div class="p-2 border">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex justify-content-start align-items-center">
-                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
-                                                            alt="" class="resto-image me-3">
-                                                        <div class="resto-info">
-                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
-                                                            <div class="price mb-0">
-                                                                <span class="h6 text-danger me-2"><s>Rs.
-                                                                        300.00</s></span>
-                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
-                                                                    600.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--  -->
-                                                    <a href="#" class="btn btn-warning btn-sm text-decoration-none">
-                                                        <i class="fa fa-eye me-2"></i> View Detail
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--  -->
-                                        <div class="col-lg-6 mb-4">
-                                            <div class="p-2 border">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex justify-content-start align-items-center">
-                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
-                                                            alt="" class="resto-image me-3">
-                                                        <div class="resto-info">
-                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
-                                                            <div class="price mb-0">
-                                                                <span class="h6 text-danger me-2"><s>Rs.
-                                                                        300.00</s></span>
-                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
-                                                                    600.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--  -->
-                                                    <a href="#" class="btn btn-warning btn-sm text-decoration-none">
-                                                        <i class="fa fa-eye me-2"></i> View Detail
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--  -->
-                                        <div class="col-lg-6 mb-4">
-                                            <div class="p-2 border">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex justify-content-start align-items-center">
-                                                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
-                                                            alt="" class="resto-image me-3">
-                                                        <div class="resto-info">
-                                                            <h5 class="text title mb-1">Himalayan Java Coffee</h5>
-                                                            <div class="price mb-0">
-                                                                <span class="h6 text-danger me-2"><s>Rs.
-                                                                        300.00</s></span>
-                                                                <span class="h6 title" style="font-size: 1.099rem;">Rs.
-                                                                    600.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--  -->
-                                                    <a href="#" class="btn btn-warning btn-sm text-decoration-none">
-                                                        <i class="fa fa-eye me-2"></i> View Detail
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--  -->
-                                    </div>
-                                    <!--  -->
-                                    <div class="d-flex justify-content-center align-items-center">
-                                        <button class="btn btn-info px-4">Load more
-                                            <i class="fa fa-refresh ms-1"></i>
-                                        </button>
-                                    </div>
-                                </div>
+                                {% endfor %}
                                 <!--  -->
                             </div>
                             <!-- All Categories Tab Section End -->

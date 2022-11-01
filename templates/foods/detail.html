@@ -27,12 +27,13 @@
                             <small class="text">(4.5/5)</small>
                         </div>
                         <!--  -->
-                        <h4 class="text" style="letter-spacing: 0.7px;">Himalayan Java Coffee</h4>
+                        <h4 class="text" style="letter-spacing: 0.7px;">{{food_detail_obj.restaurant.restaurant_name}}</h4>
                         <!--  -->
                         <div class="d-flex justify-content-start align-items-center">
                             <i class="fa fa-map me-2"></i>
                             <p class="text mb-0">Thulobharyang, Kathmandu</p>
                         </div>
+                        <!--  -->
                     </div>
                 </div>
                 <!-- Working Hours -->
@@ -51,17 +52,17 @@
             <!--  -->
             <div class="col-lg-6 col-md-7 col-sm-12 col-12">
                 <div class="p-1">
-                    <img src="https://cdn.pixabay.com/photo/2020/04/29/03/30/pizza-5107039__340.jpg" class="w-100"
+                    <img src="{{food_detail_obj.food_image.url}}" class="w-100"
                         alt="">
                 </div>
             </div>
             <!--  -->
             <div class="col-lg-6 col-md-5 col-sm-12 col-12">
                 <div class="p-1 mx-lg-3 mx-md-1 my-lg-4 my-md-0">
-                    <h4 class="text title food-detail-title">Chicken Pizza</h4>
+                    <h4 class="text title food-detail-title">{{food_detail_obj.food_name}}</h4>
                     <div class="price mb-lg-3 mb-md-1">
-                        <span class="me-2 dprice"><s>Rs. 300.00</s></span>
-                        <span class="price title">Rs. 600.00</span>
+                        <span class="me-2 dprice"><s>Rs.{{food_detail_obj.food_discound_price}}</s></span>
+                        <span class="price title">Rs.{{food_detail_obj.food_selling_price}}</span>
                     </div>
                     <!--  -->
                     <div class="ingredient-section mb-lg-4 mb-md-0 mb-sm-3">
@@ -118,11 +119,7 @@
                         <!-- Description -->
                         <h4 class="text title mb-3">Description</h4>
                         <p class="text text-secondary mb-5">
-                            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece
-                            of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,
-                            a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure
-                            Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the
-                            word in classical literature, discovered the undoubtable source.
+                            {{food_detail_obj.food_description}}
                         </p>
                         <!--  -->
                     </div>
@@ -371,7 +368,7 @@
                     <img src="https://cdn.pixabay.com/photo/2020/04/29/03/30/pizza-5107039__340.jpg" class="dish-img"
                         alt="">
                     <div class="dish-info-section m-3">
-                        <a href="{% url 'homepage:food-detail' %}" class="text-decoration-none">
+                        <a href="#" class="text-decoration-none">
                             <h4 class="text title mb-2">Chicken Pizza</h4>
                         </a>
                         <div class="d-flex justify-content-center align-items-center mb-4">
@@ -388,69 +385,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Second Dishes Section -->
-            <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-4">
-                <div class="px-0 pb-2 bg-white shadow-sm text-center">
-                    <img src="https://cdn.pixabay.com/photo/2015/07/29/18/29/crayfish-866400__340.jpg" class="dish-img"
-                        alt="">
-                    <div class="dish-info-section m-3">
-                        <h4 class="text title mb-2">Fish Fry</h4>
-                        <div class="d-flex justify-content-center align-items-center mb-4">
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star-half-o text-warning me-1"></i>
-                            <i class="fa fa-star-o text-warning me-1"></i>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h4 class="text title mb-0">Rs.180</h4>
-                            <button class="btn btn-warning px-3">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Third Dishes Section -->
-            <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-4">
-                <div class="px-0 pb-2 bg-white shadow-sm text-center">
-                    <img src="https://cdn.pixabay.com/photo/2022/04/26/11/33/dish-7158169__340.jpg" class="dish-img"
-                        alt="">
-                    <div class="dish-info-section m-3">
-                        <h4 class="text title mb-2">Chicken Biryani</h4>
-                        <div class="d-flex justify-content-center align-items-center mb-4">
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star-half-o text-warning me-1"></i>
-                            <i class="fa fa-star-o text-warning me-1"></i>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h4 class="text title mb-0">Rs.180</h4>
-                            <button class="btn btn-warning px-3">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Fourth Dishes Section -->
-            <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-4">
-                <div class="px-0 pb-2 bg-white shadow-sm text-center">
-                    <img src="https://cdn.pixabay.com/photo/2018/07/18/19/12/pasta-3547078__340.jpg" class="dish-img"
-                        alt="">
-                    <div class="dish-info-section m-3">
-                        <h4 class="text title mb-2">Noodle Fry</h4>
-                        <div class="d-flex justify-content-center align-items-center mb-4">
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star-half-o text-warning me-1"></i>
-                            <i class="fa fa-star-o text-warning me-1"></i>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h4 class="text title mb-0">Rs.180</h4>
-                            <button class="btn btn-warning px-3">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- -->
         </div>
         <!--  -->
     </div>

@@ -27,14 +27,14 @@ OrderStatus = (
 
 # Create your models here.
 
-# class Customer(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     fullname = models.CharField(max_length=200)
-#     address = models.CharField(max_length=200, null=True, blank=True)
-#     joined_on = models.DateTimeField(auto_now_add=True)
+class Customer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    fullname = models.CharField(max_length=200)
+    address = models.CharField(max_length=200, null=True, blank=True)
+    joined_on = models.DateTimeField(auto_now_add=True)
 
-#     def __str__(self):
-#         return self.fullname
+    def __str__(self):
+        return self.fullname
 
 
 def get_file_path_for_food(request, filename):
@@ -51,20 +51,6 @@ class FoodCategory(models.Model):
         return self.food_category_title
 
 
-class Food(models.Model):
-    food_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    food_name = models.CharField(max_length=80)
-    food_description = models.TextField()
-    food_quantity = models.IntegerField()
-    food_selling_price = models.DecimalField(max_digits=15,decimal_places=2)
-    food_discound_price = models.DecimalField(max_digits=15,decimal_places=2)
-    food_image = models.ImageField(upload_to=get_file_path_for_food)
-    status= models.CharField(max_length=25, choices=OrderStatus)
-    is_featured = models.BooleanField(default=False)
-    food_category = models.ForeignKey(FoodCategory, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.food_name
 
 # From the official models.py
 class RestaurantCategory(models.Model):
@@ -80,14 +66,6 @@ def get_file_path_for_restaurant(request, filename):
     nowTime = datetime.datetime.now().strftime('%Y%m%d%H:%M:%S')
     filename = "%s%s" % (nowTime, original_filename)
     return os.path.join('restaurants/', filename)
-
-
-# class RestaurantImages(models.Model):
-#     restaurant_image_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-#     restaurant_category_image = models.ImageField(upload_to=get_file_path_for_restaurant)
-
-#     def __str__(self):
-#         return 'Restaurant Image: ' + str(self.id)
 
 
 class Restaurant(models.Model):
@@ -121,20 +99,41 @@ class RestaurantAttribute(models.Model):
     valet = models.BooleanField(default=False)
 
 
-class Menu(models.Model):
-    menu_id = models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
-    price = models.DecimalField(max_digits=15,decimal_places=2)
-    food = models.ForeignKey(Food,on_delete=models.CASCADE, null=True, blank=True)
+class Food(models.Model):
+    food_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    food_name = models.CharField(max_length=80)
+    food_description = models.TextField()
+    food_quantity = models.IntegerField()
+    food_selling_price = models.DecimalField(max_digits=15,decimal_places=2)
+    food_discound_price = models.DecimalField(max_digits=15,decimal_places=2)
+    food_image = models.ImageField(upload_to=get_file_path_for_food)
+    status= models.CharField(max_length=25, choices=OrderStatus)
+    is_featured = models.BooleanField(default=False)
+    food_category = models.ForeignKey(FoodCategory, on_delete=models.CASCADE)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.food_name
 
-# class Cart(models.Model):
-#     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
-#     total = models.PositiveIntegerField(default=0)
-#     created_at = models.DateTimeField(auto_now_add=True)
+class Cart(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
+    total = models.PositiveIntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
 
-#     def __str__(self):
-#         return 'Cart: ' + str(self.id)
+    def __str__(self):
+        return 'Cart: ' + str(self.id)
+
+
+class CartFood(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    food = models.ForeignKey(Food, on_delete=models.CASCADE)
+    price = models.PositiveIntegerField()
+    quantity = models.PositiveIntegerField()
+    subtotal = models.PositiveIntegerField()
+
+    def __str__(self):
+        return 'Cart: ' + str(self.cart.id) + 'CartFood: ' + str(self.id)
+
 
 # ORDER_STATUS = (
 #     ("Order Received", "Order Received"),
@@ -159,6 +158,8 @@ class Menu(models.Model):
 
 #     def __str__(self):
 #         return 'Order: ' + str(self.id) 
+
+
 
 def get_file_path_for_blog(request, filename):
     original_filename = filename

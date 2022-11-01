@@ -296,7 +296,7 @@
     </div>
 </div>
 
-<!-- Next Section -->
+<!-- Restaurant Section -->
 <div class="container-fluid px-0 mx-0 mx-0 mb-lg-5 mb-md-1 mb-sm-0 mb-0 pt-lg-5 pt-md-1 pt-sm-2 pt-2">
     <div class="container col-md-11 mt-5">
         <div class="row">
@@ -305,189 +305,72 @@
             <div class="hr-section my-0">
                 <hr class="container col-md-1 py-1 bg-warning mt-1 mb-5 rounded-pill">
             </div>
-            <!-- First Restaurant Box -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
-                <!-- <a href="#" class="text-decoration-none"> -->
-                <div class="bg-light restaurant-box pt-0 pb-2">
-                    <!--  -->
-                    <div class="img-box">
-                        <img src="https://cdn.pixabay.com/photo/2016/11/02/16/28/coffee-1792137__340.jpg"
-                            class="resto-img" alt="">
-                        <div class="restaurant-type bg-warning">
-                            <p class="mb-0 px-2 py-3">New</p>
-                        </div>
-                        <div class="order-box">
-                            <i class="fa fa-truck text-warning"></i>
-                        </div>
-                    </div>
-                    <!--  -->
-                    <div class="resto-detail-box mx-3 mt-2">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <div class="d-flex justify-content-start align-items-center">
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star-half-o text-warning me-1"></i>
-                                <i class="fa fa-star-o text-warning me-1"></i>
+            {% for restaurant in restaurant_obj %}
+                <!-- First Restaurant Box -->
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
+                    <!-- <a href="#" class="text-decoration-none"> -->
+                    <div class="bg-light restaurant-box pt-0 pb-2">
+                        <!--  -->
+                        <div class="img-box">
+                            <img src="{{restaurant.restaurant_image.url}}"
+                                class="resto-img" alt="">
+                            <div class="restaurant-type bg-warning">
+                                <p class="mb-0 px-2 py-3">{{restaurant.restaurant_type}}</p>
                             </div>
-                            <a href="#" class="text-decoration-none">
-                                <p class="text mb-0">12 Reviews</p>
-                            </a>
+                            <div class="order-box">
+                                <i class="fa fa-truck text-warning"></i>
+                            </div>
                         </div>
-                        <a href="#" class="text-decoration-none">
-                            <h4 class="text title">Himalayan Java Coffee</h4>
-                        </a>
-                        <p class="text text-warning">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, facilis autem quam
-                            voluptate .....
-                        </p>
-                    </div>
-                    <!--  -->
-                    <hr class="divider mb-1">
-                    <!--  -->
-                    <div class="p-2">
-                        <div class="d-flex justify-content-start align-items-center">
-                            <img src="{% static 'images/coffee-shop.png' %}" class="rest-logo me-4" alt="">
-                            <div class="text-count text-start">
-                                <div class="d-flex justify-content-start align-items-center mb-1">
-                                    <i class="fa fa-clock-o me-2"></i>
-                                    <p class="text mb-0">10:00 AM - 05:30 PM</p>
-                                </div>
-                                <!--  -->
+                        <!--  -->
+                        <div class="resto-detail-box mx-3 mt-2">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
                                 <div class="d-flex justify-content-start align-items-center">
-                                    <i class="fa fa-map me-2"></i>
-                                    <p class="text mb-0">Thulobharyang, Kathmandu</p>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star-half-o text-warning me-1"></i>
+                                    <i class="fa fa-star-o text-warning me-1"></i>
                                 </div>
+                                <a href="#" class="text-decoration-none">
+                                    <p class="text mb-0">12 Reviews</p>
+                                </a>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- </a> -->
-            </div>
-            <!-- Second Restaurant Box -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
-                <!-- <a href="#" class="text-decoration-none"> -->
-                <div class="bg-light restaurant-box pt-0 pb-2">
-                    <!--  -->
-                    <div class="img-box">
-                        <img src="https://cdn.pixabay.com/photo/2016/10/04/05/21/bar-1713610__340.jpg" class="resto-img"
-                            alt="">
-                        <div class="restaurant-type bg-warning">
-                            <p class="mb-0 px-2 py-3">New</p>
-                        </div>
-                        <div class="order-box">
-                            <i class="fa fa-truck text-warning"></i>
-                        </div>
-                    </div>
-                    <!--  -->
-                    <div class="resto-detail-box mx-3 mt-2">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <div class="d-flex justify-content-start align-items-center">
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star-half-o text-warning me-1"></i>
-                                <i class="fa fa-star-o text-warning me-1"></i>
-                            </div>
-                            <a href="#" class="text-decoration-none">
-                                <p class="text mb-0">60 Reviews</p>
+                            <a href="{% url 'homepage:restaurant-detail-data' restaurant.restaurant_id %}" class="text-decoration-none">
+                                <h4 class="text title">{{restaurant.restaurant_name}}</h4>
                             </a>
+                            <p class="text text-warning">
+                               {{restaurant.restaurant_description}}
+                            </p>
                         </div>
-                        <a href="#" class="text-decoration-none">
-                            <h4 class="text title">Himalayan Drink Shop</h4>
-                        </a>
-                        <p class="text text-warning">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, facilis autem quam
-                            voluptate .....
-                        </p>
-                    </div>
-                    <!--  -->
-                    <hr class="divider mb-1">
-                    <!--  -->
-                    <div class="p-2">
-                        <div class="d-flex justify-content-start align-items-center">
-                            <img src="{% static 'images/drink.png' %}" class="rest-logo me-4" alt="">
-                            <div class="text-count text-start">
-                                <div class="d-flex justify-content-start align-items-center mb-1">
-                                    <i class="fa fa-clock-o me-2"></i>
-                                    <p class="text mb-0">10:00 AM - 05:30 PM</p>
-                                </div>
-                                <!--  -->
-                                <div class="d-flex justify-content-start align-items-center">
-                                    <i class="fa fa-map me-2"></i>
-                                    <p class="text mb-0">Thulobharyang, Kathmandu</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- </a> -->
-            </div>
-            <!-- Third Restaurant Box -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
-                <!-- <a href="#" class="text-decoration-none"> -->
-                <div class="bg-light restaurant-box pt-0 pb-2">
-                    <!--  -->
-                    <div class="img-box">
-                        <img src="https://cdn.pixabay.com/photo/2014/11/08/18/14/dance-522546__340.jpg"
-                            class="resto-img" alt="">
-                        <div class="restaurant-type bg-warning">
-                            <p class="mb-0 px-2 py-3">New</p>
-                        </div>
-                        <div class="order-box">
-                            <i class="fa fa-truck text-warning"></i>
-                        </div>
-                    </div>
-                    <!--  -->
-                    <div class="resto-detail-box mx-3 mt-2">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
+                        <!--  -->
+                        <hr class="divider mb-1">
+                        <!--  -->
+                        <div class="p-2">
                             <div class="d-flex justify-content-start align-items-center">
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star-half-o text-warning me-1"></i>
-                                <i class="fa fa-star-o text-warning me-1"></i>
-                            </div>
-                            <a href="#" class="text-decoration-none">
-                                <p class="text mb-0">12 Reviews</p>
-                            </a>
-                        </div>
-                        <a href="#" class="text-decoration-none">
-                            <h4 class="text title">Himalayan Restaurant & Bar</h4>
-                        </a>
-                        <p class="text text-warning">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, facilis autem quam
-                            voluptate .....
-                        </p>
-                    </div>
-                    <!--  -->
-                    <hr class="divider mb-1">
-                    <!--  -->
-                    <div class="p-2">
-                        <div class="d-flex justify-content-start align-items-center">
-                            <img src="{% static 'images/restaurant-logo.png' %}" class="rest-logo me-4" alt="">
-                            <div class="text-count text-start">
-                                <div class="d-flex justify-content-start align-items-center mb-1">
-                                    <i class="fa fa-clock-o me-2"></i>
-                                    <p class="text mb-0">10:00 AM - 05:30 PM</p>
-                                </div>
-                                <!--  -->
-                                <div class="d-flex justify-content-start align-items-center">
-                                    <i class="fa fa-map me-2"></i>
-                                    <p class="text mb-0">Thulobharyang, Kathmandu</p>
+                                <img src="{% static 'images/coffee-shop.png' %}" class="rest-logo me-4" alt="">
+                                <div class="text-count text-start">
+                                    <div class="d-flex justify-content-start align-items-center mb-1">
+                                        <i class="fa fa-clock-o me-2"></i>
+                                        <p class="text mb-0">{{restaurant.restaurant_opening_time}} AM - {{restaurant.restaurant_closing_time}} PM</p>
+                                    </div>
+                                    <!--  -->
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <i class="fa fa-map me-2"></i>
+                                        <p class="text mb-0">{{restaurant.restaurant_address}} {{restaurant.restaurant_city}}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- </a> -->
                 </div>
-                <!-- </a> -->
-            </div>
-            <!--  -->
+                <!--  -->
+            {% endfor %}
         </div>
     </div>
 </div>
 
-<!-- Next Section -->
+<!-- Popular Dishes Section -->
 <div class="container-fluid px-0 mx-0 mx-0 mb-lg-5 mb-md-1 mb-sm-0 mb-0 py-5 bg-light">
     <div class="container col-md-11">
         <div class="row">
@@ -496,8 +379,41 @@
             <div class="hr-section my-0">
                 <hr class="container col-md-1 py-1 bg-warning mt-1 mb-5 rounded-pill">
             </div>
+            {% if food_obj %}
+                {% for food in food_obj %}
+                <!-- First Dishes Section -->
+                <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-4">
+                    <div class="px-0 pb-2 bg-white shadow-sm text-center">
+                        <img src="{{food.food_image.url}}" class="dish-img" alt="">
+                        <div class="dish-info-section m-3">
+                            <a href="{% url 'homepage:food-detail' food.food_id %}" class="text-decoration-none">
+                                <h4 class="text title mb-2">{{food.food_name}}</h4>
+                            </a>
+                            <div class="d-flex justify-content-center align-items-center mb-4">
+                                <i class="fa fa-star text-warning me-1"></i>
+                                <i class="fa fa-star text-warning me-1"></i>
+                                <i class="fa fa-star text-warning me-1"></i>
+                                <i class="fa fa-star-half-o text-warning me-1"></i>
+                                <i class="fa fa-star-o text-warning me-1"></i>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="text title mb-0">{{food.food_selling_price}}</h4>
+                                <button class="btn btn-warning px-3">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                {% endfor %}
+            {% else %}
+            <div class="container col-lg-5 bg-white shadow-sm p-4">
+                <h4 class="text text-center">
+                    Sorry, we are not able to display any foods for this moment.
+                </h4>
+            </div>
+            {% endif %}
             <!-- First Dishes Section -->
-            <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-4">
+            {% comment %} <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-4">
                 <div class="px-0 pb-2 bg-white shadow-sm text-center">
                     <img src="https://cdn.pixabay.com/photo/2020/04/29/03/30/pizza-5107039__340.jpg" class="dish-img"
                         alt="">
@@ -516,76 +432,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Second Dishes Section -->
-            <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-4">
-                <div class="px-0 pb-2 bg-white shadow-sm text-center">
-                    <img src="https://cdn.pixabay.com/photo/2015/07/29/18/29/crayfish-866400__340.jpg" class="dish-img"
-                        alt="">
-                    <div class="dish-info-section m-3">
-                        <h4 class="text title mb-2">Fish Fry</h4>
-                        <div class="d-flex justify-content-center align-items-center mb-4">
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star-half-o text-warning me-1"></i>
-                            <i class="fa fa-star-o text-warning me-1"></i>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h4 class="text title mb-0">Rs.180</h4>
-                            <button class="btn btn-warning px-3">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Third Dishes Section -->
-            <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-4">
-                <div class="px-0 pb-2 bg-white shadow-sm text-center">
-                    <img src="https://cdn.pixabay.com/photo/2022/04/26/11/33/dish-7158169__340.jpg" class="dish-img"
-                        alt="">
-                    <div class="dish-info-section m-3">
-                        <h4 class="text title mb-2">Chicken Biryani</h4>
-                        <div class="d-flex justify-content-center align-items-center mb-4">
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star-half-o text-warning me-1"></i>
-                            <i class="fa fa-star-o text-warning me-1"></i>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h4 class="text title mb-0">Rs.180</h4>
-                            <button class="btn btn-warning px-3">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Fourth Dishes Section -->
-            <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-4">
-                <div class="px-0 pb-2 bg-white shadow-sm text-center">
-                    <img src="https://cdn.pixabay.com/photo/2018/07/18/19/12/pasta-3547078__340.jpg" class="dish-img"
-                        alt="">
-                    <div class="dish-info-section m-3">
-                        <h4 class="text title mb-2">Noodle Fry</h4>
-                        <div class="d-flex justify-content-center align-items-center mb-4">
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star text-warning me-1"></i>
-                            <i class="fa fa-star-half-o text-warning me-1"></i>
-                            <i class="fa fa-star-o text-warning me-1"></i>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h4 class="text title mb-0">Rs.180</h4>
-                            <button class="btn btn-warning px-3">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div> {% endcomment %}
             <!--  -->
         </div>
     </div>
 </div>
 
-<!-- Next Section -->
+<!-- Background Something Section -->
 <div class="container-fluid px-0 mx-0 mx-0 mb-lg-5 mb-md-1 mb-sm-0 mb-0 fixed-bg">
     <div class="container col-md-11">
         <h1 class="text text-dark my-5 py-5">Hello Fixed Background Section </h1>
@@ -763,7 +616,7 @@
 <!-- Scripts Section Start -->
 
 {% block scripts %}
-<script>
+<!--<script>
     $('.owl-carousel').owlCarousel({
         loop: true,
         margin: 10,
@@ -780,7 +633,7 @@
             }
         }
     })
-</script>
+</script> -->
 {% endblock scripts %}
 
 <!-- Scripts Section End -->

@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views import generic
+from requests import request
 from .models import *
 
 
@@ -11,47 +12,138 @@ class IndexView(generic.ListView):
         food_category_id = self.kwargs.get('food_category_id')
         food_category_list = FoodCategory.objects.all().order_by('-food_category_id')[:4]
         restaurant_id = self.kwargs.get('restaurant_id')
-        restaurant_list = Restaurant.objects.all().order_by('-restaurant_id')[:4]
+        restaurant_obj = Restaurant.objects.all().order_by('-restaurant_id')[:4]
         food_id = self.kwargs.get('food_id')
-        foods_list = Food.objects.all().order_by('-food_id')[:4]
+        food_obj = Food.objects.all().order_by('-food_id')[:4]
         context = {
             'food_category_list' : food_category_list,
-            'restaurant_list' : restaurant_list,
+            'restaurant_obj' : restaurant_obj,
+            'food_obj' : food_obj,
         }
         return render(request, self.template_name, context)
 
 class RestaurantView(generic.ListView):
-    # model = Restaurant
-    # context_object_name = 'restaurants_list'
-
     def get(self, request, *args, **kwargs):
         template_name = "restaurant/restaurant.html"
         restaurants_list = Restaurant.objects.all()
-        print(restaurants_list)
         context = {
             'restaurants_list': restaurants_list
         }
         return render(request, template_name, context)
 
-# def restaurant(request):
-#     return render(request, 'restaurant/restaurant.html')
-
 class RestaurantDetailView(generic.DetailView):
-
     def get(self, request, *args, **kwargs):
         template_name = "restaurant/resto_detail.html"
         restaurant_detail_list = Restaurant.objects.get(restaurant_id=self.kwargs.get('restaurant_id'))
+        categories = FoodCategory.objects.all()
         context = {
             'restaurant_detail_list': restaurant_detail_list,
+            'categories' : categories,
         }
         return render(request, template_name, context)
 
+class FoodView(generic.ListView):
+    template_name = "foods/food.html"
+    def get(self, request, *args, **kwargs):
+        food_id = self.kwargs.get('food_id')
+        food_obj = Food.objects.all().order_by('-food_id')
+        return render(request, self.template_name, {'food_obj': food_obj})
 
-def food(request):
-    return render(request, 'foods/food.html')
+class FoodDetailView(generic.DetailView):
+    template_name = "foods/detail.html"
+    def get(self, request, *args, **kwargs):
+        food_id = self.kwargs.get('food_id')
+        food_detail_obj = Food.objects.get(food_id = food_id)
+        return render(request, self.template_name, {'food_detail_obj': food_detail_obj})
 
-def foodDetail(request):
-    return render(request, 'foods/detail.html')
+class AddToCartView(generic.TemplateView):
+    template_name = 'homepage/addtocart.html'
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        # get food id from requested url
+        food_id = self.kwargs['fd_id']
+        # get food
+        food_obj = Food.objects.get(food_id=food_id)
+        # check if cart exists 
+        cart_id = self.request.session.get("cart_id", None)
+        if cart_id:
+            cart_obj = Cart.objects.get(id=cart_id)
+            this_food_in_cart = cart_obj.cartfood_set.filter(food=food_obj)
+            # Items already exists in cart
+            if this_food_in_cart.exists():
+                cartfood = this_food_in_cart.last()
+                cartfood.quantity += 1
+                cartfood.subtotal += food_obj.food_selling_price
+                cartfood.save()
+                cart_obj.total += food_obj.food_selling_price
+                cart_obj.save()
+            # New item is added in cart
+            else:
+                cartfood = CartFood.objects.create(cart=cart_obj, food=food_obj, price=food_obj.food_selling_price, quantity=1, subtotal=food_obj.food_selling_price)
+                cart_obj.total += food_obj.food_selling_price
+                cart_obj.save() 
+        else:
+            cart_obj = Cart.objects.create(total=0)
+            self.request.session['cart_id'] = cart_obj.id
+            cartfood = CartFood.objects.create(cart=cart_obj, food=food_obj, price=food_obj.food_selling_price, quantity=1, subtotal=food_obj.food_selling_price)
+            cart_obj.total += food_obj.food_selling_price
+            cart_obj.save()
+        return context
+
+class CartView(generic.ListView):
+    template_name = 'homepage/cart.html'
+    def get(self, request, *args, **kwargs):
+        # context = super().get_context_data(**kwargs)
+        cart_id = self.request.session.get('cart_id', None)
+        # print(cart_id, " session cart id")
+        cart = Cart.objects.get(id=cart_id)
+        # if cart_id:
+        #     cart = Cart.objects.get(id=cart_id)
+        # else:
+        #     cart = None
+        context = {
+            'cart': cart,
+        }
+        return render(request, self.template_name, context)
+
+class ManageView(generic.View):
+    def get(self, request, *args, **kwargs):
+        cart_food_id = self.kwargs['cartfood_id']
+        action = request.GET.get('action')
+        # print(cp_id, action)
+        cartfood_obj = CartFood.objects.get(id=cart_food_id)
+        cart_obj = cartfood_obj.cart
+        if action == 'inc':
+            cartfood_obj.quantity +=1
+            cartfood_obj.subtotal += cartfood_obj.price
+            cartfood_obj.save()
+            cart_obj.total += cartfood_obj.price
+            cart_obj.save()
+        elif action == 'dcr':
+            cartfood_obj.quantity -= 1
+            cartfood_obj.subtotal -= cartfood_obj.price
+            cartfood_obj.save()
+            cart_obj.total -= cartfood_obj.price
+            cart_obj.save()
+            if cartfood_obj.quantity == 0:
+                cartfood_obj.delete()
+        elif action == 'rmv':
+            cart_obj.total -= cartfood_obj.subtotal
+            cart_obj.save()
+            cartfood_obj.delete()
+        else:
+            print("Something went wrong!!!")
+        return redirect('homepage:cart')
+
+class EmptyCartView(generic.View):
+    def get(self, request, *args, **kwargs):
+        cart_id = request.session.get('cart_id', None)
+        if cart_id:
+            cart = Cart.objects.get(id=cart_id)
+            cart.cartfood_set.all().delete()
+            cart.total = 0
+            cart.save()
+        return redirect('homepage:cart')
 
 class BlogView(generic.ListView):
     def get(self, request, *args, **kwargs):
@@ -62,7 +154,6 @@ class BlogView(generic.ListView):
         }
         return render(request, template_name, context)
 
-
 class BlogDetailView(generic.ListView):
     def get(self, request, *args, **kwargs):
         template_name = 'blogs/blog_detail.html'
@@ -72,17 +163,11 @@ class BlogDetailView(generic.ListView):
         }
         return render(request, template_name, context)
 
-# def blogDetail(request):
-#     return render(request, 'blogs/blog_detail.html')
-
 def contact(request):
     return render(request, 'contact/contact.html')
 
 def vendorMembership(request):
     return render(request, 'vendor/vendor.html')
-
-def cart(request):
-    return render(request, 'homepage/cart.html')
 
 def checkout(request):
     return render(request, 'homepage/checkout.html')
