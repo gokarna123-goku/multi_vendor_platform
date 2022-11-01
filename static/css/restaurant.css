@@ -103,13 +103,13 @@ ul{
 }
 
 .nav-item .active{
-    color: #f34949;
-    border-bottom: 3px solid #f34949;
+    color: #FF881B;
+    border-bottom: 3px solid #FF881B;
     /* width: 75%; */
 }
 
 .nav-item:hover .nav-link{
-    color: #f34949;
+    color: #FF881B;
     /* border-bottom: 3px solid #f34949;
     width: 75%; */
 }
@@ -173,12 +173,17 @@ ul{
 }
 
 .info{
-    color: #fa6b05;
+    color: #FF881B;
     /* color: #cccaca; */
     /* color: #8c8d8f; */
     font-size: 1.125rem;
     text-transform: uppercase;
     letter-spacing: 1.4px;
+}
+
+.search-box{
+    background: #FF881B;
+    border: 2px solid #FF881B;
 }
 
 .main-title{
@@ -214,12 +219,19 @@ ul{
     font-size: 1.333rem;
     font-weight: 500;
     letter-spacing: 0.3px;
+    color: #FF881B;
 }
 
 .big-title{
     font-size: 2.133rem;
     font-weight: 600;
     letter-spacing: 0.3px;
+}
+.text-warning{
+    color: #FF881B !important;
+}
+.underline-for-hr{
+    background: #FF881B;
 }
 
 .category-box{
