@@ -5,5 +5,5 @@ from accounts.models import User
 class RegisterForm(UserCreationForm):
     class Meta:
         model = User
-        # fields = {'fullname', 'email', 'address', 'phone', 'username', 'password1', 'password2'}
-        fields = '__all__'
+        fields = ('fullname','address' ,'username','email',)
+        # fields = '__all__'

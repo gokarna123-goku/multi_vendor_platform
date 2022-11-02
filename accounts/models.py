@@ -14,9 +14,11 @@ from django.contrib.auth.tokens import default_token_generator
 
 # Create your models here.
 class User(AbstractUser):
+    fullname = models.CharField(max_length=50)
     username = models.CharField(max_length=255, unique=True)
     email = models.EmailField(verbose_name='email address', max_length=255)
     email_confirmed = models.BooleanField(default=False) #initially this field is false but will se chan
+    address = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True) # can login
     is_staff = models.BooleanField(default=False) # a staff user; non super-user
     is_admin = models.BooleanField(default=False) # superusr or admin
@@ -35,7 +37,7 @@ class User(AbstractUser):
     #     return username
 
     def __str__(self):              # __unicode__ on Python 2
-        return self.first_name
+        return self.username
 
 
 class ActivateAccount(generic.View):

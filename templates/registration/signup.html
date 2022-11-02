@@ -7,14 +7,15 @@
 <!-- widget_tweaks here  (copied)-->
 {% block content %}
 
-<div class="container-fluid px-0 mx-0 mt-5">
-    <div class="container col-lg-10">
-        <div class="row">
-            <div class="col-lg-7 py-4">
+<div class="container-fluid px-0 mx-0 mt-5 bg-light">
+    <div class="container col-lg-8 py-5 mt-2">
+        <div class="row border bg-white shadow-sm my-4">
+            <div class="col-lg-6 py-4">
                 <div class="px-5 py-3">
                     <h4 class="mt-1 mb-4 pb-3 pb-1 title text-center">We are The GWTC Team</h4>
-                    <form action="post" class="form-for-signup">
-                        <div class="form-outline mb-3">
+                    <form method='post' class="form-for-signup">
+                        {% csrf_token %}
+                        <!-- <div class="form-outline mb-3">
                             <label class="form-label mb-2 title" for="fullname">Full Name</label>
                             <input type="text" id="fullname" class="form-control title border"
                                 placeholder="Enter your fullname" autocomplete="off" required />
@@ -38,10 +39,12 @@
                         </div>
                         <div class="form-outline mb-3">
                             <label class="form-label mb-2 title" for="password">Password</label>
+                            
                             <div class="input-group mb-4 border">
                                 <input type="password" id="myPassword" class="form-control title"
                                     placeholder="Enter your password" autocomplete="off"
                                     aria-describedby="password-field" required />
+                                
                                 <div class="input-group-append border-0">
                                     <button id="password-field" type="button"
                                         class="btn btn-link text-decoration-none px-2">
@@ -49,7 +52,14 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
+                        {% for fields in form %}
+                            <div class="form-outline mb-4">
+                                <label class="form-label mb-2 title">{{fields.label}}</label>
+                                {% render_field fields class="form-control border" placeholder="Enter your fields" %}
+                            </div>
+                        {% endfor %}
+
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="checkbox" value=""
                                 id="flexCheckDefault">
@@ -63,6 +73,18 @@
                             <a href="#" class="btn btn-sm btn-primary px-3">Login</a>
                         </div>
                     </form>
+                </div>
+            </div>
+            <div class="col-lg-6 login-bg d-flex align-items-center">
+                <div class="text-white px-3 py-4">
+                    <h4 class="mb-4">We are more than just a company</h4>
+                    <p class="small mb-0">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                        eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis
+                        nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
             </div>
         </div>

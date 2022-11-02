@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import generic
+from django.contrib.auth import logout
+from django.contrib.auth.views import LoginView, LogoutView
 from accounts.forms import RegisterForm
 from django.contrib import messages
 from django.contrib.sites.shortcuts import get_current_site
@@ -15,12 +17,12 @@ class RegisterView(generic.CreateView):
     form_class = RegisterForm
     template_name = 'registration/signup.html'
 
-    def get(self, request, *args, **kwargs):
-        form = self.form_class()
-        context = {
-            'form':form,
-        }
-        return render(request, self.template_name, context)
+    # def get(self, request, *args, **kwargs):
+    #     form = self.form_class()
+    #     context = {
+    #         'form':form,
+    #     }
+    #     return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
@@ -31,20 +33,28 @@ class RegisterView(generic.CreateView):
             # user.is_active = False
             user.save()
             #send confirmation email
-            current_site = get_current_site(request)
-            subject = 'Activate your account'
-            message = render_to_string('registration/account_activate_email.html', {
-                'user':user,
-                'domain':current_site.domain,
-                # 'uid':urlsafe_base64_encode(force_bytes(user.id)).decode(),
-                'uid':urlsafe_base64_encode(force_bytes(user.id)),
-                'token':default_token_generator.make_token(user),
-            })
-            user.email_user(subject, message, from_email=None, **kwargs)
-            messages.success(request, 'Please confirm your email to complete registration')
-            return redirect('accounts:sent')
+            # current_site = get_current_site(request)
+            # subject = 'Activate your account'
+            # message = render_to_string('registration/account_activate_email.html', {
+            #     'user':user,
+            #     'domain':current_site.domain,
+            #     # 'uid':urlsafe_base64_encode(force_bytes(user.id)).decode(),
+            #     'uid':urlsafe_base64_encode(force_bytes(user.id)),
+            #     'token':default_token_generator.make_token(user),
+            # })
+            # user.email_user(subject, message, from_email=None, **kwargs)
+            # messages.success(request, 'Please confirm your email to complete registration')
+            return redirect('login')
         return render(request, self.template_name, {'form':form})
 
+class UserLoginView(LoginView):
+    template_name = "registration/login.html"
+
+class UserLogoutView(LogoutView):
+    def get(self, request):
+        logout(request)
+        return redirect()
+    
 
 # def signin(request):
 #     return render(request, 'registration/signin.html')
