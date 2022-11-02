@@ -14,7 +14,7 @@
                             <div class="col-lg-7 py-4">
                                 <div class="px-5 py-3">
                                     <h4 class="mt-1 mb-4 pb-3 pb-1 title text-center">We are The GWTC Team</h4>
-                                    <form>
+                                    <form method="post">
                                         {% csrf_token %}
                                         <div class="form-outline mb-3">
                                             <label class="form-label mb-2 title" for="username">Username</label>
@@ -27,7 +27,7 @@
                                             <div class="input-group mb-4 border">
                                                 <input type="password" id="myPassword" class="form-control title"
                                                     placeholder="Enter your password" autocomplete="off"
-                                                    aria-describedby="password-field" required />
+                                                    aria-describedby="password-field" name="password" required />
                                                 
                                                 <div class="input-group-append border-0">
                                                     <button id="password-field" type="button"
@@ -37,11 +37,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {% comment %} <div class="form-outline mb-3">
+                                         <!-- <div class="form-outline mb-3">
                                             <label class="form-label mb-2 title" for="password">Password</label>
                                             <input type="password" id="password" name="password" class="form-control title border"
                                                 placeholder="Enter your password" required />
-                                        </div> {% endcomment %}
+                                        </div> -->
 
                                         <div class="d-flex justify-content-between align-items-center mb-3">
                                             <div class="form-check mb-3">

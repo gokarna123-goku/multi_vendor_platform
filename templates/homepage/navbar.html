@@ -34,29 +34,36 @@
                             <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}"
                                 href="{% url 'homepage:contact' %}">Contact</a>
                         </li>
-                        <li class="nav-item me-3 registration">
-                            <a class="nav-link" href="#">Registration
-                                <ul class="subnav shadow-sm">
-                                    <li>
-                                        <a href="{% url 'accounts:signup' %}"
-                                            class="nav-link {% if request.resolver_match.url_name == 'signup' %}active{% endif %} subnav-link">
-                                            Sign Up
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{% url 'login' %}"
-                                            class="nav-link {% if request.resolver_match.url_name == 'login' %}active{% endif %} subnav-link">
-                                            Sign In
-                                        </a>
-                                    </li>
-                                    <li class="mb-3">
-                                        <a href="{% url 'homepage:vendor' %}" class="nav-link subnav-link">
-                                            Vendor Membership
-                                        </a>
-                                    </li>
-                                </ul>
-                            </a>
-                        </li>
+                        {% if request.user.is_authenticated %}
+                            <li class="nav-item me-3">
+                                <a class="nav-link"
+                                    href="{% url 'accounts:logout' %}">Logout</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item me-3 registration">
+                                <a class="nav-link" href="#">Registration
+                                    <ul class="subnav shadow-sm">
+                                        <li>
+                                            <a href="{% url 'accounts:signup' %}"
+                                                class="nav-link {% if request.resolver_match.url_name == 'signup' %}active{% endif %} subnav-link">
+                                                Sign Up
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'login' %}"
+                                                class="nav-link {% if request.resolver_match.url_name == 'login' %}active{% endif %} subnav-link">
+                                                Sign In
+                                            </a>
+                                        </li>
+                                        <li class="mb-3">
+                                            <a href="{% url 'homepage:vendor' %}" class="nav-link subnav-link">
+                                                Vendor Membership
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </a>
+                            </li>
+                        {% endif %}
                     </ul>
                     <!--  -->
                     <a href="{% url 'homepage:cart' %}" class="cart-tag text-decoration-none btn position-relative">

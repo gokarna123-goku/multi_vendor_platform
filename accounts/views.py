@@ -47,8 +47,10 @@ class RegisterView(generic.CreateView):
             return redirect('login')
         return render(request, self.template_name, {'form':form})
 
+
 class UserLoginView(LoginView):
     template_name = "registration/login.html"
+
 
 class UserLogoutView(LogoutView):
     def get(self, request):
