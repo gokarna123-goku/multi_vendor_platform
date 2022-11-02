@@ -55,7 +55,7 @@ class UserLoginView(LoginView):
 class UserLogoutView(LogoutView):
     def get(self, request):
         logout(request)
-        return redirect()
+        return redirect("/")
     
 
 # def signin(request):
