@@ -120,7 +120,7 @@ ul{
 }
 
 .subnav-link:hover{
-    color: #f34949 !important;
+    color: #FF881B !important;
 }
 
 .cart-tag i{
@@ -139,7 +139,7 @@ ul{
 
 .registration .subnav{
     display: none;
-    border-top: 2px solid #f34949;
+    border-top: 2px solid #FF881B;
     position: absolute;
     width: 240px;
     background: #2c3e50;
