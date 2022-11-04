@@ -1,0 +1,135 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+{% block title %}Foods{% endblock title %}
+{% block content %}
+<!--  -->
+<div class="container-fluid px-0 mx-0 my-5 pt-3 food-main">
+    <div class="container-fluid px-0 mx-0 food-section pt-5">
+        <div class="container col-lg-11 col-12">
+            <h1 class="text text-center title mt-5 pt-5">
+                results
+            </h1>
+        </div>
+    </div>
+</div>
+<!--  -->
+
+<div class="container-fluid px-0 mx-0 mt-5 pt-5 bg-light">
+    <div class="container col-md-11">
+        <!--  -->
+        {% if food_result %}
+            <div class="row">
+                <div class="col-12 ms-lg-5 ms-0">
+                    <div class="p-1">
+                        <div class="row">
+                            {% for food in food_result %}
+                                <!-- First Dishes Section -->
+                                <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-4">
+                                    <div class="px-0 pb-2 bg-white shadow-sm text-center">
+                                        <img src="{{food.food_image.url}}"
+                                            class="dish-img" alt="">
+                                        <div class="dish-info-section m-3">
+                                            <a href="{% url 'homepage:food-detail' food.food_id %}" class="text-decoration-none">
+                                                <h4 class="text title mb-2">{{food.food_name}}</h4>
+                                            </a>
+                                            <div class="d-flex justify-content-center align-items-center mb-4">
+                                                <i class="fa fa-star text-warning me-1"></i>
+                                                <i class="fa fa-star text-warning me-1"></i>
+                                                <i class="fa fa-star text-warning me-1"></i>
+                                                <i class="fa fa-star-half-o text-warning me-1"></i>
+                                                <i class="fa fa-star-o text-warning me-1"></i>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <h4 class="text title mb-0">{{food.food_selling_price}}</h4>
+                                                <a href="{% url 'homepage:addtocart' food.food_id %}" class="btn btn-warning px-3">Add to Cart</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--  -->
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% elif restaurant_result %}
+            <div class="row mb-3">
+                {% for restaurant in restaurant_result %}
+                    <!--  -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
+                        <div class="bg-light restaurant-box pt-0 pb-2">
+                            <!-- Resto Image Section -->
+                            <div class="img-box">
+                                <img src="{{restaurant.restaurant_image.url}}"
+                                    class="resto-img" alt="">
+                                <div class="restaurant-type bg-warning">
+                                    <p class="mb-0 px-2 py-3">{{restaurant.restaurant_type}}</p>
+                                </div>
+                                <div class="order-box">
+                                    <i class="fa fa-truck text-warning"></i>
+                                </div>
+                            </div>
+                            <!-- Resto Review Details Section -->
+                            <div class="resto-detail-box mx-3 mt-2">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <!-- Rating Section -->
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <i class="fa fa-star text-warning me-1"></i>
+                                        <i class="fa fa-star text-warning me-1"></i>
+                                        <i class="fa fa-star text-warning me-1"></i>
+                                        <i class="fa fa-star-half-o text-warning me-1"></i>
+                                        <i class="fa fa-star-o text-warning me-1"></i>
+                                    </div>
+                                    <!-- Reviews Section -->
+                                    <a href="#" class="text-decoration-none">
+                                        <p class="text mb-0">12 Reviews</p>
+                                    </a>
+                                    <!--  -->
+                                </div>
+                                <!-- Resto name -->
+                                <a href="{% url 'homepage:restaurant-detail-data' restaurant.restaurant_id %}" class="text-decoration-none">
+                                    <h4 class="text title">{{restaurant.restaurant_name}}</h4>
+                                </a>
+                                <!-- Resto Tag will be here -->
+                                <p class="text text-warning">
+                                    {{restaurant.restaurant_description}}
+                                </p>
+                            </div>
+                            <!--  -->
+                            <hr class="divider mb-1">
+                            <!-- Resto Location, Categories, & working hours Section -->
+                            <div class="p-2">
+                                <div class="d-flex justify-content-start align-items-center">
+                                    <img src="{% static 'images/coffee-shop.png' %}" class="rest-logo me-4" alt="">
+                                    <div class="text-count text-start">
+                                        <div class="d-flex justify-content-start align-items-center mb-1">
+                                            <i class="fa fa-clock-o me-2"></i>
+                                            <p class="text mb-0">{{restaurant.restaurant_opening_time}} - {{restaurant.restaurant_closing_time}}</p>
+                                        </div>
+                                        <!--  -->
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <i class="fa fa-map me-2"></i>
+                                            <p class="text mb-0">{{restaurant.restaurant_address}} {{restaurant.restaurant_city}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  -->
+                        </div>
+                    </div>
+                    <!--  -->
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="container col-lg-5 bg-white shadow-sm p-4">
+                <h4 class="text text-center">
+                    Sorry, No query matched!!!
+                </h4>
+            </div>
+        {% endif %}
+        <!--  -->
+    </div>
+</div>
+
+<!--  -->
+{% endblock content %}

@@ -22,4 +22,6 @@ urlpatterns = [
     path('empty-cart/', views.EmptyCartView.as_view(), name='emptycart'),
     path('checkout/', views.checkout, name='checkout'),
     path('payment/options/', views.payment, name='payment'),
+
+    path('search/', views.SearchView.as_view(), name='search'),
 ]

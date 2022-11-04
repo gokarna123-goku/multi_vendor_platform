@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from django.views import generic
 from requests import request
 from .models import *
+from django.db.models import Q
 
 
 # Create your views here.
@@ -162,6 +163,27 @@ class BlogDetailView(generic.ListView):
             'blog_detail_list' : blog_detail_list,
         }
         return render(request, template_name, context)
+
+class SearchView(generic.ListView):
+    template_name = 'search/search.html'
+    def get(self, request, *args, **kwargs):
+        search_result = request.GET.get('search')
+        if search_result:
+            restaurant_result = Restaurant.objects.filter(
+                Q(restaurant_name__icontains=search_result) |
+                Q(restaurant_address__icontains=search_result) | 
+                Q(restaurant_city__icontains=search_result)
+                )
+            food_result = Food.objects.filter(Q(food_name__icontains=search_result))
+            print(restaurant_result, " restaurant_result found")
+            print(food_result, " food found")
+        else:
+            print("Sorry, no results founds")
+        context = {
+            'restaurant_result':restaurant_result,
+            'food_result' : food_result,
+        }
+        return render(request, self.template_name, context)
 
 def contact(request):
     return render(request, 'contact/contact.html')
