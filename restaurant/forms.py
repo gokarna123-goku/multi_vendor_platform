@@ -1,17 +1,23 @@
 from django.forms import ModelForm
-from .models import Restaurant, RestaurantImages
+from .models import Order
 from django import forms
 
 
-class RestaurantForm(ModelForm):
+class CheckoutForm(forms.ModelForm):
     class Meta:
-        model = Restaurant
-        fields = "__all__"
+        model = Order
+        fields = ['order_by', 'country', 'town_city', 'shipping_address', 'postal_code', 'mobile', 'email']
 
-class RestaurantImagesForm(ModelForm):
-    class Meta:
-        widgets = {
-        'image': forms.ClearableFileInput(attrs={'class': 'file-upload-input', 'id': 'file-selector',"multiple": True})
-        }
-        model = RestaurantImages
-        fields =  "__all__"
+
+# class RestaurantForm(ModelForm):
+#     class Meta:
+#         model = Restaurant
+#         fields = "__all__"
+
+# class RestaurantImagesForm(ModelForm):
+#     class Meta:
+#         widgets = {
+#         'image': forms.ClearableFileInput(attrs={'class': 'file-upload-input', 'id': 'file-selector',"multiple": True})
+#         }
+#         model = RestaurantImages
+#         fields =  "__all__"

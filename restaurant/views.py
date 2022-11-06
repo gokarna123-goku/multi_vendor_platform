@@ -1,11 +1,20 @@
 from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
 from django.views import generic
 from requests import request
+from django.contrib.auth.decorators import login_required
+from restaurant.forms import CheckoutForm
 from .models import *
 from django.db.models import Q
 
 
 # Create your views here.
+# Login Required View for all views
+class LoginRequiredMixin(object):
+    @classmethod
+    def as_view(cls):
+        return login_required(super(LoginRequiredMixin, cls).as_view())
+
 
 class IndexView(generic.ListView):
     template_name = 'homepage/index.html'
@@ -196,8 +205,35 @@ def contact(request):
 def vendorMembership(request):
     return render(request, 'vendor/vendor.html')
 
-def checkout(request):
-    return render(request, 'homepage/checkout.html')
+class CheckoutView(LoginRequiredMixin, generic.CreateView):
+    template_name = 'homepage/checkout.html'
+    form_class = CheckoutForm
+    success_url = reverse_lazy('homepage:payment')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        cart_id = self.request.session.get('cart_id', None)
+        if cart_id:
+            cart_obj = Cart.objects.get(id=cart_id)
+        else:
+            cart_obj = None
+        context['cart'] = cart_obj
+        return context
+
+    def form_valid(self, form):
+        cart_id = self.request.session.get('cart_id')
+        if cart_id:
+            cart_obj = Cart.objects.get(id=cart_id)
+            form.instance.cart = cart_obj
+            form.instance.subtotal = cart_obj.total
+            form.instance.discount = 0 
+            form.instance.total = cart_obj.total
+            form.instance.order_status = "Order Received"
+            del self.request.session['cart_id']
+        else:
+            return redirect('homepage:checkout')
+        return super().form_valid(form)
+
 
 def payment(request):
     return render(request, 'homepage/payment.html')

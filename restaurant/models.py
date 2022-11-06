@@ -135,29 +135,47 @@ class CartFood(models.Model):
         return 'Cart: ' + str(self.cart.id) + 'CartFood: ' + str(self.id)
 
 
-# ORDER_STATUS = (
-#     ("Order Received", "Order Received"),
-#     ("Order Processing", "Order Processing"),
-#     ("On the Way", "On the Way"),
-#     ("Order Completed", "Order Completed"),
-#     ("Order Cancelled", "Order Cancelled"),
-#     ("Order Delivered", "Order Delivered"),
-# )
+ORDER_STATUS = (
+    ("Order Received", "Order Received"),
+    ("Order Processing", "Order Processing"),
+    ("On the Way", "On the Way"),
+    ("Order Completed", "Order Completed"),
+    ("Order Cancelled", "Order Cancelled"),
+    ("Order Delivered", "Order Delivered"),
+)
 
-# class Order(models.Model):
-#     cart = models.OneToOneField(Cart, on_delete=models.CASCADE)
-#     order_by = models.CharField(max_length=200)
-#     shipping_address = models.CharField(max_length=200)
-#     mobile = models.CharField(max_length=10)
-#     email = models.EmailField(null=True, blank=True)
-#     subtotal = models.PositiveIntegerField()
-#     discount = models.PositiveIntegerField()
-#     total = models.PositiveIntegerField()
-#     order_status = models.CharField(max_length=50, choices=ORDER_STATUS)
-#     created_at = models.DateTimeField(auto_now_add=True)
+COUNTRY = (
+    ('Nepal', 'Nepal'),
+)
 
-#     def __str__(self):
-#         return 'Order: ' + str(self.id) 
+TOWN_CITY = (
+    ('Pyuthan', 'Pyuthan'),
+    ('kathmandu', 'kathmandu'),
+    ('Lalitpur', 'Lalitpur'),
+    ('Bhaktapur', 'Bhaktapur'),
+    ('Dhading', 'Dhading'),
+    ('Kaski', 'Kaski'),
+    ('Butwal', 'Butwal'),
+)
+
+
+class Order(models.Model):
+    cart = models.OneToOneField(Cart, on_delete=models.CASCADE)
+    order_by = models.CharField(max_length=200)
+    country = models.CharField(max_length=200, choices=COUNTRY)
+    town_city = models.CharField(max_length=200, choices=TOWN_CITY)
+    shipping_address = models.CharField(max_length=200)
+    postal_code = models.CharField(max_length=10)
+    mobile = models.CharField(max_length=10)
+    email = models.EmailField(null=True, blank=True)
+    subtotal = models.PositiveIntegerField()
+    discount = models.PositiveIntegerField()
+    total = models.PositiveIntegerField()
+    order_status = models.CharField(max_length=50, choices=ORDER_STATUS)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return 'Order: ' + str(self.order_by) 
 
 
 

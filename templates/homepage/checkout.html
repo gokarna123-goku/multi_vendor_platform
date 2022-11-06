@@ -1,6 +1,10 @@
 {% extends 'homepage/base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
+<!-- crispy_forms_tags here  (copied)-->
 {% block title %}Checkout{% endblock title %}
+{% load widget_tweaks %}
+<!-- widget_tweaks here  (copied)-->
 {% block content %}
 <!--  -->
 <div class="container-fluid px-0 mx-0 mt-5 pt-5 cart-section">
@@ -18,105 +22,110 @@
             <a href="#" class="text-decoration-none">Click here to enter your code</a>
         </div>
         <!--  -->
-        <div class="row">
-            <div class="col-lg-7 col-md-6 col-sm-12 col-12 mb-4">
-                <div class="p-4 shadow-sm bg-white">
-                    <!--  -->
-                    <div class="mb-3">
-                        <label for="fullname" class="title mb-2">Full Name
-                            <span class="text-danger">*</span>
-                        </label>
-                        <input type="text" id="fullname" class="form-control border py-2 title" required
-                            placeholder="Your fullname">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12 col-12 mb-4">
+                    <div class="p-4 shadow-sm bg-white">
+                        <!--  -->
+                        {% for fields in form %}
+                            <div class="mb-3">
+                                <label for="streetaddress" class="title mb-2">{{fields.label}}
+                                    <span class="text-danger">*</span>
+                                </label>
+                                {% render_field fields class="form-control border title" %}
+                                <!-- <input type="text" id="streetaddress" class="form-control border py-2 title" required
+                                    placeholder="Enter your street address"> -->
+                            </div>
+                        {% endfor %}
+                        <!-- <div class="mb-3">
+                            <label for="fullname" class="title mb-2">Full Name
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" id="fullname" class="form-control border py-2 title" required
+                                placeholder="Your fullname">
+                        </div> -->
+                        <!-- <div class="mb-3">
+                            <label for="country" class="title mb-2">Country / Region
+                                <span class="text-danger">*</span>
+                            </label>
+                            <select class="form-select title" aria-label="Default select example">
+                                <option selected>Nepal</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="streetaddress" class="title mb-2">Street Address
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" id="streetaddress" class="form-control border py-2 title" required
+                                placeholder="Enter your street address">
+                        </div>
+                        <div class="mb-3">
+                            <label for="town" class="title mb-2">Town / City
+                                <span class="text-danger">*</span>
+                            </label>
+                            <select class="form-select title" aria-label="Default select example">
+                                <option selected>Select Town or City</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="postcode" class="title mb-2">Postcode / ZIP (Optional)
+                            </label>
+                            <input type="text" id="postcode" class="form-control border py-2 title"
+                                placeholder="Enter your postcode or zip code">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="title mb-2">Phone
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" id="phone" class="form-control border py-2 title"
+                                placeholder="Enter your phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailaddress" class="title mb-2">Email Address
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="email" id="emailaddress" class="form-control border py-2 title"
+                                placeholder="Enter your email address">
+                        </div> -->
+                        <!--  -->
                     </div>
-                    <!--  -->
-                    <div class="mb-3">
-                        <label for="country" class="title mb-2">Country / Region
-                            <span class="text-danger">*</span>
-                        </label>
-                        <select class="form-select title" aria-label="Default select example">
-                            <option selected>Select Country or Region</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
+                </div>
+                <!--  -->
+                <div class="col-lg-5 col-md-6 col-sm-12 col-12 mb-4">
+                    <div class="p-4 shadow-sm bg-white">
+                        <div class="title bg-light px-4 py-2 mb-4 text-uppercase font-weight-bold">
+                            Your Order Lists
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="d-flex justify-content-between p-3 border">
+                                <strong class="title">Food Item </strong> <strong>Price</strong>
+                            </li>
+                            <li class="d-flex justify-content-between p-3 border">
+                                <span class="title">Chicken Pizza chicken Pizza &#215; <strong> 2 </strong></span> <span class="d-flex justify-content-start align-items-center">Rs. 250</span>
+                            </li>
+                            <li class="d-flex justify-content-between p-3 border">
+                                <span class="title">Chicken Burger &times; <strong> 3 </strong></span> <span>Rs. 250</span>
+                            </li>
+                            <li class="d-flex justify-content-between p-3 border">
+                                <span class="title">Tax (10%) </span><span>Rs. 100.00</span>
+                            </li>
+                            <li class="d-flex justify-content-between p-3 border">
+                                <strong class="title">Total Price</strong>
+                                <span class="font-weight-bold">Rs. 1100.00</span>
+                            </li>
+                        </ul>
+                        <button type="submit" class="btn btn-warning py-2 w-100 mb-0">Procceed to Payment</button>
+                        <!-- <a href="{% url 'homepage:payment' %}" class="btn btn-warning py-2 w-100 mb-0">
+                            Procceed to Payment
+                        </a> -->
                     </div>
-                    <!--  -->
-                    <div class="mb-3">
-                        <label for="streetaddress" class="title mb-2">Street Address
-                            <span class="text-danger">*</span>
-                        </label>
-                        <input type="text" id="streetaddress" class="form-control border py-2 title" required
-                            placeholder="Enter your street address">
-                    </div>
-                    <!--  -->
-                    <div class="mb-3">
-                        <label for="town" class="title mb-2">Town / City
-                            <span class="text-danger">*</span>
-                        </label>
-                        <select class="form-select title" aria-label="Default select example">
-                            <option selected>Select Town or City</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
-                    <!--  -->
-                    <div class="mb-3">
-                        <label for="postcode" class="title mb-2">Postcode / ZIP (Optional)
-                        </label>
-                        <input type="text" id="postcode" class="form-control border py-2 title"
-                            placeholder="Enter your postcode or zip code">
-                    </div>
-                    <!--  -->
-                    <div class="mb-3">
-                        <label for="phone" class="title mb-2">Phone
-                            <span class="text-danger">*</span>
-                        </label>
-                        <input type="text" id="phone" class="form-control border py-2 title"
-                            placeholder="Enter your phone">
-                    </div>
-                    <!--  -->
-                    <div class="mb-3">
-                        <label for="emailaddress" class="title mb-2">Email Address
-                            <span class="text-danger">*</span>
-                        </label>
-                        <input type="email" id="emailaddress" class="form-control border py-2 title"
-                            placeholder="Enter your email address">
-                    </div>
-                    <!--  -->
                 </div>
             </div>
-            <!--  -->
-            <div class="col-lg-5 col-md-6 col-sm-12 col-12 mb-4">
-                <div class="p-4 shadow-sm bg-white">
-                    <div class="title bg-light px-4 py-2 mb-4 text-uppercase font-weight-bold">
-                        Your Order Lists
-                    </div>
-                    <ul class="list-unstyled mb-4">
-                        <li class="d-flex justify-content-between p-3 border">
-                            <strong class="title">Food Item </strong> <strong>Price</strong>
-                        </li>
-                        <li class="d-flex justify-content-between p-3 border">
-                            <span class="title">Chicken Pizza chicken Pizza &#215; <strong> 2 </strong></span> <span class="d-flex justify-content-start align-items-center">Rs. 250</span>
-                        </li>
-                        <li class="d-flex justify-content-between p-3 border">
-                            <span class="title">Chicken Burger &times; <strong> 3 </strong></span> <span>Rs. 250</span>
-                        </li>
-                        <li class="d-flex justify-content-between p-3 border">
-                            <span class="title">Tax (10%) </span><span>Rs. 100.00</span>
-                        </li>
-                        <li class="d-flex justify-content-between p-3 border">
-                            <strong class="title">Total Price</strong>
-                            <span class="font-weight-bold">Rs. 1100.00</span>
-                        </li>
-                    </ul>
-                    <a href="{% url 'homepage:payment' %}" class="btn btn-warning py-2 w-100 mb-0">
-                        Procceed to Payment
-                    </a>
-                </div>
-            </div>
-        </div>
+        </form>
         <!--  -->
     </div>
 </div>
