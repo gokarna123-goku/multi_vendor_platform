@@ -36,7 +36,6 @@ class Customer(models.Model):
     def __str__(self):
         return self.fullname
 
-
 def get_file_path_for_food(request, filename):
     original_filename = filename
     nowTime = datetime.datetime.now().strftime('%Y%m%d%H:%M:%S')
@@ -50,9 +49,6 @@ class FoodCategory(models.Model):
     def __str__(self):
         return self.food_category_title
 
-
-
-# From the official models.py
 class RestaurantCategory(models.Model):
     restaurant_category_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     restaurant_category_name = models.CharField(max_length=150)
@@ -60,13 +56,11 @@ class RestaurantCategory(models.Model):
     def __str__(self):
         return self.restaurant_category_name
 
-
 def get_file_path_for_restaurant(request, filename):
     original_filename = filename
     nowTime = datetime.datetime.now().strftime('%Y%m%d%H:%M:%S')
     filename = "%s%s" % (nowTime, original_filename)
     return os.path.join('restaurants/', filename)
-
 
 class Restaurant(models.Model):
     restaurant_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -87,7 +81,6 @@ class Restaurant(models.Model):
     def __str__(self):
         return self.restaurant_name
 
-
 class RestaurantAttribute(models.Model):
     Restaurant_attribute_id = models.OneToOneField(Restaurant,on_delete=models.CASCADE, primary_key=True, unique=True)
     bike_parking = models.CharField(max_length=150)
@@ -97,7 +90,6 @@ class RestaurantAttribute(models.Model):
     dog_allowed = models.BooleanField(default=False)
     price_range = models.CharField(max_length=25, choices=PRICE_RANGE)
     valet = models.BooleanField(default=False)
-
 
 class Food(models.Model):
     food_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -115,6 +107,14 @@ class Food(models.Model):
     def __str__(self):
         return self.food_name
 
+# class FoodReview(models.Model):
+#     food_review_id =models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
+#     food = models.ForeignKey(Food, on_delete=models.CASCADE)
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+#     def __str__(self):
+#         return self.food.food_name + " " + self.user.fullname
+
 class Cart(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
     total = models.PositiveIntegerField(default=0)
@@ -122,7 +122,6 @@ class Cart(models.Model):
 
     def __str__(self):
         return 'Cart: ' + str(self.id)
-
 
 class CartFood(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
@@ -133,7 +132,6 @@ class CartFood(models.Model):
 
     def __str__(self):
         return 'Cart: ' + str(self.cart.id) + 'CartFood: ' + str(self.id)
-
 
 ORDER_STATUS = (
     ("Order Received", "Order Received"),
@@ -158,7 +156,6 @@ TOWN_CITY = (
     ('Butwal', 'Butwal'),
 )
 
-
 class Order(models.Model):
     cart = models.OneToOneField(Cart, on_delete=models.CASCADE)
     order_by = models.CharField(max_length=200)
@@ -177,8 +174,6 @@ class Order(models.Model):
     def __str__(self):
         return 'Order: ' + str(self.order_by) 
 
-
-
 def get_file_path_for_blog(request, filename):
     original_filename = filename
     nowTime = datetime.datetime.now().strftime('%Y%m%d%H:%M:%S')
@@ -196,6 +191,5 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.blog_title
-
 
 # Ended

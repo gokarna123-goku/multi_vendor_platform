@@ -19,7 +19,7 @@
     <div class="container col-md-11">
         <div class="d-flex justify-content-between align-items-center">
             <div class="total-restaurants">
-                <h3 class="text title">100 Restaurants</h3>
+                <h3 class="text title">{{restaurants_list|length}} Restaurants</h3>
             </div>
             <div class="filter-section">
                 <select class="form-select title fs-6" aria-label="Default select example">
@@ -38,8 +38,7 @@
                 <div class="bg-light restaurant-box pt-0 pb-2">
                     <!-- Resto Image Section -->
                     <div class="img-box">
-                        <img src="{{restaurant.restaurant_image.url}}"
-                            class="resto-img" alt="">
+                        <img src="{{restaurant.restaurant_image.url}}" class="resto-img" alt="">
                         <div class="restaurant-type bg-warning">
                             <p class="mb-0 px-2 py-3">{{restaurant.restaurant_type}}</p>
                         </div>
@@ -65,12 +64,14 @@
                             <!--  -->
                         </div>
                         <!-- Resto name -->
-                        <a href="{% url 'homepage:restaurant-detail-data' restaurant.restaurant_id %}" class="text-decoration-none">
+                        <a href="{% url 'homepage:restaurant-detail-data' restaurant.restaurant_id %}"
+                            class="text-decoration-none">
                             <h4 class="text title">{{restaurant.restaurant_name}}</h4>
                         </a>
                         <!-- Resto Tag will be here -->
                         <p class="text text-warning">
-                            {{restaurant.restaurant_description}}
+                            <!-- {{restaurant.restaurant_description|slice:":20"}} -->
+                            {{restaurant.restaurant_description|truncatechars:150}}
                         </p>
                     </div>
                     <!--  -->
@@ -82,12 +83,14 @@
                             <div class="text-count text-start">
                                 <div class="d-flex justify-content-start align-items-center mb-1">
                                     <i class="fa fa-clock-o me-2"></i>
-                                    <p class="text mb-0">{{restaurant.restaurant_opening_time}} - {{restaurant.restaurant_closing_time}}</p>
+                                    <p class="text mb-0">{{restaurant.restaurant_opening_time}} -
+                                        {{restaurant.restaurant_closing_time}}</p>
                                 </div>
                                 <!--  -->
                                 <div class="d-flex justify-content-start align-items-center">
                                     <i class="fa fa-map me-2"></i>
-                                    <p class="text mb-0">{{restaurant.restaurant_address}} {{restaurant.restaurant_city}}</p>
+                                    <p class="text mb-0">{{restaurant.restaurant_address}}
+                                        {{restaurant.restaurant_city}}</p>
                                 </div>
                             </div>
                         </div>

@@ -39,7 +39,6 @@ class User(AbstractUser):
     def __str__(self):              # __unicode__ on Python 2
         return self.username
 
-
 class ActivateAccount(generic.View):
      def get(self, request, uidb64, token, *args, **kwargs):
          try:
