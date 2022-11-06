@@ -6,9 +6,19 @@
 <div class="container-fluid px-0 mx-0 my-5 pt-3 food-main">
     <div class="container-fluid px-0 mx-0 food-section pt-5">
         <div class="container col-lg-11 col-12">
-            <h1 class="text text-center title mt-5 pt-5">
-                results
-            </h1>
+            {% if food_result %}
+                <h1 class="text text-center title mt-5 pt-5">
+                    {{food_result|length}} Food Found
+                </h1>
+            {% elif restaurant_result %}
+                <h1 class="text text-center title mt-5 pt-5">
+                    {{restaurant_result|length}} Restaurant Found
+                </h1>
+            {% else %}
+                <h1 class="text text-center text-light mt-5 pt-5">
+                    0 Results Found!
+                </h1>
+            {% endif %}
         </div>
     </div>
 </div>
