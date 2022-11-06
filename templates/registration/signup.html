@@ -15,44 +15,6 @@
                     <h4 class="mt-1 mb-4 pb-3 pb-1 title text-center">We are The GWTC Team</h4>
                     <form method='post' class="form-for-signup">
                         {% csrf_token %}
-                        <!-- <div class="form-outline mb-3">
-                            <label class="form-label mb-2 title" for="fullname">Full Name</label>
-                            <input type="text" id="fullname" class="form-control title border"
-                                placeholder="Enter your fullname" autocomplete="off" required />
-                        </div>
-                        <div class="form-outline mb-3">
-                            <label class="form-label mb-2 title" for="email-address">
-                                Email Address
-                            </label>
-                            <input type="email" id="email-address" class="form-control title border"
-                                placeholder="Enter your email-address" autocomplete="off" required />
-                        </div>
-                        <div class="form-outline mb-3">
-                            <label class="form-label mb-2 title" for="address">Current Address</label>
-                            <input type="text" id="address" class="form-control title border"
-                                placeholder="Enter your address" autocomplete="off" required />
-                        </div>
-                        <div class="form-outline mb-3">
-                            <label class="form-label mb-2 title" for="username">Username</label>
-                            <input type="text" id="username" class="form-control title border"
-                                placeholder="Enter your username" autocomplete="off" required />
-                        </div>
-                        <div class="form-outline mb-3">
-                            <label class="form-label mb-2 title" for="password">Password</label>
-                            
-                            <div class="input-group mb-4 border">
-                                <input type="password" id="myPassword" class="form-control title"
-                                    placeholder="Enter your password" autocomplete="off"
-                                    aria-describedby="password-field" required />
-                                
-                                <div class="input-group-append border-0">
-                                    <button id="password-field" type="button"
-                                        class="btn btn-link text-decoration-none px-2">
-                                        <i class="fa fa-eye fs-5 text-dark me-2 mb-0 toggle-password"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div> -->
                         {% for fields in form %}
                             <div class="form-outline mb-4">
                                 <label class="form-label mb-2 title">{{fields.label}}</label>
@@ -70,7 +32,7 @@
                         <button class="btn btn-warning w-100 mb-4">Register</button>
                         <div class="d-flex align-items-center justify-content-center pb-4">
                             <p class="mb-0 me-2">Already have an account?</p>
-                            <a href="#" class="btn btn-sm btn-primary px-3">Login</a>
+                            <a href="{% url 'login' %}" class="btn btn-sm btn-primary px-3">Login</a>
                         </div>
                     </form>
                 </div>
