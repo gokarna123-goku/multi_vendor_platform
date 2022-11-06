@@ -48,7 +48,14 @@ class FoodView(generic.ListView):
     def get(self, request, *args, **kwargs):
         food_id = self.kwargs.get('food_id')
         food_obj = Food.objects.all().order_by('-food_id')
-        return render(request, self.template_name, {'food_obj': food_obj})
+        food_category_id = self.kwargs.get('food_category_id')
+        food_category_obj = FoodCategory.objects.all().order_by('-food_category_id')
+        print(food_category_obj)
+        context = {
+            'food_obj': food_obj,
+            'food_category_obj' : food_category_obj,
+        }
+        return render(request, self.template_name, context)
 
 class FoodDetailView(generic.DetailView):
     template_name = "foods/detail.html"
@@ -175,8 +182,6 @@ class SearchView(generic.ListView):
                 Q(restaurant_city__icontains=search_result)
                 )
             food_result = Food.objects.filter(Q(food_name__icontains=search_result))
-            print(restaurant_result, " restaurant_result found")
-            print(food_result, " food found")
         else:
             print("Sorry, no results founds")
         context = {

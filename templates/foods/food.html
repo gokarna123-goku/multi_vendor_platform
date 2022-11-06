@@ -30,48 +30,28 @@
                     <input type="range" class="form-range" min="100" max="900" id="customRange1">
                 </div>
                 <!-- Apply Filter By Food Categories -->
-                <div class="foods mb-3">
-                    <h6 class="text title">Food Categories</h6>
-                    <div class="radios-button-section">
-                        <!-- First Checkbox -->
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="foodCategories" id="sauces">
-                            <label class="form-check-label" for="sauces">
-                                Sauces
-                            </label>
-                        </div>
-                        <!-- Second Checkbox -->
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="foodCategories" id="burger">
-                            <label class="form-check-label" for="burger">
-                                Burger
-                            </label>
-                        </div>
-                        <!-- Third Checkbox -->
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="foodCategories" id="pizza">
-                            <label class="form-check-label" for="pizza">
-                                Pizza
-                            </label>
-                        </div>
-                        <!-- Fourth Checkbox -->
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="foodCategories" id="sandwiches">
-                            <label class="form-check-label" for="sandwiches">
-                                Sandwiches
-                            </label>
-                        </div>
-                        <!-- Fifth Checkbox -->
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="foodCategories" id="pasta">
-                            <label class="form-check-label" for="pasta">
-                                Pasta
-                            </label>
-                        </div>
-                        <!--  -->
+                {% if food_category_obj %}
+                    <div class="foods mb-3">
+                        <h6 class="text title">Food Categories</h6>
+                        <form>
+                            <div class="radios-button-section">
+                                {% for food_category in food_category_obj %}
+                                    <!-- -->
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="foodCategories" id="{{food_category.food_category_id}}">
+                                        <label class="form-check-label" for="{{food_category.food_category_id}}">
+                                            {{food_category.food_category_title}}
+                                        </label>
+                                    </div>
+                                    <!--  -->
+                                {% endfor %}
+                            </div>
+                        </form>
                     </div>
-                </div>
-                <!--  -->
+                    <!--  -->
+                {% else %}
+                <div></div>
+                {% endif %}
             </div>
         </div>
         <!--  -->
