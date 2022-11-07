@@ -7,78 +7,22 @@
     <section class="h-100 gradient-form mb-0" style="background-color: #eee;">
         <div class="container py-3 h-100 mb-0">
             <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-xl-8">
+                <div class="col-xl-10">
                     <div class="card text-black" style="border-radius: 0px;">
                         <div class="row">
-                            <!--  -->
-                            <div class="col-lg-7 py-4">
-                                <div class="px-5 py-3">
-                                    <h4 class="mt-1 mb-4 pb-3 pb-1 title text-center">We are The GWTC Team</h4>
-                                    <form method="post">
+                            <div class="col-lg-6">
+                                <div class="card-body p-md-5 mx-md-4">
+                                    <h4 class="mt-1 mb-4 pb-1 title text-center">We are The GWTC Team</h4>
+                                    <form method='post'>
                                         {% csrf_token %}
                                         <div class="form-outline mb-3">
                                             <label class="form-label mb-2 title" for="username">Username</label>
                                             <input type="text" id="username" name="username" class="form-control title border"
-                                                placeholder="Enter your username" autocomplete="off" required />
-                                        </div>
-                                        <div class="form-outline mb-3">
-                                            <label class="form-label mb-2 title" for="myPassword">Password</label>
-                                            
-                                            <div class="input-group mb-4 border">
-                                                <input type="password" id="myPassword" class="form-control title"
-                                                    placeholder="Enter your password" autocomplete="off"
-                                                    aria-describedby="password-field" name="password" required />
-                                                
-                                                <div class="input-group-append border-0">
-                                                    <button id="password-field" type="button"
-                                                        class="btn btn-link text-decoration-none px-2">
-                                                        <i class="fa fa-eye fs-5 text-dark me-2 mb-0 toggle-password"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between align-items-center mb-3">
-                                            <div class="form-check mb-3">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="flexCheckDefault">
-                                                <label class="form-check-label" for="flexCheckDefault">
-                                                    Remember Me
-                                                </label>
-                                            </div>
-                                            <a href="#" class="text-decoration-none">Forgot Password?</a>
-                                        </div>
-                                        <button class="btn btn-warning w-100 mb-5">Login</button>
-                                        <div class="d-flex align-items-center justify-content-center pb-4">
-                                            <p class="mb-0 me-2">Don't have an account?</p>
-                                            <a href="{% url 'accounts:signup' %}" class="btn btn-sm btn-primary px-3">Create New Account</a>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 login-bg d-flex align-items-center">
-                                <div class="text-white px-3 py-4">
-                                    <h4 class="mb-4">We are more than just a company</h4>
-                                    <p class="small mb-0">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                        eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis
-                                        nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                </div>
-                            </div>
-                            <!-- <div class="col-lg-6">
-                                <div class="card-body p-md-5 mx-md-4">
-                                    <h4 class="mt-1 mb-4 pb-1 title text-center">We are The GWTC Team</h4>
-                                    <form>
-                                        <div class="form-outline mb-3">
-                                            <label class="form-label mb-2 title" for="address">Username</label>
-                                            <input type="text" id="address" class="form-control title border"
                                                 placeholder="Enter your address" required />
                                         </div>
                                         <div class="form-outline mb-3">
                                             <label class="form-label mb-2 title" for="password">Password</label>
-                                            <input type="password" id="password" class="form-control title border"
+                                            <input type="password" id="password"  name="password" class="form-control title border"
                                                 placeholder="Enter your password" required />
                                         </div>
 
@@ -92,7 +36,7 @@
                                              </div>
                                             <a href="#" class="text-decoration-none">Forgot Password?</a>
                                         </div>
-                                        <button class="btn btn-warning w-100 mb-5">Login</button>
+                                        <button type='submit' class="btn btn-warning w-100 mb-5">Login</button>
                                         <div class="d-flex align-items-center justify-content-center pb-4">
                                             <p class="mb-0 me-2">Don't have an account?</p>
                                             <a href="#" class="btn btn-sm btn-primary px-3">Create New Account</a>
@@ -112,7 +56,7 @@
                                         nostrud
                                         exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -122,7 +66,6 @@
 </div>
 
 {% endblock content %}
-
 
 {% block scripts %}
 <script>

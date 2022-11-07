@@ -1,0 +1,168 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+{% block title %}My Profile{% endblock title %}
+{% block content %}
+<!--  -->
+<div class="container-fluid px-0 mx-0 mt-5 pt-3 food-main">
+  <div class="container-fluid px-0 mx-0 food-section pt-5">
+    <div class="container col-lg-11 col-12">
+      <h1 class="text text-center title mt-5 pt-5">
+        MY Account
+      </h1>
+    </div>
+  </div>
+</div>
+<!--  -->
+<div class="container-fluid px-0 mx-0 pt-3 bg-light">
+  <div class="container col-md-11 py-5">
+    <div class="row">
+      <div class="col-lg-4 col-12">
+        <div class="p-4 shadow-sm bg-white">
+          <div class="title bg-light px-4 py-2 mb-3 text-uppercase font-weight-bold">
+            My Account
+          </div>
+          <!--  -->
+          <div class="nav flex-column nav-pills px-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <button class="nav-link text-start active" id="v-pills-my-information-tab" data-bs-toggle="pill"
+              data-bs-target="#v-pills-my-information" type="button" role="tab" aria-controls="v-pills-my-information"
+              aria-selected="true">My Details</button>
+            <button class="nav-link text-start" id="v-pills-my-orders-tab" data-bs-toggle="pill"
+              data-bs-target="#v-pills-my-orders" type="button" role="tab" aria-controls="v-pills-my-orders"
+              aria-selected="false">My Orders</button>
+            <button class="nav-link text-start" id="v-pills-my-activity-tab" data-bs-toggle="pill"
+              data-bs-target="#v-pills-my-activity" type="button" role="tab" aria-controls="v-pills-my-activity"
+              aria-selected="false">My Activities</button>
+            <button class="nav-link text-start" id="v-pills-change-password-tab" data-bs-toggle="pill"
+              data-bs-target="#v-pills-change-password" type="button" role="tab" aria-controls="v-pills-change-password"
+              aria-selected="false">Change Password</button>
+            <hr class="" style="background: #b5b5b5;">
+            <a  class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-12">
+        <div class="p-4 shadow-sm bg-white">
+          <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-my-information" role="tabpanel"
+              aria-labelledby="v-pills-my-information-tab">
+              <div class="personal-information mb-4">
+                <div class="bg-light py-2 px-4">
+                  <h5 class="text title mb-0">Personal Information</h5>
+                </div>
+                <div class="py-2 px-4">
+                  <p class="text title h6 fw-normal"><strong>Fullname:</strong> Gokarna Adhikari</p>
+                  <p class="text title h6 fw-normal"><strong>Username:</strong> @goku153</p>
+                  <p class="text title h6 fw-normal"><strong>Email ID:</strong> agokarna444@gmail.com</p>
+                  <p class="text title h6 fw-normal"><strong>Phone:</strong> +977-9809597153</p>
+                </div>
+              </div>
+              <div class="address-information mb-4">
+                <div class="bg-light py-2 px-4">
+                  <h5 class="text title mb-0">Addresses</h5>
+                </div>
+                <div class="py-2 px-4">
+                  <p class="text title h6 fw-normal"><strong>Permanent Address:</strong> Pyuthan, Nepal</p>
+                  <p class="text title h6 fw-normal"><strong>Temporary Address:</strong> Thulobharyang, Kathmandu Nepal
+                  </p>
+                  <p class="text title h6 fw-normal"><strong>Current Address:</strong> Tupek, Budhanilkantha Kathmandu
+                    Nepal</p>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="v-pills-my-orders" role="tabpanel" aria-labelledby="v-pills-my-orders-tab">
+              <div class="title bg-light px-4 py-2 mb-3 text-uppercase font-weight-bold">
+                My Orders Details
+              </div>
+              <div class="table-responsive">
+                <table class="table">
+                  <!--  -->
+                  <thead>
+                    <tr>
+                      <th scope="col" class="border-0 bg-light">
+                        <div class="p-2 px-3 text-uppercase">S.N.</div>
+                      </th>
+                      <th scope="col" class="border-0 bg-light text-center">
+                        <div class="py-2 text-uppercase">Order ID</div>
+                      </th>
+                      <th scope="col" class="border-0 bg-light text-center">
+                        <div class="py-2 text-uppercase">Order Amount</div>
+                      </th>
+                      <th scope="col" class="border-0 bg-light text-center">
+                        <div class="py-2 text-uppercase">Ordered On</div>
+                      </th>
+                      <th scope="col" class="border-0 bg-light text-center">
+                        <div class="py-2 text-uppercase">Status</div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <!--  -->
+                  <tbody>
+                    <tr>
+                      <td class="align-middle text-center">1.</td>
+                      <td class="align-middle text-center"><a href="{% url 'homepage:userorderdetail' %}">#OrderID7</a>
+                      </td>
+                      <td class="align-middle text-center">Rs. 1,000,000</td>
+                      <td class="align-middle text-center">10 hours ago</td>
+                      <td class="align-middle text-center">
+                        <p class="badge mb-0 bg-danger">Order Pending</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="align-middle text-center">2.</td>
+                      <td class="align-middle text-center"><a href="{% url 'homepage:userorderdetail' %}">#OrderID7</a>
+                      </td>
+                      <td class="align-middle text-center">Rs. 1,000,000</td>
+                      <td class="align-middle text-center">10 hours ago</td>
+                      <td class="align-middle text-center">
+                        <p class="badge mb-0 bg-success">Order Received</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                  <!--  -->
+                </table>
+              </div>
+              <!-- You have not order anything yet... -->
+            </div>
+            <div class="tab-pane fade" id="v-pills-my-activity" role="tabpanel"
+              aria-labelledby="v-pills-my-activity-tab">
+              <div class="title bg-light px-4 py-2 mb-3 text-uppercase font-weight-bold">
+                My Activities
+              </div>
+              <h3 class="text title">
+                You commented on ... restaurant
+              </h3>
+            </div>
+            <div class="tab-pane fade" id="v-pills-change-password" role="tabpanel"
+              aria-labelledby="v-pills-change-password-tab">
+              <div class="title bg-light px-4 py-2 mb-3 text-uppercase font-weight-bold">
+                Change Your Password
+              </div>
+              <div class="form-section px-4">
+                <form>
+                  <div class="form-outline mb-3">
+                    <label class="form-label mb-2 title" for="oldpassword">Old Password</label>
+                    <input type="password" id="oldpassword" name="oldpassword" class="form-control title border"
+                      placeholder="Enter your old password" required />
+                  </div>
+                  <div class="form-outline mb-3">
+                    <label class="form-label mb-2 title" for="newpassword">New Password</label>
+                    <input type="password" id="newpassword" name="newpassword" class="form-control title border"
+                      placeholder="Enter your new password" required />
+                  </div>
+                  <div class="form-outline mb-3">
+                    <label class="form-label mb-2 title" for="confirmpassword">Confirm Password</label>
+                    <input type="password" id="confirmpassword" name="confirmpassword" class="form-control title border"
+                      placeholder="Confirm your password" required />
+                  </div>
+                  <button type="submit" class="btn btn-warning px-4 py-2">Change Password</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

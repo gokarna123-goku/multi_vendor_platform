@@ -1,0 +1,119 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+{% block title %}My Profile{% endblock title %}
+{% block content %}
+<!--  -->
+<div class="container-fluid px-0 mx-0 mt-5 pt-3 food-main">
+    <div class="container-fluid px-0 mx-0 food-section pt-5">
+        <div class="container col-lg-11 col-12">
+            <h1 class="text text-center title mt-5 pt-5">
+                My Order Details
+            </h1>
+        </div>
+    </div>
+</div>
+<!--  -->
+<div class="container-fluid px-0 mx-0 py-5 bg-light">
+    <div class="container col-md-11">
+        <div class="mx-2 bg-white shadow-sm">
+            <div class="order-detail-section p-3 mb-3">
+                <div class="title bg-light px-4 py-2 mb-3 text-uppercase font-weight-bold">
+                    Order Detail
+                </div>
+                <div class="order-detail-data-section px-4">
+                    <h6 class="text title fw-normal"><strong>Order ID:</strong> #Orderid_7</h6>
+                    <h6 class="text fw-normal text-success"><strong class="title">Order Status:</strong> Order Received
+                    </h6>
+                    <h6 class="text title fw-normal"><strong>Ordered On:</strong> 6th Nov, 2022 (12 minutes) ago</h6>
+                    <div class="d-flex justify-content-start align-items-center fw-bold title">
+                        <details>
+                            <summary>Customer Information</summary>
+                            <div class="customer-info px-3 pt-1">
+                                <p class="text title fw-normal mb-1"><strong>Fullname:</strong>
+                                    Gokarna Adhikari
+                                </p>
+                                <p class="text title fw-normal mb-1"><strong>Username:</strong>
+                                    @goku153
+                                </p>
+                                <p class="text title fw-normal mb-1"><strong>Email Id:</strong>
+                                    agokarna444@gmail.com
+                                </p>
+                                <p class="text title fw-normal mb-1"><strong>Phone Number:</strong>
+                                    +977-9809597153
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+                    <h6 class="text title fw-normal"><strong>Shipping Address:</strong> Thulobharyang, Kathmandu Nepal
+                    </h6>
+                </div>
+            </div>
+            <div class="ordered-foods-list-section p-3 pb-4">
+                <div class="title bg-light px-4 py-2 mb-3 text-uppercase font-weight-bold">
+                    Order Detail
+                </div>
+                <div class="">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <!--  -->
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="border-0 bg-light text-center">
+                                        <div class="p-2 text-uppercase">s.n.</div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light text-start">
+                                        <div class="py-2 text-uppercase">Food Item</div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light text-center">
+                                        <div class="py-2 text-uppercase">Price</div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light text-center">
+                                        <div class="py-2 text-uppercase">Quantity</div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light text-center">
+                                        <div class="py-2 text-uppercase">Subtotal</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <!--  -->
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle text-center"><strong>1.</strong></td>
+                                    <td scope="row">
+                                        <div class="py-2">
+                                            <img src="{% static 'images/pizza-blog2.jpg' %}" alt="" width="70"
+                                                class="img-fluid rounded shadow-sm me-2">
+                                            <div class="ml-3 d-inline-block align-middle">
+                                                <h5 class="mb-0 d-lg-block d-none">
+                                                    <a href="#" class="text-decoration-none title d-inline-block">
+                                                        Hot Chicken Pizza
+                                                    </a>
+                                                </h5>
+                                                <h6 class="mb-0 d-lg-none d-block">
+                                                    <a href="#" class="text-decoration-none title d-inline-block">
+                                                        Hot Chicken Pizza
+                                                    </a>
+                                                </h6>
+                                                <span class="text-muted font-weight-normal font-italic">
+                                                    Category: Chicken, Pizza
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center"><strong>Rs.150</strong></td>
+                                    <td class="align-middle text-center"><strong>5</strong></td>
+                                    <td class="align-middle text-center justify-content-center">Rs. 150</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" class="align-middle text-end fw-bold pe-5">Total Amount</td>
+                                    <td class="align-middle text-center fw-bold">Rs. 150</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

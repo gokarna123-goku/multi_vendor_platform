@@ -37,7 +37,7 @@
                         {% if request.user.is_authenticated %}
                             <li class="nav-item me-3">
                                 <a class="nav-link"
-                                    href="{% url 'accounts:logout' %}">Logout</a>
+                                    href="{% url 'homepage:myaccount' %}">My Profile</a>
                             </li>
                         {% else %} 
                             <li class="nav-item me-3 registration">

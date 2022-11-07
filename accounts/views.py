@@ -12,7 +12,6 @@ from django.contrib.auth.tokens import default_token_generator
 
 
 # Create your views here.
-
 class RegisterView(generic.CreateView):
     form_class = RegisterForm
     template_name = 'registration/signup.html'
@@ -46,7 +45,6 @@ class RegisterView(generic.CreateView):
             # messages.success(request, 'Please confirm your email to complete registration')
             return redirect('login')
         return render(request, self.template_name, {'form':form})
-
 
 class UserLoginView(LoginView):
     template_name = "registration/login.html"

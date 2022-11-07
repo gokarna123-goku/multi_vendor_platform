@@ -242,6 +242,24 @@ class CheckoutView(LoginRequiredMixin, generic.CreateView):
             return redirect('homepage:checkout')
         return super().form_valid(form)
 
+class MyProfileView(LoginRequiredMixin, generic.ListView):
+    template_name = 'profile/userprofile.html'
+    def get(self, request, *args, **kwargs):
+        # order_id = self.kwargs.get('id')
+        orders = Order.objects.all().order_by('-id')
+        context = {
+            'orders': orders,
+        }
+        return render(request, self.template_name, context)
+
+class UserOrderDetailView(LoginRequiredMixin, generic.DetailView):
+    template_name = 'profile/userorderdetail.html'
+    def get(self, request, *args, **kwargs):
+        # id = self.kwargs.get['pk']
+        # user_order = Order.objects.get(id=id).order_by('-id')
+        user_order = Order.objects.all().order_by('-id')
+        return render(request, self.template_name, {'user_order':user_order})
+
 
 def payment(request):
     return render(request, 'homepage/payment.html')
