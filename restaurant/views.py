@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from requests import request
 from django.contrib.auth.decorators import login_required
-from restaurant.forms import CheckoutForm
+from restaurant.forms import CheckoutForm, ContactForm
 from .models import *
 from django.db.models import Q
 
@@ -199,8 +199,16 @@ class SearchView(generic.ListView):
         }
         return render(request, self.template_name, context)
 
-def contact(request):
-    return render(request, 'contact/contact.html')
+class ContactView(generic.CreateView):
+    template_name = 'contact/contact.html'
+    form_class = ContactForm
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            contact_obj = form.save(commit=False)
+            contact_obj.save()
+            return redirect('homepage:home')
+        return render(request, self.template_name, {'form':form})
 
 def vendorMembership(request):
     return render(request, 'vendor/vendor.html')

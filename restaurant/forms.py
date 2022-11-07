@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Order
+from .models import Order, Contact
 from django import forms
 
 
@@ -8,6 +8,11 @@ class CheckoutForm(forms.ModelForm):
         model = Order
         fields = ['order_by', 'country', 'town_city', 'shipping_address', 'postal_code', 'mobile', 'email']
 
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ['fullname', 'email', 'message']
 
 # class RestaurantForm(ModelForm):
 #     class Meta:

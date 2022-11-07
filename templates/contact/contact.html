@@ -1,6 +1,10 @@
 {% extends 'homepage/base.html' %}
 {% load static %}
-{% block title %}Cart{% endblock title %}
+{% load crispy_forms_tags %}
+<!-- crispy_forms_tags here  (copied)-->
+{% block title %}Contact Us{% endblock title %}
+{% load widget_tweaks %}
+<!-- widget_tweaks here  (copied)-->
 {% block content %}
 <!--  -->
 <div class="container-fluid px-0 mx-0 mt-5 pt-3 contact-main">
@@ -88,26 +92,15 @@
                     <div class="col-md-6 ps-3">
                         <div class="px-0 py-3">
                             <div class="form-section">
-                                <form>
-                                    <!-- Fullname Input Section -->
-                                    <div class="mb-3 title">
-                                        <label for="" class="mb-2">Full Name <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control border"
-                                            placeholder="Enter your full name" required>
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    {% for fields in form %}
+                                    <div class="form-outline mb-4">
+                                        <label>{{fields.label}}</label>
+                                        {% render_field fields class="form-control border" %}
                                     </div>
-                                    <!-- Email Id Input Section -->
-                                    <div class="mb-3 title">
-                                        <label for="" class="mb-2">Email Address <span
-                                                class="text-danger">*</span></label>
-                                        <input type="email" class="form-control border"
-                                            placeholder="Enter your email address" required>
-                                    </div>
-                                    <!-- Message Input Section -->
-                                    <div class="mb-3 title">
-                                        <label for="" class="mb-2">Messages <span class="text-danger">*</span></label>
-                                        <textarea name="" id="" cols="30" rows="3" class="form-control border"
-                                            placeholder="Type your message..." required></textarea>
-                                    </div>
+                                    {% endfor %}
+                                    <button type="submit" class="btn btn-warning">Submit</button>
                                 </form>
                             </div>
                         </div>
