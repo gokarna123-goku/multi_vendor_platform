@@ -91,6 +91,16 @@ class RestaurantAttribute(models.Model):
     price_range = models.CharField(max_length=25, choices=PRICE_RANGE)
     valet = models.BooleanField(default=False)
 
+class RestaurantReview(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, blank=True, null=True)
+    reviews = models.CharField(max_length=300)
+    rating = models.FloatField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.restaurant.restaurant_name + " (" + str(self.rating) + ") rating"
+
 class Food(models.Model):
     food_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     food_name = models.CharField(max_length=80)
@@ -188,9 +198,20 @@ class Blog(models.Model):
     blog_description = models.TextField()
     blog_publish_date = models.DateField(auto_now_add=True)
     blog_image = models.ImageField(upload_to=get_file_path_for_blog)
+    view_count = models.IntegerField(default=0, null=True, blank=True)
 
     def __str__(self):
         return self.blog_title
+
+
+class BlogReview(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, blank=True, null=True)
+    comment = models.CharField(max_length=300)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.blog.blog_title
 
 class Contact(models.Model):
     fullname = models.CharField(max_length=50)
