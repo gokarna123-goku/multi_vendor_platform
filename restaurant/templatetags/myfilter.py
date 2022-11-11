@@ -5,6 +5,5 @@ register = template.Library()
 
 @register.filter(name='foodfilter')
 def foodfilter(value, arg):
-    # restaurant = value
     foods = Food.objects.filter(restaurant=value, food_category=arg)
     return foods
