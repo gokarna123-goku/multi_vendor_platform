@@ -4,6 +4,6 @@ from .models import *
 
 # Register your models here.
 
-admin.site.register([FoodCategory, Food, Cart, CartFood, Restaurant, RestaurantCategory, RestaurantAttribute, Blog, Order, Contact])
+admin.site.register([FoodCategory, Food, Cart, CartFood, Restaurant, RestaurantCategory, RestaurantAttribute, Blog, Order, Contact, BlogReview])
 
 # Ended

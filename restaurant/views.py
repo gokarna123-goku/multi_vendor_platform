@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from requests import request
 from django.contrib.auth.decorators import login_required
-from restaurant.forms import CheckoutForm, ContactForm
+from restaurant.forms import CheckoutForm, ContactForm, BlogReviewForm
 from .models import *
 from django.db.models import Q
 
@@ -175,10 +175,42 @@ class BlogDetailView(generic.ListView):
     def get(self, request, *args, **kwargs):
         template_name = 'blogs/blog_detail.html'
         blog_detail_list = Blog.objects.get(blog_id=self.kwargs.get('blog_id'), blog_slug=self.kwargs.get('blog_slug'))
+        blog_detail_list.view_count += 1
+        blog_detail_list.save()
+        comments = BlogReview.objects.filter(blog_id=blog_detail_list.blog_id)
+        # print(comments, " comments data")
         context = {
             'blog_detail_list' : blog_detail_list,
+            'comments': comments,
         }
         return render(request, template_name, context)
+
+class BlogReviewView(LoginRequiredMixin, generic.CreateView):
+    def post(self,request,*args,**kwargs):
+        url = request.META.get('HTTP_REFERER')
+        try:
+            user = request.user.id
+            # print(user, " is user")
+            blog=self.kwargs.get('blog_id')
+            # print(blog, " blog")
+            reviews = BlogReview.objects.get(user__id=user, blog_id=blog)
+            # print(reviews, " sreviews")
+            form = BlogReviewForm(request.POST, instance=reviews)
+            # print(form, " Form")
+            # print(form.errors)
+            form.save()
+            return redirect(url)
+        except BlogReview.DoesNotExist:
+            form = BlogReviewForm(request.POST)
+            if form.is_valid():
+                blog_data = BlogReview()
+                blog_data = form.save(commit=False)
+                blog_data.user_id = request.user.id
+                # print(blog_data.user_id, " in the user form")
+                blog_data.blog_id = blog
+                # print(blog_data.blog_id, " in the blog form")
+                blog_data.save()
+                return redirect(url)
 
 class SearchView(generic.ListView):
     template_name = 'search/search.html'
