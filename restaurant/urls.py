@@ -27,4 +27,5 @@ urlpatterns = [
     path('user-order-detail/', views.UserOrderDetailView.as_view(), name="userorderdetail"),
 
     path('search/', views.SearchView.as_view(), name='search'),
+    path('submit-blog-review/<str:blog_id>/', views.BlogReviewView.as_view(), name='submitblogreview'),
 ]

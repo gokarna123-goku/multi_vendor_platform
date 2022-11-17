@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Order, Contact
+from .models import Order, Contact, BlogReview 
 from django import forms
 
 
@@ -13,6 +13,11 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
         fields = ['fullname', 'email', 'message']
+
+class BlogReviewForm(forms.ModelForm):
+    class Meta:
+        model = BlogReview 
+        fields = ['comment']        
 
 # class RestaurantForm(ModelForm):
 #     class Meta:
