@@ -382,7 +382,7 @@
                                                 placeholder="Type your reviews..." aria-label="Username"
                                                 aria-describedby="addon-wrapping">
                                         </div>
-                                        {% if request.user.is_authenticated %}
+                                        {% if request.user.customer %}
                                             <button class="btn add-review-button px-4 py-2">
                                                 Add Your Review
                                             </button>
