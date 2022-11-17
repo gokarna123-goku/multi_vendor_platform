@@ -50,10 +50,10 @@
                   <h5 class="text title mb-0">Personal Information</h5>
                 </div>
                 <div class="py-2 px-4">
-                  <p class="text title h6 fw-normal"><strong>Fullname:</strong> Gokarna Adhikari</p>
-                  <p class="text title h6 fw-normal"><strong>Username:</strong> @goku153</p>
-                  <p class="text title h6 fw-normal"><strong>Email ID:</strong> agokarna444@gmail.com</p>
-                  <p class="text title h6 fw-normal"><strong>Phone:</strong> +977-9809597153</p>
+                  <p class="text title h6 fw-normal"><strong>Fullname:</strong> {{customer.fullname}}</p>
+                  <p class="text title h6 fw-normal"><strong>Username:</strong> {{user.username}}</p>
+                  <p class="text title h6 fw-normal"><strong>Email ID:</strong> {{customer.user.email}}</p>
+                  <p class="text title h6 fw-normal"><strong>Phone:</strong> {{orders.mobile}}</p>
                 </div>
               </div>
               <div class="address-information mb-4">
@@ -73,54 +73,59 @@
               <div class="title bg-light px-4 py-2 mb-3 text-uppercase font-weight-bold">
                 My Orders Details
               </div>
-              <div class="table-responsive">
-                <table class="table">
-                  <!--  -->
-                  <thead>
-                    <tr>
-                      <th scope="col" class="border-0 bg-light">
-                        <div class="p-2 px-3 text-uppercase">S.N.</div>
-                      </th>
-                      <th scope="col" class="border-0 bg-light text-center">
-                        <div class="py-2 text-uppercase">Order ID</div>
-                      </th>
-                      <th scope="col" class="border-0 bg-light text-center">
-                        <div class="py-2 text-uppercase">Order Amount</div>
-                      </th>
-                      <th scope="col" class="border-0 bg-light text-center">
-                        <div class="py-2 text-uppercase">Ordered On</div>
-                      </th>
-                      <th scope="col" class="border-0 bg-light text-center">
-                        <div class="py-2 text-uppercase">Status</div>
-                      </th>
-                    </tr>
-                  </thead>
-                  <!--  -->
-                  <tbody>
-                    <tr>
-                      <td class="align-middle text-center">1.</td>
-                      <td class="align-middle text-center"><a href="{% url 'homepage:userorderdetail' %}">#OrderID7</a>
-                      </td>
-                      <td class="align-middle text-center">Rs. 1,000,000</td>
-                      <td class="align-middle text-center">10 hours ago</td>
-                      <td class="align-middle text-center">
-                        <p class="badge mb-0 bg-danger">Order Pending</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="align-middle text-center">2.</td>
-                      <td class="align-middle text-center"><a href="{% url 'homepage:userorderdetail' %}">#OrderID7</a>
-                      </td>
-                      <td class="align-middle text-center">Rs. 1,000,000</td>
-                      <td class="align-middle text-center">10 hours ago</td>
-                      <td class="align-middle text-center">
-                        <p class="badge mb-0 bg-success">Order Received</p>
-                      </td>
-                    </tr>
-                  </tbody>
-                  <!--  -->
-                </table>
-              </div>
+              {% if orders %}
+                <div class="table-responsive">
+                  <table class="table">
+                    <!--  -->
+                    <thead>
+                      <tr>
+                        <th scope="col" class="border-0 bg-light text-center">
+                          <div class="p-2 px-3 text-uppercase">S.N.</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                          <div class="py-2 text-uppercase">Order ID</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                          <div class="py-2 text-uppercase">Order Amount</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                          <div class="py-2 text-uppercase">Ordered On</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light text-center">
+                          <div class="py-2 text-uppercase">Status</div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <!--  -->
+                    <tbody>
+                      {% for order in orders %}
+                        <tr>
+                          <td class="align-middle text-center">{{forloop.counter}}</td>
+                          <td class="align-middle text-center">
+                            <a href="{% url 'homepage:userorderdetail' order.id %}">#OrderId_{{order.id}}</a>
+                          </td>
+                          <td class="align-middle text-center">Rs. {{order.total}}</td>
+                          <td class="align-middle text-center">{{order.created_at|timesince}} ago</td>
+                          <td class="align-middle text-center">
+                            <p class="badge mb-0 bg-danger">{{order.order_status}}</p>
+                          </td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                    <!--  -->
+                  </table>
+                </div>
+              {% else %}
+                <div class="container col-md-7 bg-light shadow-sm p-4 text-center border">
+                  <div class="icon-section my-3">
+                    <i class="fa fa-frown-o title order-icon"></i>
+                  </div>
+                  <h3 class="text title mb-4">Opps!!!</h3>
+                  <h6 class="text title fw-normal mb-3">
+                    You have not Ordered anything yet...
+                  </h6>
+                </div>
+              {% endif %}
               <!-- You have not order anything yet... -->
             </div>
             <div class="tab-pane fade" id="v-pills-my-activity" role="tabpanel"

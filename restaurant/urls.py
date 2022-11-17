@@ -22,7 +22,7 @@ urlpatterns = [
     path('empty-cart/', views.EmptyCartView.as_view(), name='emptycart'),
     path('checkout/', views.CheckoutView.as_view(), name='checkout'),
     path('payment/options/', views.payment, name='payment'),
-    
+
     path('my-account/', views.MyProfileView.as_view(), name="myaccount"),
     path('user-order-detail/', views.UserOrderDetailView.as_view(), name="userorderdetail"),
 

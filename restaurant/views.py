@@ -274,13 +274,22 @@ class CheckoutView(LoginRequiredMixin, generic.CreateView):
             return redirect('homepage:checkout')
         return super().form_valid(form)
 
+
 class MyProfileView(LoginRequiredMixin, generic.ListView):
     template_name = 'profile/userprofile.html'
-    def get(self, request, *args, **kwargs):
-        # order_id = self.kwargs.get('id')
-        orders = Order.objects.all().order_by('-id')
+
+    def get(self, request):
+        # orderid = Order.objects.get(id=id)
+        # customer = request.user.customer
+        customer = Customer.objects.get(user_id = request.user.id) 
+        print(customer, " is logged in")
+        orderid = self.kwargs.get('id')
+        print(orderid, " ordersssss..... ")
+        orders = Order.objects.filter(cart__customer=customer).order_by('-id')
+        print(orders, " Orders are")
         context = {
             'orders': orders,
+            'customer': customer,
         }
         return render(request, self.template_name, context)
 
@@ -290,7 +299,40 @@ class UserOrderDetailView(LoginRequiredMixin, generic.DetailView):
         # id = self.kwargs.get['pk']
         # user_order = Order.objects.get(id=id).order_by('-id')
         user_order = Order.objects.all().order_by('-id')
+        print(user_order, " user orders")
         return render(request, self.template_name, {'user_order':user_order})
+    
+    # model = Order
+    # context_object_name = "order_obj"
+    # def dispatch(self, request, *args, **kwargs):
+    #     if request.user.is_authenticated and request.user.customer:
+    #         order_id = self.kwargs['pk']
+    #         order = Order.objects.get(id=order_id)
+    #         if request.user.customer != order.cart.customer:
+    #             return redirect('ecomapp:userprofile')
+    #     else:
+    #         return redirect('/login/?next=/userprofile/')
+    #     return super().dispatch(request, *args, **kwargs)
+# 
+
+
+# class MyProfileView(LoginRequiredMixin, generic.ListView):
+#     template_name = 'profile/userprofile.html'
+#     def get(self, request, *args, **kwargs):
+#         # order_id = self.kwargs.get('id')
+#         orders = Order.objects.all().order_by('-id')
+#         context = {
+#             'orders': orders,
+#         }
+#         return render(request, self.template_name, context)
+
+# class UserOrderDetailView(LoginRequiredMixin, generic.DetailView):
+#     template_name = 'profile/userorderdetail.html'
+#     def get(self, request, *args, **kwargs):
+#         # id = self.kwargs.get['pk']
+#         # user_order = Order.objects.get(id=id).order_by('-id')
+#         user_order = Order.objects.all().order_by('-id')
+#         return render(request, self.template_name, {'user_order':user_order})
 
 def payment(request):
     return render(request, 'homepage/payment.html')
