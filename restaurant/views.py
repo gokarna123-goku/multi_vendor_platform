@@ -260,7 +260,6 @@ class UserOrderDetailView(LoginRequiredMixin, generic.DetailView):
         user_order = Order.objects.all().order_by('-id')
         return render(request, self.template_name, {'user_order':user_order})
 
-
 def payment(request):
     return render(request, 'homepage/payment.html')
 
