@@ -19,11 +19,18 @@
                                     <h4 class="mt-1 mb-4 pb-1 title text-center">We are The GWTC Team</h4>
                                     <form method='post' class="form-for-signup">
                                         {% csrf_token %}
-                                        {% for fields in form %}
+                                        {% for fields in form2 %}
                                             <div class="form-outline mb-4">
                                                 <label>{{fields.label}}</label>
                                                 {% render_field fields class="form-control border" %}
                                             </div>
+                                        {% endfor %}
+                                        
+                                        {% for fields in form1 %}
+                                        <div class="form-outline mb-4">
+                                            <label>{{fields.label}}</label>
+                                            {% render_field fields class="form-control border" %}
+                                        </div>
                                         {% endfor %}
                                         <div class="form-check mb-3">
                                             <input class="form-check-input" type="checkbox" value=""

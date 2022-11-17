@@ -27,14 +27,25 @@ OrderStatus = (
 
 # Create your models here.
 
+
 class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name = 'customer')
     fullname = models.CharField(max_length=200)
-    address = models.CharField(max_length=200, null=True, blank=True)
     joined_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.fullname
+
+
+class Address(models.Model):
+    permanent_address = models.CharField(max_length=200, null=True, blank=True)
+    temporary_address = models.CharField(max_length=200)
+    working_address = models.CharField(max_length=200, null=True, blank=True)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.permanent_address
+
 
 def get_file_path_for_food(request, filename):
     original_filename = filename
