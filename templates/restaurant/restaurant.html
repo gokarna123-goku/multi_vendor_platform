@@ -17,100 +17,110 @@
 <!--  -->
 <div class="container-fluid px-0 mx-0 mb-5">
     <div class="container col-md-11">
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="total-restaurants">
-                <h3 class="text title">{{restaurants_list|length}} Restaurants</h3>
-            </div>
-            <div class="filter-section">
-                <select class="form-select title fs-6" aria-label="Default select example">
-                    <option selected>Search By Filter</option>
-                    <option value="1">Popular</option>
-                    <option value="2">Rating</option>
-                    <option value="3">Near by me</option>
-                </select>
-            </div>
-        </div>
-        <hr class="bg-secondary">
-        <div class="row mb-3">
-            {% for restaurant in restaurants_list %}
-            <!-- First Restaurant Box -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
-                <div class="bg-light restaurant-box pt-0 pb-2">
-                    <!-- Resto Image Section -->
-                    <div class="img-box">
-                        <img src="{{restaurant.restaurant_image.url}}" class="resto-img" alt="">
-                        <div class="restaurant-type bg-warning">
-                            <p class="mb-0 px-2 py-3">{{restaurant.restaurant_type}}</p>
-                        </div>
-                        <div class="order-box">
-                            <i class="fa fa-truck text-warning"></i>
-                        </div>
-                    </div>
-                    <!-- Resto Review Details Section -->
-                    <div class="resto-detail-box mx-3 mt-2">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <!-- Rating Section -->
-                            <div class="d-flex justify-content-start align-items-center">
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star text-warning me-1"></i>
-                                <i class="fa fa-star-half-o text-warning me-1"></i>
-                                <i class="fa fa-star-o text-warning me-1"></i>
-                            </div>
-                            <!-- Reviews Section -->
-                            <a href="#" class="text-decoration-none">
-                                <p class="text mb-0">12 Reviews</p>
-                            </a>
-                            <!--  -->
-                        </div>
-                        <!-- Resto name -->
-                        <a href="{% url 'homepage:restaurant-detail-data' restaurant.restaurant_id %}"
-                            class="text-decoration-none">
-                            <h4 class="text title">{{restaurant.restaurant_name}}</h4>
-                        </a>
-                        <!-- Resto Tag will be here -->
-                        <p class="text text-warning">
-                            <!-- {{restaurant.restaurant_description|slice:":20"}} -->
-                            {{restaurant.restaurant_description|truncatechars:150}}
-                        </p>
-                    </div>
-                    <!--  -->
-                    <hr class="divider mb-1">
-                    <!-- Resto Location, Categories, & working hours Section -->
-                    <div class="p-2">
-                        <div class="d-flex justify-content-start align-items-center">
-                            <img src="{% static 'images/coffee-shop.png' %}" class="rest-logo me-4" alt="">
-                            <div class="text-count text-start">
-                                <div class="d-flex justify-content-start align-items-center mb-1">
-                                    <i class="fa fa-clock-o me-2"></i>
-                                    <p class="text mb-0">{{restaurant.restaurant_opening_time}} -
-                                        {{restaurant.restaurant_closing_time}}</p>
-                                </div>
-                                <!--  -->
-                                <div class="d-flex justify-content-start align-items-center">
-                                    <i class="fa fa-map me-2"></i>
-                                    <p class="text mb-0">{{restaurant.restaurant_address}}
-                                        {{restaurant.restaurant_city}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
+        {% if restaurants_list %}
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="total-restaurants">
+                    <h3 class="text title">{{restaurants_list|length}} Restaurants</h3>
+                </div>
+                <div class="filter-section">
+                    <select class="form-select title fs-6" aria-label="Default select example">
+                        <option selected>Search By Filter</option>
+                        <option value="1">Popular</option>
+                        <option value="2">Rating</option>
+                        <option value="3">Near by me</option>
+                    </select>
                 </div>
             </div>
-            <!--  -->
-            {% endfor %}
-        </div>
-        <!-- Pagination Section -->
-        <nav aria-label="Page navigation example mt-3">
-            <ul class="pagination justify-content-center">
-                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-        </nav>
+            <hr class="bg-secondary">
+            <div class="row mb-3">
+                {% for restaurant in restaurants_list %}
+                <!-- First Restaurant Box -->
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
+                    <div class="bg-light restaurant-box pt-0 pb-2">
+                        <!-- Resto Image Section -->
+                        <div class="img-box">
+                            <img src="{{restaurant.restaurant_image.url}}" class="resto-img" alt="">
+                            <div class="restaurant-type bg-warning">
+                                <p class="mb-0 px-2 py-3">{{restaurant.restaurant_type}}</p>
+                            </div>
+                            <div class="order-box">
+                                <i class="fa fa-truck text-warning"></i>
+                            </div>
+                        </div>
+                        <!-- Resto Review Details Section -->
+                        <div class="resto-detail-box mx-3 mt-2">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <!-- Rating Section -->
+                                <div class="d-flex justify-content-start align-items-center">
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star text-warning me-1"></i>
+                                    <i class="fa fa-star-half-o text-warning me-1"></i>
+                                    <i class="fa fa-star-o text-warning me-1"></i>
+                                </div>
+                                <!-- Reviews Section -->
+                                <a href="#" class="text-decoration-none">
+                                    <p class="text mb-0">12 Reviews</p>
+                                </a>
+                                <!--  -->
+                            </div>
+                            <!-- Resto name -->
+                            <a href="{% url 'homepage:restaurant-detail-data' restaurant.restaurant_id %}"
+                                class="text-decoration-none">
+                                <h4 class="text title">{{restaurant.restaurant_name}}</h4>
+                            </a>
+                            <!-- Resto Tag will be here -->
+                            <p class="text text-warning">
+                                <!-- {{restaurant.restaurant_description|slice:":20"}} -->
+                                {{restaurant.restaurant_description|truncatechars:150}}
+                            </p>
+                        </div>
+                        <!--  -->
+                        <hr class="divider mb-1">
+                        <!-- Resto Location, Categories, & working hours Section -->
+                        <div class="p-2">
+                            <div class="d-flex justify-content-start align-items-center">
+                                <img src="{% static 'images/coffee-shop.png' %}" class="rest-logo me-4" alt="">
+                                <div class="text-count text-start">
+                                    <div class="d-flex justify-content-start align-items-center mb-1">
+                                        <i class="fa fa-clock-o me-2"></i>
+                                        <p class="text mb-0">{{restaurant.restaurant_opening_time}} -
+                                            {{restaurant.restaurant_closing_time}}</p>
+                                    </div>
+                                    <!--  -->
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <i class="fa fa-map me-2"></i>
+                                        <p class="text mb-0">{{restaurant.restaurant_address}}
+                                            {{restaurant.restaurant_city}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--  -->
+                    </div>
+                </div>
+                <!--  -->
+                {% endfor %}
+            </div>
+            <!-- Pagination Section -->
+            <nav aria-label="Page navigation example mt-3">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        {% else %}
+            <div class="container col-md-8 bg-white shadow-sm pb-4 text-center">
+                <img src="{% static 'images/not-found.jpg' %}" alt="No Restaurant Found Image" class="img-fluid mb-0">
+                <h4 class="text title fst-italic fs-2">OOPS!</h4>
+                <h6 class="text text-muted fst-normal fw-normal px-5">
+                    We are sorry <span class="text-warning">😢</span>, We don't have any restaurants to display at this moment.
+                </h6>
+            </div>
+        {% endif %}
     </div>
 </div>
 <!--  -->

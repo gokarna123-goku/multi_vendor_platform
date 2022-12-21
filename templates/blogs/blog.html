@@ -21,38 +21,48 @@
             <!--  -->
             <div class="col-lg-8 col-md-12 col-sm-12 col-12">
                 <div class="p-0">
-                    <div class="row" data-masonry='{"percentPosition": true }'>
-                        {% for blog in blogs_list %}
-                            <!--  -->
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
-                                <div class="p-3 shadow-sm bg-white">
-                                    <div class="blog-img-box mb-3">
-                                        <img src="{{blog.blog_image.url}}"
-                                            class="blog-img" alt="">
-                                        <div class="blog-category bg-warning">
-                                            <p class="mb-0 px-2 py-1">{{blog.blog_category_name}}</p>
+                    {% if blogs_list %}
+                        <div class="row" data-masonry='{"percentPosition": true }'>
+                            {% for blog in blogs_list %}
+                                <!--  -->
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
+                                    <div class="p-3 shadow-sm bg-white">
+                                        <div class="blog-img-box mb-3">
+                                            <img src="{{blog.blog_image.url}}"
+                                                class="blog-img" alt="">
+                                            <div class="blog-category bg-warning">
+                                                <p class="mb-0 px-2 py-1">{{blog.blog_category_name}}</p>
+                                            </div>
+                                            <div class="blog-publish-date bg-success">
+                                                <p class="mb-0 px-2 py-1">
+                                                    <i class="fa fa-clock-o me-2"></i> {{blog.blog_publish_date}}
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div class="blog-publish-date bg-success">
-                                            <p class="mb-0 px-2 py-1">
-                                                <i class="fa fa-clock-o me-2"></i> {{blog.blog_publish_date}}
+                                        <div class="blog-info-box">
+                                            <a href="{% url 'homepage:blog-detail-data' blog.blog_id blog.blog_slug %}" class="text-decoration-none">
+                                                <h4 class="text title mb-4">
+                                                    {{blog.blog_title}}
+                                                </h4>
+                                            </a>
+                                            <p class="text blog-desc text-muted">
+                                                {{blog.blog_description}}
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="blog-info-box">
-                                        <a href="{% url 'homepage:blog-detail-data' blog.blog_id blog.blog_slug %}" class="text-decoration-none">
-                                            <h4 class="text title mb-4">
-                                                {{blog.blog_title}}
-                                            </h4>
-                                        </a>
-                                        <p class="text blog-desc text-muted">
-                                            {{blog.blog_description}}
-                                        </p>
-                                    </div>
                                 </div>
-                            </div>
-                            <!--  -->
-                        {% endfor %}
-                    </div>
+                                <!--  -->
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="container col-md-7 bg-white shadow-sm pb-4">
+                            <img src="{% static 'images/not-found.jpg' %}" alt="No Blogs Found Image" class="img-fluid mb-0">
+                            <h4 class="text title text-center fst-italic fs-2">OOPS!</h4>
+                            <h6 class="text text-muted fst-normal text-center fw-normal px-5">
+                                We are sorry <span class="text-warning">😢</span>, We don't have any blogs to display at this moment.
+                            </h6>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
             <!--  -->
@@ -115,7 +125,6 @@
     </div>
 </div>
 <!--  -->
-
 
 {% endblock content %}
 

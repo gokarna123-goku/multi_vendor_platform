@@ -16,87 +16,97 @@
 
 <!--  -->
 <div class="container-fluid px-0 mx-0 mb-5">
-    <div class="row mx-lg-3 mx-1">
-        <div class="col-lg-2 col-md-12 col-sm-12 col-12 ms-lg-3 ms-0 mb-4">
-            <div class="p-1 border px-2">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="text title">Apply Filters</h5>
-                    <a href="#" class="text-decoration-none text-warning"><i class="fa fa-refresh fs-5"></i></a>
-                </div>
-                <hr class="mt-0 bg-secondary">
-                <!-- Apply Filter By Price Range -->
-                <div class="price-range mb-3">
-                    <h6 class="text title">Price</h6>
-                    <input type="range" class="form-range" min="100" max="900" id="customRange1">
-                </div>
-                <!-- Apply Filter By Food Categories -->
-                {% if food_category_obj %}
-                    <div class="foods mb-3">
-                        <h6 class="text title">Food Categories</h6>
-                        <form>
-                            <div class="radios-button-section">
-                                {% for food_category in food_category_obj %}
-                                    <!-- -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="foodCategories" id="{{food_category.food_category_id}}">
-                                        <label class="form-check-label" for="{{food_category.food_category_id}}">
-                                            {{food_category.food_category_title}}
-                                        </label>
-                                    </div>
-                                    <!--  -->
-                                {% endfor %}
-                            </div>
-                        </form>
+    {% if food_obj %}
+        <div class="row mx-lg-3 mx-1">
+            <div class="col-lg-2 col-md-12 col-sm-12 col-12 ms-lg-3 ms-0 mb-4">
+                <div class="p-1 border px-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="text title">Apply Filters</h5>
+                        <a href="#" class="text-decoration-none text-warning"><i class="fa fa-refresh fs-5"></i></a>
                     </div>
-                    <!--  -->
-                {% else %}
-                <div></div>
-                {% endif %}
-            </div>
-        </div>
-        <!--  -->
-        <div class="col-lg-9 col-md-12 col-sm-12 col-12 ms-lg-5 ms-0">
-            {% if food_obj %}
-                <div class="p-1">
-                    <div class="row">
-                        {% for food in food_obj %}
-                            <!-- First Dishes Section -->
-                            <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-4">
-                                <div class="px-0 pb-2 bg-white shadow-sm text-center">
-                                    <img src="{{food.food_image.url}}"
-                                        class="dish-img" alt="">
-                                    <div class="dish-info-section m-3">
-                                        <a href="{% url 'homepage:food-detail' food.food_id %}" class="text-decoration-none">
-                                            <h4 class="text title mb-2">{{food.food_name}}</h4>
-                                        </a>
-                                        <div class="d-flex justify-content-center align-items-center mb-4">
-                                            <i class="fa fa-star text-warning me-1"></i>
-                                            <i class="fa fa-star text-warning me-1"></i>
-                                            <i class="fa fa-star text-warning me-1"></i>
-                                            <i class="fa fa-star-half-o text-warning me-1"></i>
-                                            <i class="fa fa-star-o text-warning me-1"></i>
+                    <hr class="mt-0 bg-secondary">
+                    <!-- Apply Filter By Price Range -->
+                    <div class="price-range mb-3">
+                        <h6 class="text title">Price</h6>
+                        <input type="range" class="form-range" min="100" max="900" id="customRange1">
+                    </div>
+                    <!-- Apply Filter By Food Categories -->
+                    {% if food_category_obj %}
+                        <div class="foods mb-3">
+                            <h6 class="text title">Food Categories</h6>
+                            <form>
+                                <div class="radios-button-section">
+                                    {% for food_category in food_category_obj %}
+                                        <!-- -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="foodCategories" id="{{food_category.food_category_id}}">
+                                            <label class="form-check-label" for="{{food_category.food_category_id}}">
+                                                {{food_category.food_category_title}}
+                                            </label>
                                         </div>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <h4 class="text title mb-0">{{food.food_selling_price}}</h4>
-                                            <a href="{% url 'homepage:addtocart' food.food_id %}" class="btn btn-warning px-3">Add to Cart</a>
+                                        <!--  -->
+                                    {% endfor %}
+                                </div>
+                            </form>
+                        </div>
+                        <!--  -->
+                    {% else %}
+                    <div></div>
+                    {% endif %}
+                </div>
+            </div>
+            <!--  -->
+            <div class="col-lg-9 col-md-12 col-sm-12 col-12 ms-lg-5 ms-0">
+                {% if food_obj %}
+                    <div class="p-1">
+                        <div class="row">
+                            {% for food in food_obj %}
+                                <!-- First Dishes Section -->
+                                <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-4">
+                                    <div class="px-0 pb-2 bg-white shadow-sm text-center">
+                                        <img src="{{food.food_image.url}}"
+                                            class="dish-img" alt="">
+                                        <div class="dish-info-section m-3">
+                                            <a href="{% url 'homepage:food-detail' food.food_id %}" class="text-decoration-none">
+                                                <h4 class="text title mb-2">{{food.food_name}}</h4>
+                                            </a>
+                                            <div class="d-flex justify-content-center align-items-center mb-4">
+                                                <i class="fa fa-star text-warning me-1"></i>
+                                                <i class="fa fa-star text-warning me-1"></i>
+                                                <i class="fa fa-star text-warning me-1"></i>
+                                                <i class="fa fa-star-half-o text-warning me-1"></i>
+                                                <i class="fa fa-star-o text-warning me-1"></i>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <h4 class="text title mb-0">{{food.food_selling_price}}</h4>
+                                                <a href="{% url 'homepage:addtocart' food.food_id %}" class="btn btn-warning px-3">Add to Cart</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!--  -->
-                        {% endfor %}
+                                <!--  -->
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
-                {% else %}
-                    <div class="container col-lg-5 bg-white shadow-sm p-4">
-                        <h4 class="text text-center">
-                            Sorry, we are not able to display any foods for this moment.
-                        </h4>
-                    </div>
-            {% endif %}
+                    {% else %}
+                        <div class="container col-lg-5 bg-white shadow-sm p-4">
+                            <h4 class="text text-center">
+                                Sorry, we are not able to display any foods for this moment.
+                            </h4>
+                        </div>
+                {% endif %}
+            </div>
+            <!--  -->
         </div>
-        <!--  -->
-    </div>
+    {% else %}
+        <div class="container col-md-8 bg-white text-center shadow-sm pb-4">
+            <img src="{% static 'images/not-found.jpg' %}" alt="No Restaurant Found Image" class="img-fluid mb-0">
+            <h4 class="text title text-center fst-italic fs-2">OOPS!</h4>
+            <h6 class="text text-muted fst-normal text-center fw-normal px-5">
+                We are sorry <span class="text-warning">😢</span>, We don't have any restaurants to display at this moment.
+            </h6>
+        </div>
+    {% endif %}
 </div>
 <!--  -->
 {% endblock content %}

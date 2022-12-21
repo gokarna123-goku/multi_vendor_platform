@@ -819,7 +819,7 @@ ul{
 
 /* Contact Section */
 .contact-main{
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65) 80%, rgba(0, 0, 0, 0.65) 75% ), url('/static/images/contact-bg.jpg');
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.75) 85%, rgba(0, 0, 0, 0.75) 80% ), url('/static/images/contact.jpg');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -830,6 +830,7 @@ ul{
 .team-img-section{
     position: relative;
     cursor: pointer;
+    opacity: 1;
     transition: 0.5s ease-in;
 }
 
@@ -841,7 +842,6 @@ ul{
 .team-social-media{
     position: absolute;
     bottom: 10px;
-    display: none;
     color: #f8f9fa;
     border-radius: 0px;
     backdrop-filter: blur(5px);
@@ -850,10 +850,12 @@ ul{
     border: 1px solid rgba(255,255,255,0.5);
     border-right: 1px solid rgba(255,255,255,0.2);
     border-bottom: 1px solid rgba(255,255,255,0.2);
+    opacity: 0;
 }
 
 .team-img-section:hover .social-box .team-social-media{
     display: block;
+    opacity: 1;
 }
 
 /* Cart Section */
