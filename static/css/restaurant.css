@@ -9,6 +9,10 @@
 ::-webkit-scrollbar{
     display: none;
 }
+::selection{
+    background: #ee7724;
+    color: #ebeaea;
+}
 
 .btn{
     border-radius: 0px;
@@ -909,6 +913,24 @@ ul{
     height: 30px !important;
     /* border-radius: 4px; */
     background: #fa6b05 !important;
+}
+.empty-cart{
+    font-size: 8rem;
+    color: #707070;
+}
+.back_to_home{
+    background: #ee7724;
+    color: #ebeaea;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    border: 2px solid #ee7724;
+    transition: 0.5s ease-out;
+}
+.back_to_home:hover{
+    background: transparent;
+    color: #ee7724;
+    border: 2px solid #ee7724;
 }
 
 /* Price Plan Section */

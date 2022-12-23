@@ -15,7 +15,6 @@ class LoginRequiredMixin(object):
     def as_view(cls):
         return login_required(super(LoginRequiredMixin, cls).as_view())
 
-
 class IndexView(generic.ListView):
     template_name = 'homepage/index.html'
     def get(self, request, *args, **kwargs):
@@ -51,7 +50,7 @@ class RestaurantDetailView(generic.DetailView):
             'categories' : categories,
         }
         return render(request, template_name, context)
-
+ 
 class FoodView(generic.ListView):
     template_name = "foods/food.html"
     def get(self, request, *args, **kwargs):
@@ -110,14 +109,11 @@ class AddToCartView(generic.TemplateView):
 class CartView(generic.ListView):
     template_name = 'homepage/cart.html'
     def get(self, request, *args, **kwargs):
-        # context = super().get_context_data(**kwargs)
         cart_id = self.request.session.get('cart_id', None)
-        # print(cart_id, " session cart id")
-        cart = Cart.objects.get(id=cart_id)
-        # if cart_id:
-        #     cart = Cart.objects.get(id=cart_id)
-        # else:
-        #     cart = None
+        if cart_id:
+            cart = Cart.objects.get(id=cart_id)
+        else:
+            cart = None
         context = {
             'cart': cart,
         }
