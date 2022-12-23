@@ -345,12 +345,35 @@ ul{
     height: 28vh;
 }
 
-/* .fixed-bg{
-    background-image: url('/static/images/coffee.gif');
-    background-position: center center;
+/* .parallax-bg{
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 80%, rgba(0, 0, 0, 0.65) 75% ), url('/static/images/parallex.jpg');
+    height: 90vh;
     background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
 } */
-
+.parallax-bg{
+    height: 85vh;
+}
+/* .parallax-bg::after {
+    margin: 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65) 80%, rgba(0, 0, 0, 0.65) 75% );
+} */
+.parallax-bg video{
+    min-height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: -999;
+    opacity: 0.98;
+}
 /* .video{
     width: 100%;
     object-fit: cover;
@@ -522,6 +545,8 @@ ul{
     font-size: 2.283rem;
 }
 
+/* Fixed background for HomePage Section */
+
 /* Food Detail Section */
 .food-detail-section{
     position: relative;
@@ -632,12 +657,10 @@ ul{
 .review-box{
     box-shadow: 1px 1px 4px #b5b5b5;
 }
-
 .review-box span{
     border-radius: 0px; 
     border: none;
 }
-
 .review-box span i{
     color: #fa6b05;
 }

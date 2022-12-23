@@ -5,7 +5,7 @@
 
 {% block content %}
 
-<div class="container-fluid px-0 mx-0 my-5 pt-5 hero-section">
+<div class="container-fluid px-0 mx-0 mt-5 pt-5 hero-section">
     <div class="container col-md-11 mt-lg-5 mt-2 pt-lg-3 pt-2">
         <div class="row mt-lg-4 mt-3 pt-lg-2 pt-2">
             <div class="col-lg-7 col-md-10 col-sm-12 col-12">
@@ -77,14 +77,14 @@
 </div>
 
 <!-- Popular Foods Categories Section -->
-<div class="container-fluid px-0 mx-0 mb-lg-5 mb-md-1 mb-sm-0 mb-0 py-4">
+<div class="container-fluid px-0 mx-0 py-5 bg-white">
     <div class="container col-md-11">
-        <p class="text text-center mini-title mb-2">Top Popular Foods</p>
+        <p class="text text-center mini-title mb-2 pt-4 mt-3">Top Popular Foods</p>
         <h4 class="text text-center title big-title">Our Popular Categories</h4>
         <div class="hr-section my-0">
             <hr class="container col-md-1 py-1 underline-for-hr mt-0 mb-5 rounded-pill">
         </div>
-        <div class="row">
+        <div class="row mb-4">
             <!-- First Food Category -->
             <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-4">
                 <a href="#" class="text-decoration-none">
@@ -212,8 +212,8 @@
 <!-- End here -->
 
 <!-- Next Section -->
-<div class="container-fluid feature-bgimg px-0 mx-0 mb-lg-5 mb-md-1 mb-sm-0 mb-0 py-4">
-    <div class="container col-md-11 text-center mt-4">
+<div class="container-fluid feature-bgimg px-0 mx-0 py-5">
+    <div class="container col-md-11 text-center mt-5">
         <!-- Modal Button -->
         <button type="button" class="btn border-4 border-warning shadow-sm rounded-circle mb-2" data-bs-toggle="modal"
             data-bs-target="#gwtcFoodVideosModal">
@@ -300,8 +300,8 @@
 </div>
 
 <!-- Restaurant Section -->
-<div class="container-fluid px-0 mx-0 mx-0 mb-lg-5 mb-md-1 mb-sm-0 mb-0 pt-lg-5 pt-md-1 pt-sm-2 pt-2">
-    <div class="container col-md-11 mt-5">
+<div class="container-fluid px-0 mx-0 mx-0 pt-lg-5 bg-white pt-md-1 pt-sm-2 pt-2">
+    <div class="container col-md-11 mt-5 py-5">
         <div class="row">
             <p class="text text-center text-warning mini-title mb-2">Top Popular Restaurants</p>
             <h4 class="text text-center title big-title">Most Featured Restaurant</h4>
@@ -374,8 +374,8 @@
 </div>
 
 <!-- Popular Dishes Section -->
-<div class="container-fluid px-0 mx-0 mx-0 mb-lg-5 mb-md-1 mb-sm-0 mb-0 py-5 bg-light">
-    <div class="container col-md-11">
+<div class="container-fluid px-0 mx-0 mx-0 py-5 bg-light">
+    <div class="container col-md-11 py-5">
         <div class="row">
             <p class="text text-center text-warning mini-title mb-2">Top Popular Dishes</p>
             <h4 class="text text-center title big-title">Our Super Delicious Dishes</h4>
@@ -442,15 +442,19 @@
 </div>
 
 <!-- Background Something Section -->
-<div class="container-fluid px-0 mx-0 mx-0 mb-lg-5 mb-md-1 mb-sm-0 mb-0 fixed-bg">
-    <div class="container col-md-11">
-        <h1 class="text text-dark my-5 py-5">Hello Fixed Background Section </h1>
-    </div>
+<div class="container-fluid px-0 mx-0 mx-0 parallax-bg">
+    <!-- <div class="container col-md-11">
+        <h1 class="text text-light my-5 py-5">Hello Fixed Background Section </h1>
+    </div> -->
+    <video autoplay muted loop>
+        <source src="{% static 'videos/rest_shop.mp4' %}" type="video/mp4">
+    </video>
+    <h1 class="text text-light my-5 py-5">Hello Fixed Background Section </h1>
 </div>
 
 <!-- Next Section -->
-<div class="container-fluid px-0 mx-0 mx-0 mb-lg-5 mb-md-1 mb-sm-0 mb-0 py-5 bg-light">
-    <div class="container col-md-11">
+<div class="container-fluid px-0 mx-0 mx-0 py-5 bg-light">
+    <div class="container col-md-11 py-5">
         <div class="row">
             <p class="text text-center text-warning mini-title mb-2">Team Members</p>
             <h4 class="text text-center title big-title">Meet Our Best Team</h4>
