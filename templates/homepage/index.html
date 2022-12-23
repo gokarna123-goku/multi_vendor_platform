@@ -308,70 +308,84 @@
             <div class="hr-section my-0">
                 <hr class="container col-md-1 py-1 bg-warning mt-1 mb-5 rounded-pill">
             </div>
-            {% for restaurant in restaurant_obj %}
-                <!-- First Restaurant Box -->
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
-                    <!-- <a href="#" class="text-decoration-none"> -->
-                    <div class="bg-light restaurant-box pt-0 pb-2">
-                        <!--  -->
-                        <div class="img-box">
-                            <img src="{{restaurant.restaurant_image.url}}"
-                                class="resto-img" alt="">
-                            <div class="restaurant-type bg-warning">
-                                <p class="mb-0 px-2 py-3">{{restaurant.restaurant_type}}</p>
-                            </div>
-                            <div class="order-box">
-                                <i class="fa fa-truck text-warning"></i>
-                            </div>
-                        </div>
-                        <!--  -->
-                        <div class="resto-detail-box mx-3 mt-2">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <div class="d-flex justify-content-start align-items-center">
-                                    <i class="fa fa-star text-warning me-1"></i>
-                                    <i class="fa fa-star text-warning me-1"></i>
-                                    <i class="fa fa-star text-warning me-1"></i>
-                                    <i class="fa fa-star-half-o text-warning me-1"></i>
-                                    <i class="fa fa-star-o text-warning me-1"></i>
+            {% if restaurant_obj %}
+                {% for restaurant in restaurant_obj %}
+                    <!-- First Restaurant Box -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
+                        <!-- <a href="#" class="text-decoration-none"> -->
+                        <div class="bg-light restaurant-box pt-0 pb-2">
+                            <!--  -->
+                            <div class="img-box">
+                                <img src="{{restaurant.restaurant_image.url}}"
+                                    class="resto-img" alt="">
+                                <div class="restaurant-type bg-warning">
+                                    <p class="mb-0 px-2 py-3">{{restaurant.restaurant_type}}</p>
                                 </div>
-                                <a href="#" class="text-decoration-none">
-                                    <p class="text mb-0">12 Reviews</p>
-                                </a>
+                                <div class="order-box">
+                                    <i class="fa fa-truck text-warning"></i>
+                                </div>
                             </div>
-                            <a href="{% url 'homepage:restaurant-detail-data' restaurant.restaurant_id %}" class="text-decoration-none">
-                                <h4 class="text title">{{restaurant.restaurant_name}}</h4>
-                            </a>
-                            <p class="text text-warning">
-                               {{restaurant.restaurant_description}}
-                            </p>
-                        </div>
-                        <!--  -->
-                        <hr class="divider mb-1">
-                        <!--  -->
-                        <div class="p-2">
-                            <div class="d-flex justify-content-start align-items-center">
-                                <img src="{% static 'images/coffee-shop.png' %}" class="rest-logo me-4" alt="">
-                                <div class="text-count text-start">
-                                    <div class="d-flex justify-content-start align-items-center mb-1">
-                                        <i class="fa fa-clock-o me-2"></i>
-                                        <p class="text mb-0">{{restaurant.restaurant_opening_time}} AM - {{restaurant.restaurant_closing_time}} PM</p>
-                                    </div>
-                                    <!--  -->
+                            <!--  -->
+                            <div class="resto-detail-box mx-3 mt-2">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
                                     <div class="d-flex justify-content-start align-items-center">
-                                        <i class="fa fa-map me-2"></i>
-                                        <p class="text mb-0">{{restaurant.restaurant_address}} {{restaurant.restaurant_city}}</p>
+                                        <i class="fa fa-star text-warning me-1"></i>
+                                        <i class="fa fa-star text-warning me-1"></i>
+                                        <i class="fa fa-star text-warning me-1"></i>
+                                        <i class="fa fa-star-half-o text-warning me-1"></i>
+                                        <i class="fa fa-star-o text-warning me-1"></i>
+                                    </div>
+                                    <a href="#" class="text-decoration-none">
+                                        <p class="text mb-0">12 Reviews</p>
+                                    </a>
+                                </div>
+                                <a href="{% url 'homepage:restaurant-detail-data' restaurant.restaurant_id %}" class="text-decoration-none">
+                                    <h4 class="text title">{{restaurant.restaurant_name}}</h4>
+                                </a>
+                                <p class="text text-warning">
+                                {{restaurant.restaurant_description}}
+                                </p>
+                            </div>
+                            <!--  -->
+                            <hr class="divider mb-1">
+                            <!--  -->
+                            <div class="p-2">
+                                <div class="d-flex justify-content-start align-items-center">
+                                    <img src="{% static 'images/coffee-shop.png' %}" class="rest-logo me-4" alt="">
+                                    <div class="text-count text-start">
+                                        <div class="d-flex justify-content-start align-items-center mb-1">
+                                            <i class="fa fa-clock-o me-2"></i>
+                                            <p class="text mb-0">{{restaurant.restaurant_opening_time}} AM - {{restaurant.restaurant_closing_time}} PM</p>
+                                        </div>
+                                        <!--  -->
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <i class="fa fa-map me-2"></i>
+                                            <p class="text mb-0">{{restaurant.restaurant_address}} {{restaurant.restaurant_city}}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- </a> -->
                     </div>
-                    <!-- </a> -->
+                    <!--  -->
+                {% endfor %}
+            {% else %}
+                <div class="container col-lg-4 p-0 bg-light shadow-sm">
+                    <img src="{% static 'images/not-found.jpg' %}" alt="Restaurant Not Found Image" class="img-fluid px-0">
+                    <div class="p-2 text-center">
+                        <h4 class="text title fst-italic fs-2">OOPS!</h4>
+                        <h6 class="text text-muted fst-normal fw-normal">
+                            We are sorry <span class="text-warning">😢</span>, We don't have any restaurants to display at this moment.
+                        </h6>
+                    </div>
                 </div>
-                <!--  -->
-            {% endfor %}
+            {% endif %}
         </div>
     </div>
 </div>
+
+<hr class="my-0 bg-secondary">
 
 <!-- Popular Dishes Section -->
 <div class="container-fluid px-0 mx-0 mx-0 py-5 bg-light">
@@ -409,14 +423,18 @@
                 <!--  -->
                 {% endfor %}
             {% else %}
-            <div class="container col-lg-5 bg-white shadow-sm p-4">
-                <h4 class="text text-center">
-                    Sorry, we are not able to display any foods for this moment.
-                </h4>
-            </div>
+                <div class="container col-lg-4 p-0 bg-light shadow-sm">
+                    <img src="{% static 'images/not-found.jpg' %}" alt="Restaurant Not Found Image" class="img-fluid px-0">
+                    <div class="p-2 text-center">
+                        <h4 class="text title fst-italic fs-2">OOPS!</h4>
+                        <h6 class="text text-muted fst-normal fw-normal">
+                            We are sorry <span class="text-warning">😢</span>, We don't have any restaurants to display at this moment.
+                        </h6>
+                    </div>
+                </div>
             {% endif %}
             <!-- First Dishes Section -->
-            {% comment %} <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-4">
+            <!-- <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-4">
                 <div class="px-0 pb-2 bg-white shadow-sm text-center">
                     <img src="https://cdn.pixabay.com/photo/2020/04/29/03/30/pizza-5107039__340.jpg" class="dish-img"
                         alt="">
@@ -435,7 +453,7 @@
                         </div>
                     </div>
                 </div>
-            </div> {% endcomment %}
+            </div> -->
             <!--  -->
         </div>
     </div>
@@ -449,7 +467,7 @@
     <video autoplay muted loop>
         <source src="{% static 'videos/rest_shop.mp4' %}" type="video/mp4">
     </video>
-    <h1 class="text text-light my-5 py-5">Hello Fixed Background Section </h1>
+    <h1 class="text text-light my-5 py-5 mx-5">Hello Fixed Background Section </h1>
 </div>
 
 <!-- Next Section -->

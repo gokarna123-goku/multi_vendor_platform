@@ -5,8 +5,8 @@
 <!--  -->
 <div class="container-fluid px-0 mx-0 my-5 pt-3 restaurant-section">
     <div class="container col-md-11">
-        <h1 class="text text-center title mt-5 pt-5">
-            Himalayan Java Coffee Restaurant
+        <h1 class="text text-center text-secondary mt-5 pt-5">
+            {{restaurants_list.restaurant_name}}
         </h1>
     </div>
     <!--<div class="container-fluid px-0 mx-0 restaurant-section pt-5">
@@ -113,7 +113,7 @@
                 </ul>
             </nav>
         {% else %}
-            <div class="container col-md-8 bg-white shadow-sm pb-4 text-center">
+            <div class="container col-md-4 bg-white shadow-sm pb-4 text-center">
                 <img src="{% static 'images/not-found.jpg' %}" alt="No Restaurant Found Image" class="img-fluid mb-0">
                 <h4 class="text title fst-italic fs-2">OOPS!</h4>
                 <h6 class="text text-muted fst-normal fw-normal px-5">
